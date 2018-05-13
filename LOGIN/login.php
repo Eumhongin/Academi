@@ -103,8 +103,8 @@
       </div><!-- tab-content -->
 
 </div> <!-- /form -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script  src="js/Login.js"></script>
+  <script type="text/javascript" src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script type="text/javascript" src="js/Login.js"></script>
 
     <!-- 하단 메뉴바 -->
 
