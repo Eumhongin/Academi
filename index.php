@@ -37,9 +37,15 @@
       $db = mysqli_connect("192.168.61.141","root","misozium23","aca_db","3306");
       if($db)
       {
+<<<<<<< HEAD
+        echo " 성공------";
+      }esle{
+        echo "실패!!!!!!!kjkjkjkj";
+=======
          echo "<script>alert(\"DB 연동 성공\");</script>";
       }else{
          echo "<script>alert(\"DB 연동 실패\");</script>";
+>>>>>>> 802bc37d481207e8a4da54f568dc0ace9627dc35
       }
 
      ?>
