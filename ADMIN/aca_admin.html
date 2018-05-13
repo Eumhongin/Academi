@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- <?php session_start(); ?> -->
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>The Big Picture - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- font_section -->
+    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Poor+Story&amp;subset=korean" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/the-big-picture.css" rel="stylesheet">
+    <style media="screen">
+      .Big_Content{
+        border:1px black solid;
+        margin: 30px 10% 30px 10%;
+        height:auto;
+      }
+      .Content_Modify{
+        border:2px red solid;
+        
+      }
+      .Content_Add{
+        border:2px yellow solid;
+      }
+      .Content_Print{
+        border:2px blue solid;
+      }
+      .Student_Searching{
+        border:2px green solid;
+      }
+      .Setting{
+        border:2px purple solid;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <?php
+    if(!isset($_SESSION['LOG_id']))
+    {
+      echo ("<script>alert('로그인해야 이용가능 합니다.');</script>");
+      echo("<script>location.href = '../index.html';</script>");
+    }
+     ?>
+    관리자 페이지 -->
+    <section>
+      <div class="Big_Content">
+        <div class="Content_Modify">
+          <a href="#">modify</a>
+        </div>
+        <div class="Content_Add">
+          <a href="#">add</a>
+
+        </div>
+        <div class="Student_Searching">
+          <a href="#">searching</a>
+        </div>
+        <div class="Content_Print">
+          <a href="#">print</a>
+        </div>
+        <div class="Setting">
+          <a href="#">setting</a>
+        </div>
+      </div>
+    </section>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">학 원 이 름</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="about/about.html">About
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Login.html">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+  </body>
+</html>
