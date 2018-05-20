@@ -18,61 +18,10 @@
 
     <!-- Custom styles for this template -->
     <link href="css/the-big-picture.css" rel="stylesheet">
-    <style media="screen">
-      .Big_Content{
-        border:1px black solid;
-        margin: 10% 10% 30px 10%;
-
-      }
-      .Content_Add,.Content_Print,.Content_Modify,.Setting,.Student_Searching{
-        display: inline-block;
-        margin:5px 5px 5px 5px;
-
-      }
-      .Content_Modify img{
-        width: 100%;
-      }
-      .Content_Add img{
-        width: 100%;
-      }
-      .Content_Print img{
-        width: 100%;
-      }
-      .Student_Searching img{
-        width: 100%;
-      }
-      .Setting img{
-        width: 100%;
-        height: 360px;
-      }
-
-      .Content_Modify{
-        border:2px red solid;
-        width: 38%;
-      }
-      .Content_Add{
-        border:2px yellow solid;
-        width: 38%;
-      }
-      .Content_Print{
-        border:2px blue solid;
-        width: 38%;
-      }
-      .Student_Searching{
-        border:2px green solid;
-        width: 38%;
-      }
-      .Setting{
-        border:2px purple solid;
-        width: 20%;
-        float: right;
-
-      }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
   </head>
-  <body>
-    <a href="sidebar.html">version2</a>
-    <hr>
+  <body style="background-image: url('img/BG.jpg')">
+
     <!-- <?php
     if(!isset($_SESSION['LOG_id']))
     {
@@ -82,22 +31,25 @@
      ?>
     관리자 페이지 -->
     <section>
-      <div class="Big_Content">
-        <div class="Content_Modify">
-          <a href="#"><img src="img/720.jpg" alt="Modify" onclick="al('Modify')"></a>
+      <div class="frame1">
+        <div class="add">
+          <a href="#"><img src="img/1.jpg" alt="" onclick="al('add')"></a>
         </div>
-        <div class="Content_Add">
-          <a href="#"><img src="img/720.jpg" alt="Add" onclick="al('add')"></a>
+        <div class="modify">
+          <a href="#"><img src="img/2.jpg" alt="" onclick="al('modify')"></a>
+        </div>
+        <div class="search">
+          <a href="#"><img src="img/3.jpg" alt="" onclick="al('search')"></a>
+        </div>
+        <div class="print">
+          <a href="#"><img src="img/4.jpg" alt="" onclick="al('pr')"></a>
+        </div>
+      </div>
+      <div class="frame2">
+        <div class="setting">
+          <a href="#"><img src="img/5.jpg" alt="" onclick="al('see')"></a>
+        </div>
 
-        </div>
-        <div class="Setting">
-          <a href="#"><img src="img/720m.jpg" alt="Setting" onclick="al('Setting')"></a>
-        </div>
-        <div class="Student_Searching">
-          <a href="#"><img src="img/720.jpg" alt="Searching" onclick="al('Searching')"></a>
-        </div>
-        <div class="Content_Print">
-          <a href="#"><img src="img/720.jpg" alt="Print" onclick="al('print')"></a>
         </div>
 
       </div>

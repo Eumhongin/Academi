@@ -1,0 +1,47 @@
+body{
+
+}
+section{
+  margin:1%;
+
+}
+
+.frame1,.frame2,.add,.modify,.setting,.search,.print{
+
+
+}
+.frame1{
+  padding-top: 7%;
+  padding-bottom: : 5%;
+  float: left;
+  width: 75%;
+  height: 100%;
+}
+.frame2{
+  float: left;
+  display: inline-block;
+  width: 20%;
+
+}
+.add,.modify,.search,.print{
+  display: inline-block;
+  width: 49%;
+}
+img{
+  display: inline-block;
+  width: 100%;
+}
+.add,.modify{
+  margin-bottom: 30px;
+}
+.modify,.print{
+  margin-left: 1%;
+}
+.setting img{
+  position: absolute;
+  margin-top: 6.9%;
+  margin-left: 1%;
+  width: 20%;
+  height: 58%;
+
+}
