@@ -6,13 +6,13 @@
   </head>
   <body>
     학생 조회
-    <button onclick="location.href = '../../index.php'">로고</button>
+    <button onclick="location.href = '../../index.html'">로고</button>
 
     <form action="stu_check.php" method="post">
 
-      <input type="text" name="name">
-      <input type="text" name="school_name">
-      <input type="text" name="grade">
+      이름 : <input type="text" name="name">
+      학교 이름 : <input type="text" name="school_name">
+      학년 : <input type="text" name="grade">
       <button type = "submit" />검새꾸</button>
 
     </form>

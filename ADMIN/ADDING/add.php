@@ -3,52 +3,66 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script language="javascript">
+
+    function getSelectValue(frm) // 즐겨찾기에 추가해놈 , 웹마당
+    {
+      frm.textValue.value = frm.book_name.options[frm.book_name.selectedIndex].text;
+      frm.optionValue.value = frm.book_name.options[frm.book_name.selectedIndex].value;
+    }
+
+    </script>
+
   </head>
   <body>
-    <?php //공부방 IP : 220.89.2.113 // 독서실 커뮤니티 인포룸을 바라본 상태에서 오른쪽 IP :192.168.61.141
-      $conn = mysqli_connect("192.168.61.141","root","misozium23","aca_db","3306");
-      $db_select = mysqli_select_db($conn,"aca_db"); //데이터베이스에 연결
+    <?php
+    $i = 0;
+    $conn = mysqli_connect("localhost","root","misozium23");
+    $sqli = mysqli_select_db($conn,"aca_db");
 
-      /*if ($conn->connect_error) {
-      ie("Connection failed: " . $conn->connect_error);
-       }
-       echo "Connected successfully";*/ // DB연결 확인 하는 구문
+    $sql = "SELECT * FROM question_book_name";
+    $result = mysqli_query($conn, $sql);
 
+    while($row = mysqli_fetch_array($result))
+    {
+      echo "$row[book_name]<br/>";
+      $name[$i] = $row[book_name];
 
-      $sql = "SELECT * from member";
-      //$result = $conn->query($sql);
-      $result = mysqli_query($conn, $sql);
-      //$qarray = mysqli_fetch_array($result);
-      //$row = $result->fetch_array(MYSQLI_ASSOC);
+      $i++;
+    }
 
-    /*  while( $row = mysqli_fetch_array($result))
-     {
+     ?>
 
-       echo "$row[id] ";
+    문제추가
+    <button onclick="location.href = '../../index.html'">로고</button>
+    <br><br>
 
-     }
-*/
+    <form name = "form">
+    <select name= "book_name" onchange="getSelectValue(this.form);">
+    <option value= "">책 이름!</option>
+    <option value= "수능완성"><?= $name[0]?></option>
+    <option value= "2">쎈</option>
+    <option value= "3">숨라쿰라우데</option>
+    <option value= "4">수학의 정석</option>
+  </select> <br><br>
 
-    /*  while($row = mysqli_fetch_array($result))
+    <input type = "text" name = "textValue"> <br><br>
+    <input type="text" name="optionValue">
+  </form>
+
+    <select class="" name="a">
+      <?php
+      $a = 0;
+      while($a < $i)
       {
-        echo $row['aaaa'];
+          echo '<option value ="'.$a.'">'.$name[$a].'</option>';
+          $a++;
       }
 
-      mysqli_free_result($question);
-*/
-      mysqli_close($conn);
-      echo "되나안되나 말좀해라 젭라";
-     ?>
-    문제추가
-    <button onclick="location.href = '../../index.php'">로고</button>
-
-    <select name="book_name">
-    <option value="">책 이름</option>
-    <option value="">학생</option>
-    <option value="회사원">회사원</option>
-    <option value="기타">기타</option>
+      ?>
     </select>
+    <br><br>
 
-
+    <?php mysqli_close($coon); ?>
   </body>
 </html>
