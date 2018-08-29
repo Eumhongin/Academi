@@ -15,6 +15,8 @@
 
   </head>
   <body>
+
+
     <?php
     $i = 0;
     $conn = mysqli_connect("localhost","root","misozium23");
@@ -36,6 +38,10 @@
     문제추가
     <button onclick="location.href = '../../index.html'">로고</button>
     <br><br>
+    <!-- 문제이미지 추가영역 -->
+    <input type="file" id="selectedFile" style="display: none;" />
+    <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">사진추가하기</button>
+    <hr>
 
     <form name = "form">
     <select name= "book_name" onchange="getSelectValue(this.form);">
