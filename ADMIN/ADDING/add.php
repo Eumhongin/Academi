@@ -19,15 +19,13 @@
 
     <?php
     $i = 0;
-    $conn = mysqli_connect("localhost","root","misozium23");
-    $sqli = mysqli_select_db($conn,"aca_db");
+    include("..\..\module\dbConnect.php");
 
     $sql = "SELECT * FROM question_book_name";
     $result = mysqli_query($conn, $sql);
 
     while($row = mysqli_fetch_array($result))
     {
-      echo "$row[book_name]<br/>";
       $name[$i] = $row[book_name];
 
       $i++;
@@ -39,34 +37,39 @@
     <button onclick="location.href = '../../index.html'">로고</button>
     <br><br>
     <!-- 문제이미지 추가영역 -->
-    <input type="file" id="selectedFile" style="display: none;" />
-    <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">사진추가하기</button>
-    <hr>
+<hr>
 
-    <form name = "form">
-    <select name= "book_name" onchange="getSelectValue(this.form);">
+
+    <form name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+      <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+      <input type="file" name="upload" id="selectedFile" style="display: none;" />
+      <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">사진추가하기</button>
+      <br><br>
+    <!-- <select name= "book_name" onchange="getSelectValue(this.form);"> -->
+  <select name= "book_name">
     <option value= "">책 이름!</option>
-    <option value= "수능완성"><?= $name[0]?></option>
+    <?php
+    $a = 1;
+    while($a <= $i)
+    {
+        echo '<option value ="'.$a.'">'.$name[$a-1].'</option>';
+        $a++;
+    }
+
+    ?>
+    <!-- <option value= "수능완성"></option>
     <option value= "2">쎈</option>
     <option value= "3">숨라쿰라우데</option>
-    <option value= "4">수학의 정석</option>
+    <option value= "4">수학의 정석</option> -->
   </select> <br><br>
 
     <input type = "text" name = "textValue"> <br><br>
     <input type="text" name="optionValue">
+    <br><br>
+    <button class="picedit" type="submit">변경된 정보 저장하기</button>
   </form>
 
-    <select class="" name="a">
-      <?php
-      $a = 0;
-      while($a < $i)
-      {
-          echo '<option value ="'.$a.'">'.$name[$a].'</option>';
-          $a++;
-      }
 
-      ?>
-    </select>
     <br><br>
 
     <?php mysqli_close($coon); ?>
