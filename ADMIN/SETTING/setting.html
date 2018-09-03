@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      html,body{
+        padding: 0;
+        margin:0;
+        height:100%;
+        background-color: #eee;
+      }
+      .SET_Header{
+        background-color: rgb(230, 174, 6);
+        box-shadow:0 0 10px #626262;
+
+        height: 5%;
+      }
+      .container{
+        margin:0 auto;
+        width: 40%;
+      }
+      .SET_Section{
+        height: 90%;
+      }
+      .SET_Section > li{
+        list-style: none;
+
+        height: 20%;
+
+      }
+      li{
+        background-color: #ccc;
+        box-shadow: 1px 1px 5px #626262;
+        height: 30%;
+      }
+      p{
+        margin:4px;
+        margin-top:2%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="SET_Header">
+
+    </div>
+    <div class="SET_Section container">
+      <p>학생정보</p>
+      <li><button onclick="location.href = 'INFO_STUDENT/stu_info_change.php'">학생 정보</button></li>
+      <p>교사정보</p>
+      <li><button onclick="location.href = 'INFO_TEACHER/tea_info_change.php'">교사 정보</button></li>
+      <p>배경수정</p>
+      <li><input class="Background_Setting" type="file" id="selectedFile"></li>
+    </div>
+
+    <!-- <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">사진추가하기</button> -->
+
+  </body>
+</html>
