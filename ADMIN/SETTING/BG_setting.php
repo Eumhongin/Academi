@@ -1,7 +1,7 @@
 <?php
 if($_FILES['upload'] != null)
 {
-  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\img\\';
+  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\Academi\img\\';
   $_FILES['upload']['name'] = "Main.png";
 
   $uploadfile = $uploaddir . basename($_FILES['upload']['name']);
