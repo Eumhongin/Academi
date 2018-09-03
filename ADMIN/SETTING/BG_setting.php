@@ -1,8 +1,8 @@
 <?php
 if($_FILES['upload'] != null)
 {
-  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\question_add\\';
-  $_FILES['upload']['name'] = "test1.png";
+  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\img\\';
+  $_FILES['upload']['name'] = "Main.png";
 
   $uploadfile = $uploaddir . basename($_FILES['upload']['name']);
 
@@ -18,7 +18,7 @@ if($_FILES['upload'] != null)
 
   if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
     echo "<script>alert('성공');</script>";
-    echo "<script>location.href ='add.php';</script>";
+    echo "<script>location.href ='setting.html';</script>";
   } else {
     echo "<script>alert('실패');</script>";
   }
