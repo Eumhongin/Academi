@@ -1,0 +1,5 @@
+.v-line{
+  border-left: 6px solid black;
+  position: absolute;
+  left: 50%;
+}
