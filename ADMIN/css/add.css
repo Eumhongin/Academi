@@ -1,5 +1,24 @@
 .v-line{
-  border-left: 6px solid black;
+  border-left: 3px solid white;
   position: absolute;
   left: 50%;
+}
+.ADD_LEFT{
+  width: 50%;
+
+}
+.ADD_RIGHT{
+  width: 50%;
+}
+.ADD_RIGHT_IMG{
+  width: 90%;
+  margin:0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.Preview{
+  position: absolute;
+  font-family: 'BS2';
+  font-size: 3em;
+  top:2%;
 }

@@ -1,6 +1,8 @@
 body{
   background-color: #F2F2F2;
   font-family: 'BS1';
+  margin:0;
+  padding:0;
 }
 section{
   margin:1%;
@@ -45,4 +47,15 @@ img{
   width: 20%;
   height: 58%;
 
+}
+.row{
+  margin:0;
+}
+.row > *{
+  float: left;
+}
+.row:after{
+  content:'';
+  clear: both;
+  box-sizing: content-box;
 }
