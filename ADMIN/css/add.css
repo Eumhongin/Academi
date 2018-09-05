@@ -5,7 +5,7 @@
 }
 .ADD_LEFT{
   width: 50%;
-
+  position: relative;
 }
 .ADD_RIGHT{
   width: 50%;
@@ -21,4 +21,111 @@
   font-family: 'BS2';
   font-size: 3em;
   top:2%;
+}
+.Subtitle_ADD{
+  position: absolute;
+  font-size: 5em;
+  font-family: 'BS2';
+}
+.ADD_LEFT_FORM{
+  background-color: white;
+  width: 85%;
+  margin:0 auto;
+  border-radius: 16px;
+  border:1px solid black;
+}
+.ALF_Shield{
+  margin:0 auto;
+  width: 90%;
+
+}
+.ALF_Shield > *{
+  margin-top:5%;
+}
+.ALFS_File_Shield{
+  width: 100%;
+}
+.ALFSFS_FilePath{
+  border: solid 2px #023059;
+  border-radius: 8px;
+  background: white;
+  width: 70%;
+  margin-right:5%;
+  height: 30px;
+  padding-top:8px;
+  font-weight: bold;
+}
+.picedit{
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+
+}
+.Not_Defined{
+  margin-top:10%;
+  width: 100%;
+}
+.Not_Defined input{
+  width: 90%;
+}
+.ALFS_Paging_Number{
+  width: 100%;
+}
+.ALFS_Paging_Number > *{
+  margin-right: 10%;
+  width: 40%;
+}
+.ALFS_Paging_Number input{
+  width: 100%;
+}
+.ALFS_Option{
+  margin-top:10%;
+  width: 100%;
+}
+.ALFS_Option > *{
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+  height: 38px;
+  width: 15%;
+  margin-right: 10%;
+
+
+}
+
+.ALFS_Difficult{
+  margin-top: 25%;
+  width: 100%;
+}
+.ALFS_CheckBox{
+  width: 100%;
+}
+.ALFS_CheckBox > *{
+  list-style: none;
+  width: 25%;
+  font-family: 'bs3';
+}
+.ALFS_Submit{
+  float: right;
+}
+input[type="text"]{
+  border-radius: 8px;
+  height: 38px;
+  border:2px solid #023059;
+  padding-left: 10px;
+  font-family: 'bs1';
+  font-weight:bold;
+}
+.ALFS_Submit{
+  position: absolute;
+  width:20%;
+  left: 70%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+  height: 38px;
 }
