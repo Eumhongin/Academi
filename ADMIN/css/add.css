@@ -24,7 +24,7 @@
 }
 .Subtitle_ADD{
   position: absolute;
-  font-size: 5em;
+  font-size: 4em;
   font-family: 'BS2';
 }
 .ADD_LEFT_FORM{
@@ -128,4 +128,7 @@ input[type="text"]{
   border: solid 2px #023059;
   font-family: 'bs3';
   height: 38px;
+}
+.picedit:hover,.ALFS_Submit:hover{
+  border:2px solid #23912E;
 }
