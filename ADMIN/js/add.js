@@ -16,4 +16,4 @@ $('#selectedFile').on('change',function (){
 });
 console.log($('.ALFSFS_FilePath').outerHeight());
 $('.picedit').css({'height':$('.ALFSFS_FilePath').outerHeight()});
-$('.ALFS_Submit').css({});
+$('.Subtitle_ADD').css({'left':($(window).outerWidth()*0.5-$('.ADD_RIGHT_IMG').outerWidth())*0.5+'px'});

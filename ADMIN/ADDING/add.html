@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<?php
+<!-- <?php
   // session_start();
   include("..\..\module\dbConnect.php");
   include("..\..\module\dbContentsEcho.php");
 
- ?>
+ ?> -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -23,6 +23,7 @@
 
   </head>
   <body>
+    <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../aca_admin.html'">
     <div class="v-line">
 
     </div>
@@ -54,7 +55,7 @@
               </div>
               <br>
               <div class="ALFS_Option row">
-                <?php
+                <!-- <?php
                   // 문제지 이름
                   $book_name = DB_echo("SELECT book_name FROM question_book_name","book_name");
 
@@ -63,7 +64,7 @@
 
                   //문제 세부 유형
                   $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index", "type_index_name");
-                ?>
+                ?> -->
                 <select class="ALFSO_Subject" name="subject" required>
                   <option value="" selected>과목</option>
                   <option value="수학" >수학</option>
@@ -77,12 +78,12 @@
                 </select>
                 <select class="ALFSO_Bookname" name="book_name" required>
                   <option value="" selected>책이름</option>
-                  <?php
-                  for($idx = 1; $idx <= count($book_name); $idx++)
-                  {
-                    echo "<option value='".$book_name[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                  }
-                  ?>
+                  <!-- <?php
+                    for($idx = 1; $idx <= count($book_name); $idx++)
+                    {
+                      echo "<option value='".$book_name[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                    }
+                  ?> -->
                   <!-- <option value="0" >1</option>
                   <option value="0" >2</option>
                   <option value="0" >3</option>
@@ -91,12 +92,12 @@
                 </select>
                 <select class="ALFSO_type" name="question_type" required>
                   <option value="" selected>유형</option>
-                  <?php
-                  for($idx = 1; $idx <= count($type_index_name); $idx++)
-                  {
-                    echo "<option value='".$type_index_name[$idx-1]."'>".$type_index_name[$idx-1]."</option>";
-                  }
-                  ?>
+                  <!-- <?php
+                    for($idx = 1; $idx <= count($type_index_name); $idx++)
+                    {
+                      echo "<option value='".$type_index_name[$idx-1]."'>".$type_index_name[$idx-1]."</option>";
+                    }
+                  ?> -->
                   <!-- <option value="0" >1</option>
                   <option value="0" >2</option>
                   <option value="0" >3</option>

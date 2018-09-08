@@ -3,6 +3,13 @@
   position: absolute;
   left: 50%;
 }
+.gohome{
+  position: absolute;
+  width: 2%;
+  z-index: 9999;
+  cursor: pointer;
+  right: 0;
+}
 .ADD_LEFT{
   width: 50%;
   position: relative;
@@ -23,8 +30,9 @@
   top:2%;
 }
 .Subtitle_ADD{
+  top:2%;
   position: absolute;
-  font-size: 4em;
+  font-size: 3em;
   font-family: 'BS2';
 }
 .ADD_LEFT_FORM{
@@ -93,8 +101,6 @@
   height: 38px;
   width: 15%;
   margin-right: 10%;
-
-
 }
 
 .ALFS_Difficult{
