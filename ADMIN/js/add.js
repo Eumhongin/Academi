@@ -17,3 +17,17 @@ $('#selectedFile').on('change',function (){
 console.log($('.ALFSFS_FilePath').outerHeight());
 $('.picedit').css({'height':$('.ALFSFS_FilePath').outerHeight()});
 $('.Subtitle_ADD').css({'left':($(window).outerWidth()*0.5-$('.ADD_RIGHT_IMG').outerWidth())*0.5+'px'});
+function readURL(input){
+  if(input.files && input.files[0]){
+    var reader = new FileReader();
+     reader.onload = function(e){
+       // $('.ADD_RIGHT_IMG').css({'background-image':'url('+e.target.result+')'});
+       $('#ARI_Priview').attr('src',e.target.result);
+     }
+     reader.readAsDataURL(input.files[0]);
+
+  }
+}
+$('#selectedFile').change(function(){
+  readURL(this);
+});

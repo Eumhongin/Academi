@@ -22,6 +22,11 @@
   margin:0 auto;
   background-position: center;
   background-repeat: no-repeat;
+  overflow-y: scroll;
+}
+#ARI_Priview{
+  width: 100%;
+
 }
 .Preview{
   position: absolute;

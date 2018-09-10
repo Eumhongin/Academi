@@ -134,7 +134,7 @@
       </div>
       <div class="ADD_RIGHT">
         <div class="ADD_RIGHT_IMG">
-
+          <img id="ARI_Priview">
         </div>
       </div>
     </section>
