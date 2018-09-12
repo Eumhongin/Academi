@@ -31,8 +31,8 @@ if($_FILES['upload'] != null)
     $type .= $type_list[$idx++]."_";
   }
   if($type == ''){$type = '없음';}
-  $sql = "INSERT INTO question_image (image,page, number,level,type_index_num,type)
-  VALUES ('".$file_name."', '".$_POST[page]."', '".$_POST[num]."', $_POST[difficult], $type_index_num[0] ,'".$type."')";
+  $sql = "INSERT INTO question_image (image, grade, page, number,level,type_index_num,type)
+  VALUES ('".$file_name."','".$_POST[grade]."' ,'".$_POST[page]."', '".$_POST[num]."', $_POST[difficult], $type_index_num[0] ,'".$type."')";
   $result = mysqli_query($conn, $sql);
   if($result != null)
   {
