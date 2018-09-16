@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../fonts/font.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/add.css">
+
     <script type="text/javascript">
     $(document).ready(function(){
 
@@ -31,8 +32,14 @@
     <span class="Subtitle_ADD">문제추가</span>
     <section class="row">
       <div class="ADD_LEFT">
+        <div class="ALPanel_Regular">
+          <span class="ALPR_span">정규문제</span>
+        </div>
+        <div class="ALPanel_UnRegular">
+          <span class="ALPUR_span">비정규문제</span>
+        </div>
 
-          <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+        <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
                 <span class="ALFSFS_FilePath"></span>
@@ -104,6 +111,52 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+              </div>
+              <br>
+              <div class="ALFS_Difficult">
+                <input type="text" name="difficult" value="" placeholder="난이도 [0 - 10]" required>
+              </div>
+              <br>
+              <div class="ALFS_CheckBox row">
+                <!-- 최소 1개 이상 선택하도록 해야함. -->
+                <li><input type="checkbox" name="type[]" value="사고력"><span>사고력</span></li>
+                <li><input type="checkbox" name="type[]" value="이해력"><span>이해력</span></li>
+                <li><input type="checkbox" name="type[]" value="문제해결력"><span>문제해결력</span></li>
+                <li><input type="checkbox" name="type[]" value="창의력"><span>창의력</span></li>
+              </div>
+              <br>
+
+
+
+
+
+            <button class="ALFS_Submit" type="submit">추가</button>
+          </div>
+        </form>
+        <form  class="ADD_LEFT_FORM2 hide" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+            <div class="ALF_Shield">
+              <div class="ALFS_File_Shield row">
+                <span class="ALFSFS_FilePath"></span>
+                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                <input type="file" name="upload" id="selectedFile" style="display: none;" required/>
+                <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">찾기</button>
+              </div>
+              <br>
+              <div class="Not_Defined">
+                <input type="text" name="" value="" placeholder="뭐들어가기로 했지..">
+              </div>
+              <br>
+              <div class="ALFS_Paging_Number row">
+                <div class="ALFSPN_Page">
+                  <input type="text" name="page" value="" placeholder="학교" required>
+                </div>
+                <div class="ALFSPN_Number">
+                  <input type="text" name="num" value="" placeholder="학년" required>
+                </div>
+              </div>
+              <br>
+              <div class="ALFS_PrintName">
+                <input type="text" name="printname" value="" placeholder="프린트물 이름" required>
               </div>
               <br>
               <div class="ALFS_Difficult">

@@ -1,104 +1,149 @@
-.v-line{
+@import "core.css";
+
+/* core.css는 가장 기본이 되는 css가들어가있는 스타일시트입니다. */
+/* ADD_LEFT_FORM과 ADD_LEFT_FORM2는 같은 형태입니다 */
+
+
+/* ADD_LEFT = relative
+      ㄴabsolute value =
+              ㄴv-line,
+                gohome,
+                Preview,
+                Subtitle_ADD,
+                ALFS_Submit,
+                ALPanel_Regular,
+                ALPanel_UnRegular
+  */
+
+
+.v-line {
   border-left: 3px solid white;
   position: absolute;
   left: 50%;
 }
-.gohome{
+
+.gohome {
   position: absolute;
   width: 2%;
   z-index: 9999;
   cursor: pointer;
   right: 0;
 }
-.ADD_LEFT{
+
+.ADD_LEFT {
   width: 50%;
   position: relative;
 }
-.ADD_RIGHT{
+
+.ADD_RIGHT {
   width: 50%;
 }
-.ADD_RIGHT_IMG{
+
+.ADD_RIGHT_IMG {
   width: 90%;
-  margin:0 auto;
+  margin: 0 auto;
   background-position: center;
   background-repeat: no-repeat;
   overflow-y: scroll;
 }
-#ARI_Priview{
-  width: 100%;
 
+#ARI_Priview {
+  width: 100%;
 }
-.Preview{
+
+.Preview {
   position: absolute;
   font-family: 'BS2';
   font-size: 3em;
-  top:2%;
+  top: 2%;
 }
-.Subtitle_ADD{
-  top:2%;
+
+.Subtitle_ADD {
+  top: 2%;
   position: absolute;
   font-size: 3em;
   font-family: 'BS2';
 }
-.ADD_LEFT_FORM{
+
+.ADD_LEFT_FORM {
+  z-index: 9999;
   background-color: white;
   width: 85%;
-  margin:0 auto;
+  margin: 0 auto;
   border-radius: 16px;
-  border:1px solid black;
+  border: 1px solid black;
 }
-.ALF_Shield{
-  margin:0 auto;
-  width: 90%;
 
+.ADD_LEFT_FORM2 {
+  z-index: 9999;
+  background-color: white;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: 1px solid black;
 }
-.ALF_Shield > *{
-  margin-top:5%;
+
+.ALF_Shield {
+  margin: 0 auto;
+  width: 90%;
 }
-.ALFS_File_Shield{
+
+.ALF_Shield>* {
+  margin-top: 5%;
+}
+
+.ALFS_File_Shield {
   width: 100%;
 }
-.ALFSFS_FilePath{
+
+.ALFSFS_FilePath {
   border: solid 2px #023059;
   border-radius: 8px;
   background: white;
   width: 70%;
-  margin-right:5%;
+  margin-right: 5%;
   height: 30px;
-  padding-top:8px;
+  padding-top: 8px;
   font-weight: bold;
   padding-left: 3px;
 }
-.picedit{
+
+.picedit {
   width: 20%;
   background-color: white;
   border-radius: 8px;
   border: solid 2px #023059;
   font-family: 'bs3';
-
 }
-.Not_Defined{
-  margin-top:10%;
+
+.Not_Defined {
+  margin-top: 10%;
   width: 100%;
 }
-.Not_Defined input{
+
+.Not_Defined input {
   width: 90%;
 }
-.ALFS_Paging_Number{
+
+.ALFS_Paging_Number {
   width: 100%;
 }
-.ALFS_Paging_Number > *{
+
+.ALFS_Paging_Number>* {
   margin-right: 10%;
   width: 40%;
 }
-.ALFS_Paging_Number input{
+
+.ALFS_Paging_Number input {
   width: 100%;
 }
-.ALFS_Option{
-  margin-top:10%;
+
+.ALFS_Option {
+  margin-top: 10%;
   width: 100%;
 }
-.ALFS_Option > *{
+
+.ALFS_Option>* {
   background-color: white;
   border-radius: 8px;
   border: solid 2px #023059;
@@ -108,32 +153,50 @@
   margin-right: 10%;
 }
 
-.ALFS_Difficult{
+.ALFS_Difficult {
   margin-top: 25%;
   width: 100%;
 }
-.ALFS_CheckBox{
+
+.ALFS_PrintName {
+  margin-top: 15%;
   width: 100%;
 }
-.ALFS_CheckBox > *{
+
+.ALFS_PrintName>input {
+  width: 90%;
+}
+
+.ADD_LEFT_FORM2 .ALFS_Difficult {
+  margin-top: 15%;
+}
+
+.ALFS_CheckBox {
+  width: 100%;
+}
+
+.ALFS_CheckBox>* {
   list-style: none;
   width: 25%;
   font-family: 'bs3';
 }
-.ALFS_Submit{
+
+.ALFS_Submit {
   float: right;
 }
-input[type="text"]{
+
+input[type="text"] {
   border-radius: 8px;
   height: 38px;
-  border:2px solid #023059;
+  border: 2px solid #023059;
   padding-left: 10px;
   font-family: 'bs1';
-  font-weight:bold;
+  font-weight: bold;
 }
-.ALFS_Submit{
+
+.ALFS_Submit {
   position: absolute;
-  width:20%;
+  width: 20%;
   left: 70%;
   background-color: white;
   border-radius: 8px;
@@ -141,6 +204,25 @@ input[type="text"]{
   font-family: 'bs3';
   height: 38px;
 }
-.picedit:hover,.ALFS_Submit:hover{
-  border:2px solid #23912E;
+
+.picedit:hover, .ALFS_Submit:hover {
+  border: 2px solid #23912E;
+}
+
+.ALPanel_Regular, .ALPanel_UnRegular {
+  background-color: white;
+  border: 1px solid #707070;
+  border-radius: 6px 0 0 6px;
+  position: absolute;
+  display: block;
+  z-index: 90;
+  border-right: 0px;
+}
+
+.ALPR_span, .ALPUR_span {
+  margin: 0 auto;
+  margin-top: 50%;
+  font-family: 'BS3';
+  writing-mode: vertical-rl;
+  text-orientation: upright;
 }
