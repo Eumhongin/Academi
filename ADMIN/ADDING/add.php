@@ -133,12 +133,12 @@
             <button class="ALFS_Submit" type="submit">추가</button>
           </div>
         </form>
-        <form  class="ADD_LEFT_FORM2 hide" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+        <form  class="ADD_LEFT_FORM2 hide" name = "form" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
                 <span class="ALFSFS_FilePath"></span>
                 <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                <input type="file" name="upload" id="selectedFile" style="display: none;" required/>
+                <input type="file" name="form2_upload" id="selectedFile" style="display: none;" required/>
                 <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">찾기</button>
               </div>
               <br>
@@ -148,10 +148,10 @@
               <br>
               <div class="ALFS_Paging_Number row">
                 <div class="ALFSPN_Page">
-                  <input type="text" name="page" value="" placeholder="학교" required>
+                  <input type="text" name="school" value="" placeholder="학교" required>
                 </div>
                 <div class="ALFSPN_Number">
-                  <input type="text" name="num" value="" placeholder="학년" required>
+                  <input type="text" name="grade" value="" placeholder="학년" required>
                 </div>
               </div>
               <br>
