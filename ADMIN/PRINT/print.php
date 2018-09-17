@@ -44,8 +44,8 @@
               <div class="ALFS_PrintObjectName">
                 <input type="text" name="" value="" placeholder="문제지 이름">
               </div>
-              <br>
-              <div class="Not_Defined">
+
+              <div class="ALFS_UID">
                 <input type="text" name="" value="" placeholder="학생 아이디">
               </div>
               <br>
@@ -135,8 +135,8 @@
               <div class="ALFS_PrintObjectName">
                 <input type="text" name="" value="" placeholder="문제지 이름">
               </div>
-              <br>
-              <div class="Not_Defined">
+
+              <div class="ALFS_UID">
                 <input type="text" name="" value="" placeholder="학생 아이디">
               </div>
               <br>

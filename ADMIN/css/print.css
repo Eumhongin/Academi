@@ -118,12 +118,12 @@
   font-family: 'bs3';
 }
 
-.Not_Defined {
-  margin-top: 10%;
+.ALFS_UID {
+  margin-top: 5%;
   width: 100%;
 }
 
-.Not_Defined input {
+.ALFS_UID input {
   width: 90%;
 }
 
