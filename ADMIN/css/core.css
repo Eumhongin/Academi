@@ -1,0 +1,14 @@
+html,body{
+  margin:0;
+  padding:0;
+  width: 100%;
+}
+
+.container{
+  text-align: center;
+  margin-left: 20%;
+  width: 60%;
+}
+.hide{
+  display: none;
+}

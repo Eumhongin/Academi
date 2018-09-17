@@ -42,9 +42,10 @@
 .ADD_RIGHT_IMG {
   width: 90%;
   margin: 0 auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow-y: scroll;
+  text-align: center;
+  font-family: 'bs3';
+  font-size: 2em;
+  line-height: 1.5;
 }
 
 #ARI_Priview {
@@ -56,6 +57,7 @@
   font-family: 'BS2';
   font-size: 3em;
   top: 2%;
+
 }
 
 .Subtitle_ADD {
@@ -225,4 +227,11 @@ input[type="text"] {
   font-family: 'BS3';
   writing-mode: vertical-rl;
   text-orientation: upright;
+}
+.ALFS_PrintObjectName{
+  width: 100%;
+}
+.ALFS_PrintObjectName input{
+  width: 90%;
+
 }
