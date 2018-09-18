@@ -39,22 +39,24 @@
           <span class="ALPUR_span">비정규문제</span>
         </div>
 
-        <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+        <form  class="ADD_LEFT_FORM" name = "form" action="question_print.php" method="post" enctype="multipart/form-data">
             <div class="ALF_Shield">
               <div class="ALFS_PrintObjectName">
-                <input type="text" name="" value="" placeholder="문제지 이름">
+                <input type="text" name="paper" value="" placeholder="문제지 이름">
               </div>
 
               <div class="ALFS_UID">
-                <input type="text" name="" value="" placeholder="학생 아이디">
+                <input type="text" name="student_id" value="" placeholder="학생 아이디">
               </div>
               <br>
               <div class="ALFS_Paging_Number row">
                 <div class="ALFSPN_Page">
-                  <input type="text" name="page" value="" placeholder="쪽수" required>
+                  <!-- 불필요 -->
+                  <input type="text" name="page" value="" placeholder="쪽수" >
                 </div>
                 <div class="ALFSPN_Number">
-                  <input type="text" name="num" value="" placeholder="번호" required>
+                  <!-- 불필요 -->
+                  <input type="text" name="num" value="" placeholder="번호" >
                 </div>
               </div>
               <br>
@@ -62,12 +64,14 @@
                 <?php
                   // 문제지 이름
                   $book_name = DB_echo("SELECT book_name FROM question_book_name","book_name");
+                  $book_num = DB_echo("SELECT book_num FROM question_book_name","book_num");
 
                   //문제 유형
                   //수 1, 수 2 이런식으로도 선택할 수 있게 해야함
 
                   //문제 세부 유형
                   $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index", "type_index_name");
+                  $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index", "type_index_num");
                 ?>
                 <select class="ALFSO_Subject" name="subject" required>
                   <option value="" selected>과목</option>
@@ -85,7 +89,7 @@
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
                     {
-                      echo "<option value='".$book_name[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
                     }
                   ?>
                   <!-- <option value="0" >1</option>
@@ -97,9 +101,9 @@
                 <select class="ALFSO_type" name="question_type" required>
                   <option value="" selected>유형</option>
                   <?php
-                    for($idx = 1; $idx <= count($type_index_name); $idx++)
+                    for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
-                      echo "<option value='".$type_index_name[$idx-1]."'>".$type_index_name[$idx-1]."</option>";
+                      echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
                     }
                   ?>
                   <!-- <option value="0" >1</option>

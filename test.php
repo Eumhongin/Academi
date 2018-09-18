@@ -9,20 +9,23 @@
     include("module\dbConnect.php");
     include("module\dbContentsEcho.php");
 
-    $sql1 = "SELECT * FROM member WHERE id='quhb2455'";
+    $book_name = DB_echo("SELECT book_name FROM question_book_name","book_name");
+    $book_num = DB_echo("SELECT book_num FROM question_book_name","book_num");
 
-    $pw_salt = DB_echo($sql1,'pw_salt');
-    echo "salt : ".$pw_salt."</br>";
-    $pw_hash = hash('sha256','quhb2455'.$pw_salt[0], false);
-    echo "hash : ".$pw_hash."</br>";
+    //문제 유형
+    //수 1, 수 2 이런식으로도 선택할 수 있게 해야함
 
-    $pw_check = DB_echo($sql1,'pw_hash');
-    echo $pw_check[0]."</br>";
-    if($pw_check[0] == $pw_hash)
-    {
+    //문제 세부 유형
+    $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index", "type_index_name");
+    $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index", "type_index_num");
 
-      echo "ok";
-    }
+    print_r($book_num);
+    echo "</br>";
+    print_r($book_name);
+    echo "</br>";
+    print_r($type_index_num);
+    echo "</br>";
+    print_r($type_index_name);
     ?>
 
   </body>

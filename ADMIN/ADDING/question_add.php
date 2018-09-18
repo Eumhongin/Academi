@@ -13,6 +13,9 @@ if($_FILES['upload'] != null)
 
   $sql = "SELECT type_index_num FROM question_type_math_index WHERE type_index_name = '".$_POST['question_type']."' ";
   $type_index_num = DB_echo($sql , "type_index_num");
+
+  $sql = "SELECT book_num FROM question_book_name WHERE book_name='".$_POST['book_name']."'";
+  $book_num = DB_echo($sql, "book_num");
   // $img_sql = "UPDATE userinfo SET AdviserImage = '".$_FILES['upload']['name']."' WHERE useruid=".$_SESSION['Uid']."";
   // mysqli_query($conn,$img_sql);
 
@@ -33,8 +36,8 @@ if($_FILES['upload'] != null)
 
   if($type == ''){$type = '없음';}
 
-  $sql = "INSERT INTO question_image (image, grade, page, number,level,type_index_num,type)
-  VALUES ('".$file_name."','".$_POST[grade]."' ,'".$_POST[page]."', '".$_POST[num]."', $_POST[difficult], $type_index_num[0] ,'".$type."')";
+  $sql = "INSERT INTO question_image (image, grade, page, number,level,book_name,type_index_num,type)
+  VALUES ('".$file_name."','".$_POST[grade]."' ,'".$_POST[page]."', '".$_POST[num]."', $_POST[difficult],$book_num[0] , $type_index_num[0] ,'".$type."')";
   $result = mysqli_query($conn, $sql);
   if($result != null)
   {
@@ -47,8 +50,8 @@ if($_FILES['upload'] != null)
   if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
 
     echo "<script>alert('사진 등록 성공');</script>";
-    print_r($_FILES);
-    //echo "<script>location.href ='add.php';</script>";
+    // print_r($_FILES);
+    echo "<script>location.href ='add.php';</script>";
   } else {
     echo "<script>alert('사진 등록 실패');</script>";
     echo "<script>location.href ='add.php';</script>";
@@ -57,6 +60,7 @@ if($_FILES['upload'] != null)
 }
 else if($_FILES['form2_upload'] != null)
 {
+  // print_r($_FILES['form2_upload']);
   $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\ADMIN\ADDING\img\\';
   $_FILES['form2_upload']['name'] = "".$_POST['school']."_".$_POST['grade']."_".$_POST['printname']."_".$_POST['difficult'].".png";
   $file_name = "".$_POST['school']."_".$_POST['grade']."_".$_POST['printname']."_".$_POST['difficult'].".png";

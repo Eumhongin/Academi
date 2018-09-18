@@ -133,7 +133,7 @@
             <button class="ALFS_Submit" type="submit">추가</button>
           </div>
         </form>
-        <form  class="ADD_LEFT_FORM2 hide" name = "form" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
+        <form  class="ADD_LEFT_FORM2 hide" name = "form2" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
                 <span class="ALFSFS_FilePath"></span>
