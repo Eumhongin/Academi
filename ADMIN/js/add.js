@@ -12,7 +12,7 @@ $('.ADD_RIGHT_IMG').css({
 });
 $('.Preview').css({
   'right': ($(window).outerWidth() * 0.5 - $('.ADD_RIGHT_IMG').outerWidth()) * 0.5 + 'px'
-})
+});
 
 $('.ADD_LEFT_FORM').css({
   'height': $(window).outerHeight() * 0.8 + 'px',

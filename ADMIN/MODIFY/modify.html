@@ -1,11 +1,69 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>문제추가하기</title>
+    <script src="../js/jquery-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../fonts/font.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/modify.css">
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+
+    });
+
+    </script>
+
   </head>
   <body>
-    문제 수정
-    <button onclick="location.href = '../../index.php'">로고</button>
+    <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../aca_admin.html'">
+    <div class="v-line">
+
+    </div>
+    <span class="Detail">상세검색</span>
+    <span class="Subtitle_MODIFY">문제수정</span>
+    <section class="row">
+      <div class="MODIFY_LEFT">
+        <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+          <span>히스토리</span>
+
+          <div class="ML_History">
+            <table>
+              <th>hong</th>
+              <th>ff</th>
+              <th>2323</th>
+              <tbody>
+                <td>hongo</td>
+                <td>gg</td>
+                <td>wdw</td>
+              </tbody>
+
+            </table>
+          </div>
+        </form>
+      </div>
+      <div class="MODIFY_RIGHT">
+        <div class="MR_option">
+
+        </div>
+
+      </div>
+    </section>
+
+
+
+
+    <!-- <script type="text/javascript">
+      function getSelectValue(frm) // 즐겨찾기에 추가해놈 , 웹마당
+      {
+        frm.textValue.value = frm.book_name.options[frm.book_name.selectedIndex].text;
+        frm.optionValue.value = frm.book_name.options[frm.book_name.selectedIndex].value;
+      }
+
+    </script> -->
+    <script src="../js/modify.js" charset="utf-8"></script>
   </body>
 </html>

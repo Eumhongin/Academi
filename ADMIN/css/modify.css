@@ -1,0 +1,59 @@
+@import "core.css";
+
+.v-line {
+  border-left: 3px solid white;
+  position: absolute;
+  left: 50%;
+}
+
+.gohome {
+  position: absolute;
+  width: 2%;
+  z-index: 9999;
+  cursor: pointer;
+  right: 0;
+}
+
+.MODIFY_LEFT {
+  width: 50%;
+  position: relative;
+}
+
+.MODIFY_RIGHT {
+  width: 50%;
+}
+.MR_option {
+  width: 90%;
+  margin: 0 auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow-y: scroll;
+}
+.Detail {
+  position: absolute;
+  font-family: 'BS2';
+  font-size: 3em;
+  top: 2%;
+}
+.Subtitle_MODIFY {
+  top: 2%;
+  position: absolute;
+  font-size: 3em;
+  font-family: 'BS2';
+}
+.MODIFY_LEFT_FORM {
+  z-index: 9999;
+  background-color: white;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: 1px solid black;
+}
+.ADD_LEFT_FORM {
+  z-index: 9999;
+  background-color: white;
+  width: 85%;
+  margin: 0 auto;
+  border-radius: 16px;
+  border: 1px solid black;
+}
