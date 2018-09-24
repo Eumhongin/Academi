@@ -27,33 +27,146 @@
     <span class="Subtitle_MODIFY">문제수정</span>
     <section class="row">
       <div class="MODIFY_LEFT">
-        <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
-          <span>히스토리</span>
+        <span class="MLL_History">히스토리</span>
+        <form  class="MODIFY_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+
 
           <div class="ML_History">
             <table class="col-1">
               <thead class="col-1">
                 <tr class="col-1">
-                  <th class="col-3">추가날짜</th>
-                  <th class="col-3">파일</th>
-                  <th class="col-3">최근수정일자</th>
+                  <th class="col-4">추가날짜</th>
+                  <th class="col-2">파일</th>
+                  <th class="col-4">최근수정일자</th>
                 </tr>
-
               </thead>
-              <tbody>
-                <td>hongo</td>
-                <td>gg</td>
-                <td>wdw</td>
+              <tbody class="col-1">
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
+                <tr class="col-1">
+                  <td class="col-4">hongo</td>
+                  <td class="col-2">gg</td>
+                  <td class="col-4">wdw</td>
+                </tr>
               </tbody>
+
 
             </table>
           </div>
         </form>
       </div>
       <div class="MODIFY_RIGHT">
-        <div class="MR_option">
+        <form class="MR_option" action="" method="post">
+          <select class="MRO_Subject col-5" name="subject" required>
+            <option value="" selected>과목</option>
+            <option value="수학" >수학</option>
 
-        </div>
+          </select>
+          <select class="MRO_Grade col-5" name="grade" required>
+            <option value="" selected>학년</option>
+            <option value="1" >1</option>
+            <option value="2" >2</option>
+            <option value="3" >3</option>
+          </select>
+          <select class="MRO_Bookname col-5" name="book_name" required>
+            <option value="" selected>책이름</option>
+
+          </select>
+          <select class="MRO_type col-5" name="question_type" required>
+            <option value="" selected>유형</option>
+
+          </select>
+
+          <button class="MRO_Submit" type="submit">검색</button>
+        </form>
 
       </div>
     </section>

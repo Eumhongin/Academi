@@ -22,38 +22,60 @@
 .MODIFY_RIGHT {
   width: 50%;
 }
+
 .MR_option {
+  position: relative;
   width: 90%;
   margin: 0 auto;
-  background-position: center;
-  background-repeat: no-repeat;
-  overflow-y: scroll;
+
+
+  text-align: center;
 }
+
 .Detail {
   position: absolute;
   font-family: 'BS2';
   font-size: 3em;
   top: 2%;
 }
+
 .Subtitle_MODIFY {
   top: 2%;
   position: absolute;
   font-size: 3em;
   font-family: 'BS2';
 }
+
 .MODIFY_LEFT_FORM {
   z-index: 9999;
-  background-color: white;
   width: 85%;
   margin: 0 auto;
-  border-radius: 16px;
-  border: 1px solid black;
 }
-.ADD_LEFT_FORM {
-  z-index: 9999;
-  background-color: white;
-  width: 85%;
+.ML_History{
+  overflow-y: scroll;
+}
+th, td {
   margin: 0 auto;
-  border-radius: 16px;
   border: 1px solid black;
+  background-color: white;
+  cursor: pointer;
+  text-align: center;
+  padding:2%;
+
+}
+
+.MRO_type, .MRO_Bookname, .MRO_Grade, .MRO_Subject {}
+
+.MRO_Submit {
+  cursor: pointer;
+  position: absolute;
+  width: 5%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+  font-size: 1.2vw;
+}
+.MRO_Submit:hover{
+  border: solid 2px rgb(15, 186, 88);
 }
