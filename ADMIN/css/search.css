@@ -1,0 +1,68 @@
+@import "core.css";
+
+.v-line {
+  border-left: 3px solid white;
+  position: absolute;
+  left: 50%;
+}
+
+.gohome {
+  position: absolute;
+  width: 2%;
+  z-index: 9999;
+  cursor: pointer;
+  right: 0;
+}
+.search_left{
+  width: 50%;
+  position: relative;
+}
+.Subtitle_search {
+  top: 2%;
+  position: absolute;
+  font-size: 3em;
+  font-family: 'BS2';
+}
+.sl_form{
+  z-index: 9999;
+  width: 85%;
+  margin: 0 auto;
+}
+.sfs_input{
+  width: 100%;
+
+}
+.sfs_input > * {
+  display: inline-block;
+  height: 30px;
+  margin:1%;
+  width: 80%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+  padding-left: 1%;
+}
+.sf_shield{
+  margin:0 auto;
+}
+.sfs_select{
+  height: 35px;
+  margin:1%;
+  width: 82%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+  padding-left: 1%;
+}
+.sfs_subtmit {
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+  height: 30px;
+  margin-top:30%;
+  float: right;
+}

@@ -1,11 +1,82 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>문제추가하기</title>
+    <script src="../js/jquery-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../fonts/font.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/search.css">
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+
+    });
+
+    </script>
+
   </head>
   <body>
-    학생 조회
+    <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../aca_admin.html'">
+    <div class="v-line">
+
+    </div>
+
+    <span class="Subtitle_search">학생조회</span>
+    <section class="row">
+      <div class="search_left">
+        <form  class="sl_form" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+          <div class="sf_shield">
+            <div class="sfs_input">
+              <input type="text" name="" value="" placeholder="뭐들어가지">
+            </div>
+            <div class="sfs_input">
+              <input type="text" name="" value="" placeholder="이름">
+            </div>
+            <div class="sfs_input">
+              <input type="text" name="" value="" placeholder="학교">
+            </div>
+            <div class="sfs_input">
+              <input type="text" name="" value="" placeholder="학년">
+            </div>
+            <select class="sfs_select" name="">
+              <option value="">과목을선택하세요</option>
+              <option value="">수학</option>
+            </select>
+
+            <button class="sfs_subtmit" type="submit">찾기</button>
+          </div>
+        </form>
+      </div>
+      <div class="search_right">
+
+      </div>
+    </section>
+
+
+
+
+    <!-- <script type="text/javascript">
+      function getSelectValue(frm) // 즐겨찾기에 추가해놈 , 웹마당
+      {
+        frm.textValue.value = frm.book_name.options[frm.book_name.selectedIndex].text;
+        frm.optionValue.value = frm.book_name.options[frm.book_name.selectedIndex].value;
+      }
+
+    </script> -->
+    <script src="../js/search.js" charset="utf-8"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+    <!-- 학생 조회
     <button onclick="location.href = '../../index.html'">로고</button>
 
     <form action="stu_check.php" method="post">
@@ -15,6 +86,4 @@
       학년 : <input type="text" name="grade">
       <button type = "submit" />검새꾸</button>
 
-    </form>
-  </body>
-</html>
+    </form> -->
