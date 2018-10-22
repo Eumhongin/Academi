@@ -17,6 +17,10 @@
   width: 50%;
   position: relative;
 }
+.search_right{
+  width: 50%;
+  position: relative;
+}
 .Subtitle_search {
   top: 2%;
   position: absolute;

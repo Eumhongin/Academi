@@ -21,6 +21,13 @@
       editable: true,
       navLinks: true, // can click day/week names to navigate views
       eventLimit: true, // allow "more" link when too many events
+      eventClick: function(event, element) {
+
+         event.title = "CLICKED!";
+
+         $('#calendar').fullCalendar('updateEvent', event);
+
+       },
       events: {
         url: 'php/get-events.php',
         error: function() {

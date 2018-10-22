@@ -27,7 +27,7 @@
       $_SESSION['grade'] = $member_grade;
       echo("<script>location.href = 'stu_info.php';</script>");
     } else {
-      echo ("<script>location.href = '../../index.html'");
+      echo ("<script>location.href = '../../index.html';</script>");
     }
 
 

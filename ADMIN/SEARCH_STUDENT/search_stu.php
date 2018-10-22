@@ -27,19 +27,19 @@
     <span class="Subtitle_search">학생조회</span>
     <section class="row">
       <div class="search_left">
-        <form  class="sl_form" name = "form" action="" method="post" enctype="multipart/form-data">
+        <form  class="sl_form" name = "form" action="stu_check.php" method="post" enctype="multipart/form-data">
           <div class="sf_shield">
             <div class="sfs_input">
               <input type="text" name="" value="" placeholder="뭐들어가지" required>
             </div>
             <div class="sfs_input">
-              <input type="text" name="" value="" placeholder="이름" required>
+              <input type="text" name="name" value="" placeholder="이름" required>
             </div>
             <div class="sfs_input">
-              <input type="text" name="" value="" placeholder="학교" required>
+              <input type="text" name="school_name" value="" placeholder="학교" required>
             </div>
             <div class="sfs_input">
-              <input type="text" name="" value="" placeholder="학년" required>
+              <input type="text" name="grade" value="" placeholder="학년" required>
             </div>
             <select class="sfs_select" name="">
               <option value="">과목을선택하세요</option>

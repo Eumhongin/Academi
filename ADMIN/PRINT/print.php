@@ -46,6 +46,7 @@
               </div>
 
               <div class="ALFS_UID">
+                <!-- 학생아이디 넣을 수 있도록 -->
                 <input type="text" name="student_id" value="" placeholder="학생 아이디">
               </div>
               <br>
