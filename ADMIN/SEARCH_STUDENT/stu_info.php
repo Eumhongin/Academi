@@ -94,7 +94,7 @@
                   <td>학년</td>
                   <td>3</td>
                   <td>주소</td>
-                  <td class="address">대구광역시 북구 대현동 112-39 다온 202호</td>
+                  <td class="address">ss</td>
                 </tbody>
                 <tbody>
                   <td>계열</td>
