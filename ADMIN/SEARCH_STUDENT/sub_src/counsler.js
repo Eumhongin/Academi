@@ -32,6 +32,9 @@ $('.writing > p').on('click',function(){
     });
     $('.recent').addClass('active');
   }
+  else{
+    alert('이미 상담을 등록하셨습니다!');
+  }
 });
 
 
