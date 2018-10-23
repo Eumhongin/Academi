@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <title>학생 상세정보</title>
     <script src="../js/jquery-min.js" charset="utf-8"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../fullcalendar-3.9.0/fullcalendar.min.css">
     <link href='../../fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <script type="text/javascript" src="../../fullcalendar-3.9.0/lib/moment.min.js"></script>
@@ -20,88 +20,105 @@
     <link rel="stylesheet" href="../css/search.css">
     <script type="text/javascript">
       $(document).ready(function(){
-          // page is now ready, initialize the calendar...
+        $('.search_left').css({
+          'height':$('.v-line2').outerHeight()+'px',
+          'top':$(window).outerHeight() * 0.05 + 'px'
+        });
+        console.log($('.target1').outerWidth(true)+$('.target2').outerWidth(true)+$('.target').outerWidth(true));
+        $('.address').css({
+          'width':$('.target1').outerWidth()+$('.target2').outerWidth()+$('.target').outerWidth()-4+'px',
 
-          $('#calendar').fullCalendar({
-            header: {
-              left: 'prev,next today',
-              center: 'title',
-              right: 'month,agendaWeek,agendaDay,listWeek'
-            },
-            navLinks: true, // can click day/week names to navigate views
-            selectable: true,
-            selectHelper: true,
-            select: function(start, end) {
-              var title = prompt('Event Title:');
-              var eventData;
-              if(title)
-              {
-                var start = $.fullCalendar.formatDate(start,"Y-MM-DD HH:mm:ss");
-                var end = $.fullCalendar.formatDate(end,"Y-MM-DD HH:mm:ss");
-
-                $.ajax({
-                  url : "fullCalendar_insert.php",
-                  tpye : "POST",
-                  data : {title : title, start:start, end:end},
-                  success : function()
-                  {
-                    calendar.fullCalendar('refetchEvents');
-                    alert("Added Successfully");
-                  }
-                })
-              }
-              // if (title) {
-              //   eventData = {
-              //     title: title,
-              //     start: start,
-              //     end: end
-              //   };
-              //   $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-              // }
-              // $('#calendar').fullCalendar('unselect');
-            },
-            events: [
-              {
-                title: "Java seminar",
-                start: "2018-10-06",
-                end: "2018-10-10"
-              },
-              {
-                title: "Java seminar",
-                start: "2018-10-11",
-                end: "2018-10-12"
-              },
-              {
-                title: "Java seminar",
-                start: "2018-10-13",
-                end: "2018-10-14"
-              }
-
-            ]
-          });
-
-
+        });
+        $('.sf_shield').css({
+          'height':$('.search_left').outerHeight()+'px'
+        });
+        $('.sfs').css({
+          'height':$('.sf_shield').outerHeight()*0.3+'px'
+        });
+        $('.sfs_frame').css({
+          'margin-top':$('.sf_shield').outerHeight()*0.05+'px',
+          'height':$('.sf_shield').outerHeight()*0.55+'px'
+        });
+        $('.sfs_frame > iframe').css({
+          'height':$('.sfs_frame').outerHeight()-$('.sfs_frame > p').outerHeight()+'px'
+        });
+        $('.sfs_top > hr').css({
+          'width':$('.sfs_top > span').outerWidth()+'px',
+          'margin':'1% 0 0 0'
+        });
 
       });
 
+
     </script>
+
   </head>
   <body>
     <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../aca_admin.html'">
-    <div class="v-line">
+    <div class="v-line2">
 
     </div>
 
-    <span class="Subtitle_search">학생조회</span>
+
     <section class="row">
       <!-- /////////////왼쪽//////////// -->
       <div class="search_left">
         <div class="sf_shield">
+          <div class="sfs">
+
+            <div class="sfs_top">
+              <span>임중섭 학생</span>
+              <hr>
+              <p>학생 특징</p>
+            </div>
+            <div class="sfs_info">
+              <p>상세정보</p>
+              <table>
+                <tbody>
+                  <td>이름</td>
+                  <td>홍길동</td>
+                  <td>휴대폰</td>
+                  <td class="target">010-0000-0000</td>
+                  <td class="target1 c">팀장</td>
+                  <td class="target2">이광진</td>
+                </tbody>
+                <tbody>
+                  <td>학교</td>
+                  <td>홍길동</td>
+                  <td>보호자<br />연락처</td>
+                  <td>010-0000-0000</td>
+                  <td class="c">매니저</td>
+                  <td>임중섭</td>
+                </tbody>
+                <tbody>
+                  <td>학년</td>
+                  <td>3</td>
+                  <td>주소</td>
+                  <td class="address">대구광역시 북구 대현동 112-39 다온 202호</td>
+                </tbody>
+                <tbody>
+                  <td>계열</td>
+                  <td>이과/문과</td>
+                  <td>목표대학</td>
+                  <td>하버드</td>
+                  <td>성적</td>
+                  <td>상</td>
+                </tbody>
+
+              </table>
+
+            </div>
+          </div>
+          <div class="sfs_frame">
+            <p>상담내용</p>
+            <iframe src="counsler.html"></iframe>
+          </div>
+
 
           <?php
-          echo ("이름12 : $_SESSION[name]<br/>\n");
-          echo ("학교 : $_SESSION[school_name]<br/>\n");
-          echo ("학년 : $_SESSION[grade]<br/>\n");
+          //echo ("이름12 : $_SESSION[name]<br/>\n");
+        //  echo ("학교 : $_SESSION[school_name]<br/>\n");
+        //  echo ("학년 : $_SESSION[grade]<br/>\n");
           ?>
         </div>
       </div>
@@ -150,10 +167,7 @@
     // echo $result;
      ?>
 
-
-    <?php
-
-     ?>
-
+     <script src="fullcalender.js" charset="utf-8"></script>
+     <script src="../js/search.js" charset="utf-8"></script>
   </body>
 </html>

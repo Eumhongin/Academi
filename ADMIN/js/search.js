@@ -2,6 +2,10 @@ $('.v-line').css({
   'height': $(window).outerHeight() * 0.9 + 'px',
   'top': $(window).outerHeight() * 0.05 + 'px'
 });
+$('.v-line2').css({
+  'height': $(window).outerHeight() * 0.9 + 'px',
+  'top': $(window).outerHeight() * 0.05 + 'px'
+});
 $('.Subtitle_search').css({
   'left': ($(window).outerWidth() * 0.5 - $('.sl_form').outerWidth()) / 2 + 'px'
 });

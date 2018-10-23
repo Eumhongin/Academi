@@ -1,0 +1,72 @@
+
+.writing{
+  padding:0;
+  margin-bottom:5%;
+  background-color: #266BA8 ;
+  border-radius: 15px;
+  position: relative;
+  cursor: pointer;
+}
+.writing > p{
+  position: absolute;
+  right: 0;
+  color:white;
+  margin:0;
+  font-size: 3vw;
+
+}
+
+.writing_wrapper{
+  background-color: white;
+  width: 95%;
+}
+.read_wrapper,.writing_wrapper,.box,.writing_box{
+  border:solid 1px black;
+  border-radius: 15px;
+  padding:5px;
+}
+.box,.writing_box{
+  background: white;
+  
+
+}
+.box > p,.writing_box > p{
+  font-family: 'bs2';
+  font-size: 3vw;
+  margin:1% 0 1% 0;
+}
+.writing_box >textarea{
+  border:none;
+  font-family: 'bs1';
+  font-size: 2.2vw;
+  margin:0;
+  padding:0;
+  width: 100%;
+  resize: none;
+}
+span{
+  display: inline-block
+}
+.read_wrapper{
+  margin-bottom: 5%;
+}
+::-webkit-scrollbar {
+    width: 0;  /* Total width including `border-width` of scrollbar thumb */
+    height: 0;
+}
+::-webkit-scrollbar-thumb {
+    height: 1em;
+    border: 0.5em solid rgba(0, 0, 0, 0);  /* Transparent border together with `background-clip: padding-box` does the trick */
+    background-clip: padding-box;
+    -webkit-border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.15);
+    -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.025);
+}
+::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+}
+::-webkit-scrollbar-corner {
+    background-color: transparent;
+}
