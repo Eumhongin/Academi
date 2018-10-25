@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <script src="js/Vue.js" charset="utf-8"></script>
+    <script src="js/jquery-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+      // 배경화면 랜덤으로 잡는 js
+      let random = parseInt(Math.random()*10);
+      if(random == 0){
+        random+=1;
+      }
+      $('body').css({
+        'background-image':'url("img/Wallpaper-Landscape-00'+random+'.jpg")'
+      });
+
+      // 시계화면 올라가면서 로그인창 올라오는 js
+      $('.app').css({
+        'margin-top':($('.bg').outerHeight()-$('.app').outerHeight())*0.5+'px',
+        'left':($(window).outerWidth()-$('.app').outerWidth())/2+'px'
+      });
+      $('.loginform').css({
+        'margin-top':($('.bg').outerHeight()-$('.app').outerHeight())*0.5+$('.app > h1').outerHeight()+'px',
+        'left':($(window).outerWidth()-$('.loginform').outerWidth())/2+'px'
+      });
+      $('.bg').click(function(){
+        $(this).css({
+          'background-color':'rgba(0,0,0,0.7)'
+        });
+        $('.app').css({
+          'transform':'matrix(1, 0, 0, 1, 0, '+-(($(window).outerHeight())*0.8)/2+')',
+          'opacity':'0'
+        });
+        $('.loginform').css({
+          'transform':'matrix(1, 0, 0, 1, 0,'+-$('.app').outerHeight()+')',
+          'opacity':'1'
+        });
+      });
+
+      //form > button css
+      $('.loginform > button').css({
+        'height':$('.id').outerHeight()+'px'
+      });
+    });
+
+
+    </script>
+
+  </head>
+  <body>
+    <div class="bg">
+      <div class="app">
+        <h1 class="time" v-text="currentTime"></h1>
+        <!-- <h3 class="title" v-text="message"></h3> -->
+      </div>
+      <form class="loginform" action="Temp.html" method="post">
+        <p>로그인</p>
+        <input class="id" type="text" name="ID" value="" required placeholder="ex)zizon0wpxm@naver.com">
+        <button type="submit" name="button">로그인</button>
+      </form>
+    </div>
+    <script src='js/moment.js'></script>
+    <script src="js/App.js" charset="utf-8"></script>
+  </body>
+</html>
