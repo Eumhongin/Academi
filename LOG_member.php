@@ -29,14 +29,15 @@
 
         if($s_t[0] == 0)
         {
-
+          $_SESSION['LOG_id'] = $name[0];
           echo ("<script>alert('$name[0] 선생님 안녕하세요.');</script>");
           echo("<script>location.href = 'ADMIN/aca_admin.html';</script>");
 
         }else if($s_t[0] == 1)
         {
+          $_SESSION['LOG_id'] = $name[0];
           echo ("<script>alert('$name[0] 학생 반가워요.');</script>");
-          echo("<script>location.href = 'STUDENT/aca_student.html';</script>");
+          echo("<script>location.href = 'STUDENT/aca_student.php';</script>");
         }
       }
 

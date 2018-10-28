@@ -11,7 +11,7 @@
     include("module\dbContentsEcho.php");
     include("module\\rand_string.php");
 
-
+    //폰번호 부모님번호 주소 계열 넣을 공간 만들어서 다시 구성
 
     //member_id = $_POST['id'];  //id
     preg_match_all('/[a-z]|[0-9]/', $_POST['id'], $u_id); // 소문자와 숫자를 $u_id[0][0]부터 한글자씩 저장

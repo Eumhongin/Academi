@@ -1,6 +1,6 @@
 <?php
-include("module\\dbConnect.php");
-include("module\\dbContentsEcho.php");
+include("..\module\\dbConnect.php");
+include("..\module\\dbContentsEcho.php");
 
 $i=0;
 

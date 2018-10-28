@@ -24,6 +24,7 @@ $('.writing > p').on('click',function(){
     var p = $('<p>').text(time.getFullYear()+'-'+(parseInt(time.getMonth())+1)+'-'+time.getDate()+' 상담내용').appendTo(box);
     var hr = $('<hr>').appendTo(box);
     var textarea = $('<div>').text($('textarea').val()).appendTo(box);
+    setContents($('textarea').val()); // ajax를 통해서 setAdviceContents.php로 데이터 보내서 DB에 저장
     box.css({
       'height':$('.writing_wrapper').outerHeight()+'px'
     });
@@ -36,6 +37,71 @@ $('.writing > p').on('click',function(){
     alert('이미 상담을 등록하셨습니다!');
   }
 });
+
+
+
+function getContents()
+{
+  $.ajax({
+    url:"sub_src/getAdviceContents.php",
+    dataType:"json",
+    success:function(result)
+    {
+      for(var idx = 0; idx < result[0].length; idx++)
+      {
+        var wrapper = $('<div>').addClass('read_wrapper').appendTo('.read');
+        var box = $('<div>').addClass('box').appendTo(wrapper);
+        var p = $('<p>').text(result[1][idx]+' 상담내용').appendTo(box);
+        var hr = $('<hr>').appendTo(box);
+        var content = $('<div>').text(result[0][idx]).appendTo(box);
+        box.css({
+          'height':$('.writing_wrapper').outerHeight()+'px'
+        });
+        content.css({
+          'word-break':'break-all',
+          'margin':'1% 0 1% 0'
+        });
+      }
+
+      // 오늘 해당 학생에게 글을 썻으면 다시 못쓰게하귀 휘한 췌크
+      if(result[2] == 'true')
+      {
+        $('.recent').addClass('active');
+      }
+
+    },
+    error:function(request,status,error){
+      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+  });
+}
+
+
+
+
+function setContents(set)
+{
+  $.ajax({
+    url:"sub_src/setAdviceContents.php",
+    dataType:"json",
+    type:"POST",
+    data :{set:set},
+    success:function(result)
+    {
+      alert('완료');
+    },
+    error:function(request,status,error){
+      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+  });
+}
+
+
+
+
+getContents();
+
+
 
 
 // 데이터불러올떄 시간을 불러와서 var p 에보면 시간을 넣는 공간이있음.

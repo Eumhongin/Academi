@@ -1,7 +1,7 @@
 <?php
 
-    include("module\\dbConnect.php");
-    include("module\\dbContentsEcho.php");
+    include("..\module\\dbConnect.php");
+    include("..\module\\dbContentsEcho.php");
 
     if($_POST['check'] == null)
     {

@@ -1,8 +1,8 @@
 <?php
 session_start();
 header("Content-Type:application/x-www-form-urlencoded");
-include("module\dbConnect.php");
-include("module\dbContentsEcho.php");
+include("..\module\dbConnect.php");
+include("..\module\dbContentsEcho.php");
 // echo "<script>alert(".$_POST['title'].");</script>";
 
   $sql = "INSERT INTO test_events (title, start_event, end_event)
@@ -13,7 +13,7 @@ include("module\dbContentsEcho.php");
 
   if($result != null)
   {
-    $aaa = "ok";
+    $aaa = $result;
   }else {$aaa = "no";}
 echo json_encode($aaa);
  ?>

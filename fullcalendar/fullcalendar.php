@@ -4,27 +4,36 @@
   <head>
     <meta charset="utf-8">
     <title></title>
-      <link rel="stylesheet" href="fullcalendar-3.9.0/fullcalendar.min.css">
-      <link href='fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+      <link rel="stylesheet" href="../fullcalendar-3.9.0/fullcalendar.min.css">
+      <link href='../fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
       <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script> -->
       <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
 
 
-      <script type="text/javascript" src="fullcalendar-3.9.0/lib/moment.min.js"></script>
-      <script type="text/javascript" src="fullcalendar-3.9.0/lib/jquery.min.js"></script>
+      <script type="text/javascript" src="../fullcalendar-3.9.0/lib/moment.min.js"></script>
+      <script type="text/javascript" src="../fullcalendar-3.9.0/lib/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-migrate-3.0.0.min.js"></script>
       <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
       <!-- <script type="text/javascript" src="fullcalendar-3.9.0/fullcalendar.js"></script> -->
 
-      <script type="text/javascript" src="fullcalendar-3.9.0/fullcalendar.min.js"></script>
+      <script type="text/javascript" src="../fullcalendar-3.9.0/fullcalendar.min.js"></script>
 
       <script type="text/javascript">
       $(document).ready(function() {
         var event_id; // 스케줄 클릭시 해당 스케줄의 id값을 저장하기 위한 변수eventClick:function(event)에서 사용
+        var week=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];//요일
+
+
+        function DAY_name(date)//요일 받아오기
+        {
+          var dayOfWeek = week[new Date(date).getDay()];
+          return dayOfWeek;
+        }
+
 
         // page is now ready, initialize the calendar...
-        var result_index = 0;
+        // var result_index = 0;
         var calendar = $('#calendar').fullCalendar({
           editable:true,
           header: {
@@ -33,7 +42,7 @@
             right: 'month,agendaWeek,agendaDay,listWeek'
           },
 
-          events: 'fullCalendar_load.php',
+          events: 'ex_fullCalendar_load.php',
           navLinks: true, // can click day/week names to navigate views
           selectable: true,
           selectHelper: true,
@@ -44,18 +53,18 @@
             {
               var start = $.fullCalendar.formatDate(start,"Y-MM-DD HH:mm:ss");
               var end = $.fullCalendar.formatDate(end,"Y-MM-DD HH:mm:ss");
-
+              var dayOfWeek = DAY_name(start);
               $.ajax({
                 type : 'POST',
-                url : 'fullCalendar_insert.php',
-                data : {title : title, start:start, end:end},
+                url : 'ex_fullCalendar_insert.php',
+                data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek},
                 dataType:'json',
                 success : function(result)
                 {
                   // alert(title);
                   // alert(start);
                   // alert(end);
-                  // alert(result);
+                   alert(result);
                   eventData = {
                     title: title,
                     start: start,
@@ -86,9 +95,9 @@
             var id = event.id;
             $.ajax({
               type:'POST',
-              url:'fullCalendar_update.php',
+              url:'ex_fullCalendar_update.php',
               data:{title:title, start:start, end:end, id:id},
-              success:function(result){
+              success:function(){
                calendar.fullCalendar('refetchEvents');
                alert('Event Update');
              },
@@ -105,7 +114,7 @@
              var title = event.title;
              var id = event.id;
              $.ajax({
-              url:"fullCalendar_update.php",
+              url:"ex_fullCalendar_update.php",
               type:"POST",
               data:{title:title, start:start, end:end, id:id},
               success:function()
@@ -122,6 +131,7 @@
           eventClick:function(event)
           {
             event_id = event.id;
+            alert(event_id);
             $("#dialog").dialog("open");
               // if(confirm("Are you sure you want to remove it?"))
               // {
@@ -161,7 +171,7 @@
                        var check =1;
                        $.ajax({
                            type:'POST',
-                           url:'fullCalendar_update.php',
+                           url:'ex_fullCalendar_update.php',
                            data:{title:title, id:id, check:check},
                            success:function(result){
                             calendar.fullCalendar('refetchEvents');
@@ -179,7 +189,7 @@
                         var id = event_id;
                         alert(id);
                         $.ajax({
-                          url:"fullCalendar_delete.php",
+                          url:"ex_fullCalendar_delete.php",
                           type:"POST",
                           data:{id:id},
                           success:function()
