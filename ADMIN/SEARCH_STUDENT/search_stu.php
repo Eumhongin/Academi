@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/search.css">
   </head>
   <body>
-    <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../aca_admin.html'">
+    <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../../intro/Temp.html'">
     <div class="v-line">
 
     </div>

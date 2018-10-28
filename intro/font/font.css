@@ -1,0 +1,9 @@
+@font-face {
+  font-family: 'TR';
+  src:local(trump_gothic_east_bold),
+    url(trump_gothic_east_bold.ttf) format('truetype'),
+    url(trump_gothic_east_bold.woff) format('woff');
+    font-style: normal;
+    font-weight: normal;
+    unicode-range: U+0-10FFFF;
+}

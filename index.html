@@ -1,82 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
-  <head>
+<head>
+  <meta charset="utf-8">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="js/jquery-min.js" charset="utf-8"></script>
+  <title></title>
+</head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>The Big Picture - Start Bootstrap Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- font_section -->
-    <link href="https://fonts.googleapis.com/css?family=Do+Hyeon|Poor+Story&amp;subset=korean" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/the-big-picture.css" rel="stylesheet">
-
-    <style media="screen">
-      body{
-
-      }
-    </style>
-
-
-
-  </head>
-
-  <body>
-
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-bottom">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">학 원 이 름</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="about/about.html">About
-                <span class="sr-only">(current)</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Login.html">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="ADMIN/ADDING/add.php">Services</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-            </li>
-
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Page Content -->
-    <section>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <h1 class="mt-5">학원이름</h1>
-            <p>학원설명 및 소개할수있는말</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  </body>
+<body>
+  <div id="app-2">
+    <span v-bind:title="message">
+      내 위에 잠시 마우스를 올리면 동적으로 바인딩 된 title을 볼 수 있습니다!
+    </span>
+  </div>
+  <div id="app-3">
+    <p v-if="seen">이제 나를 볼 수 있어요</p>
+  </div>
+  <div id="app-4">
+    <ol>
+      <li v-for="sam in todos" v-if="seen">
+        {{ sam.text }}
+      </li>
+    </ol>
+  </div>
+  <div id="app-5">
+    <p>{{ message }}</p>
+    <button v-on:click="reverseMessage">메시지 뒤집기</button>
+  </div>
+  <div id="app-6">
+    <p>{{ message }}</p>
+    <input v-model="message">
+  </div>
+  <div id="app-7">
+    <ol>
+      <!--
+        이제 각 todo-item 에 todo 객체를 제공합니다.
+        화면에 나오므로, 각 항목의 컨텐츠는 동적으로 바뀔 수 있습니다.
+        또한 각 구성 요소에 "키"를 제공해야합니다 (나중에 설명 됨).
+       -->
+       <tod-item></tod-item>
+      <todo-item
+        v-for="item in groceryList"
+        v-bind:todo="item"
+        v-bind:key="item.id">
+      </todo-item>
+    </ol>
+  </div>
+  <div class="app-8">
+    <a v-bind:href="website" target="_blank">{{ddd}}</a>
+    <input type="text" name="" value="" v-model="ddd">
+    <p v-html='weberf'>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </div>
+  <ol>
+  <!-- todo-item 컴포넌트의 인스턴스 만들기 -->
+  <todo-item></todo-item>
+</ol>
+  <script src="js/App.js" charset="utf-8"></script>
+</body>
 
 </html>
