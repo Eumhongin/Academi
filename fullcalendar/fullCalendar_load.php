@@ -14,6 +14,30 @@
       $GLOBALS['data'][$GLOBALS['data_idx']]['title'] = $row["title"];
       $GLOBALS['data'][$GLOBALS['data_idx']]['start'] = $row["start_event"];
       $GLOBALS['data'][$GLOBALS['data_idx']]['end'] = $row["end_event"];
+      $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = $row["object"];
+
+      switch ($GLOBALS['data'][$GLOBALS['data_idx']]['color']) {
+        case 0: //국
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#FAAC58';
+          break;
+        case 1: //영
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#D0FA58';
+          break;
+        case 2: //수
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#58FAF4';
+          break;
+        case 3: //사
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#8258FA';
+          break;
+        case 4: //과
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#848484';
+          break;
+
+
+        default:
+          // code...
+          break;
+      }
         // $week[$day_name][$i]['id'] = $row["id"];
         // $week[$day_name][$i]['title'] = $row["title"];
         // $week[$day_name][$i]['start'] = $row["start_event"];

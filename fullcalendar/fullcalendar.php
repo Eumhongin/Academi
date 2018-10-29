@@ -43,6 +43,7 @@
           },
 
           events: 'ex_fullCalendar_load.php',
+          eventColor: '#9FF781',
           navLinks: true, // can click day/week names to navigate views
           selectable: true,
           selectHelper: true,
@@ -68,7 +69,8 @@
                   eventData = {
                     title: title,
                     start: start,
-                    end: end
+                    end: end,
+                    color: '#F79F81'
                   };
                   $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
                   // alert("Added Successfully");

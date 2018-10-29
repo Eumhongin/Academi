@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../fullcalendar-3.9.0/fullcalendar.min.css">
     <link href='../../fullcalendar-3.9.0/fullcalendar.print.min.css' rel='stylesheet' media='print' />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css">
     <script type="text/javascript" src="../../fullcalendar-3.9.0/lib/moment.min.js"></script>
     <script type="text/javascript" src="../../fullcalendar-3.9.0/lib/jquery.min.js"></script>
     <!-- <script type="text/javascript" src="fullcalendar-3.9.0/fullcalendar.js"></script> -->
@@ -134,8 +135,11 @@
     </section>
 
     <!--dialog는 스케줄 변경할 떄 사용  -->
-    <div id="dialog" title="공지사항">
+    <div id="dialog" title="변경 & 삭제 선택">
       변경, 삭제를 선택하세요.
+    </div>
+    <div id="dialog1" title="과목 선택">
+      과목을 선택하세요.
     </div>
     <?php
 

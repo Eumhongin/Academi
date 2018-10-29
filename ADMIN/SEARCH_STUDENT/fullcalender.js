@@ -27,41 +27,16 @@ var calendar = $('#calendar').fullCalendar({
   selectable: true,
   selectHelper: true,
   select: function(start, end) {
-    var title = prompt('Event Title:');
-    var eventData;
-    if(title)
+
+
+    event_start = $.fullCalendar.formatDate(start,"Y-MM-DD HH:mm:ss");
+    event_end = $.fullCalendar.formatDate(end,"Y-MM-DD HH:mm:ss");
+    event_title = prompt('Event Title');
+    if(event_title != null)// 타이틀 입력창을 껏을때 디이얼로그가 안뜨게
     {
-      var start = $.fullCalendar.formatDate(start,"Y-MM-DD HH:mm:ss");
-      var end = $.fullCalendar.formatDate(end,"Y-MM-DD HH:mm:ss");
-      var dayOfWeek = DAY_name(start);
-      $.ajax({
-        type : 'POST',
-        url : '../../fullcalendar/fullCalendar_insert.php',
-        data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek},
-        success : function()
-        {
-          eventData = {
-            title: title,
-            start: start,
-            end: end
-          };
-          $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-          // alert("Added Successfully");
-          // calendar.fullCalendar('refetchEvents');
-        },
-        error:function(request,status,error){
-         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-       }
-      });
+      $("#dialog1").dialog("open");
     }
-    // if (title) {
-    //   eventData = {
-    //     title: title,
-    //     start: start,
-    //     end: end
-    //   };
-    //   $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
-    // }
+
     $('#calendar').fullCalendar('unselect');
   },
   editable:true,
@@ -69,7 +44,7 @@ var calendar = $('#calendar').fullCalendar({
   {
     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-    var dayOfWeek = DAY_name(event_start);
+    var dayOfWeek = DAY_name(start);
     var title = event.title;
     var id = event.id;
     $.ajax({
@@ -145,8 +120,6 @@ var calendar = $('#calendar').fullCalendar({
   eventClick:function(event)
   {
     event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-    // event_end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-    event_title = event.title;
     event_id = event.id;
 
     $("#dialog").dialog("open");
@@ -172,7 +145,83 @@ var calendar = $('#calendar').fullCalendar({
 
 });
 
+
+function setSelectEvent(object)
+{ // 0 = 국 , 1 = 영 , 2 = 수 , 3 = 사 , 4 = 과
+  var start = event_start;
+  var end = event_end;
+  var title = event_title;
+  var dayOfWeek = DAY_name(start);
+  var object = object; //과목
+  $.ajax({
+    type : 'POST',
+    url : '../../fullcalendar/fullCalendar_insert.php',
+    data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek, object:object},
+    success : function()
+    {
+      eventData = {
+        title: title,
+        start: start,
+        end: end,
+        color: '#FA5882' //분홍? 페이지 새로고침 하기 전에 추가한 것들. 새로고침시 과목에 맞게 색깔이 바뀜
+      };
+      $('#calendar').fullCalendar('renderEvent', eventData, true); // stick? = true
+      // alert("Added Successfully");
+      // calendar.fullCalendar('refetchEvents');
+      event_title = null;
+      event_start = null;
+      event_end = null;
+
+    },
+    error:function(request,status,error){
+     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+   }
+  });
+}
+
+
+
+
+
 $(function(){
+
+
+    $("#dialog1").dialog({
+        autoOpen:false, //자동으로 열리지않게
+        position:[100,200], //x,y  값을 지정
+        //"center", "left", "right", "top", "bottom"
+        modal:true, //모달대화상자
+        resizable:false, //크기 조절 못하게
+
+        buttons:{
+            "국어":function(){
+              $(this).dialog("close");
+              setSelectEvent(0);
+              alert('국어');
+
+            },"영어":function(){
+               $(this).dialog("close");
+               setSelectEvent(1);
+               alert('영어');
+
+            },"수학":function(){
+              $(this).dialog("close");
+              setSelectEvent(2);
+              alert('수학');
+
+            },"사회":function(){
+              $(this).dialog("close");
+              setSelectEvent(3);
+              alert('사회');
+
+            },"과학":function(){
+              $(this).dialog("close");
+              setSelectEvent(4);
+              alert('과학');
+            }
+        }
+    });
+
    $("#dialog").dialog({
        autoOpen:false, //자동으로 열리지않게
        position:[100,200], //x,y  값을 지정
@@ -196,6 +245,7 @@ $(function(){
                     calendar.fullCalendar('refetchEvents');
                     alert('Event Update');
                     event_id = null;
+                    event_start = null;
                   },
                   error:function(request,status,error){
                     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -217,6 +267,7 @@ $(function(){
                     calendar.fullCalendar('refetchEvents');
                     alert("Event Removed");
                     event_id = null;
+                    event_start = null;
                   },
                   error:function(request,status,error){
                     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
@@ -226,5 +277,8 @@ $(function(){
            }
        }
    });
+
+
+
 
 });

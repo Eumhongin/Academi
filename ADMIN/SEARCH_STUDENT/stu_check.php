@@ -30,7 +30,7 @@
     $_SESSION['stu_team_leader'] = DB_echo($sql, 'team_leader');
 
 
-    if($_SESSION['id'] != null)
+    if($_SESSION['stu_id'] != null)
     {
       echo("<script>location.href = 'stu_info.php';</script>");
     } else {
