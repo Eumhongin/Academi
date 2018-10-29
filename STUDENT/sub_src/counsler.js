@@ -15,20 +15,15 @@ $('.writing > p').hover(function(){
     'background-color':'#266BA8'
   });
 });
-
-
 $('.writing > p').on('click',function(){
   //console.log($('.writing_box > textarea').text());
   if(!$('.recent').hasClass('active')){
     var time = new Date();
-    var recentp = $('<p class="modify_btn">').appendTo('.recent');
-    $('<span>').append('수<br />정').appendTo(recentp);
     var wrapper = $('<div>').addClass('read_wrapper').appendTo('.recent');
     var box = $('<div>').addClass('box').appendTo(wrapper);
     var p = $('<p>').text(time.getFullYear()+'-'+(parseInt(time.getMonth())+1)+'-'+time.getDate()+' 상담내용').appendTo(box);
     var hr = $('<hr>').appendTo(box);
-    var textarea = $('<div class="recent_view">').text($('textarea').val()).appendTo(box);
-
+    var textarea = $('<div>').text($('textarea').val()).appendTo(box);
     setContents($('textarea').val()); // ajax를 통해서 setAdviceContents.php로 데이터 보내서 DB에 저장
     box.css({
       'height':$('.writing_wrapper').outerHeight()+'px'
@@ -37,43 +32,13 @@ $('.writing > p').on('click',function(){
       'margin':'1% 0 1% 0'
     });
     $('.recent').addClass('active');
-    $('.recent > p').css({
-      'right':($('.recent').outerWidth()-($('.read_wrapper').outerWidth())-$('span').outerWidth())/2+'px',
-      'height':$('.recent').outerHeight()+'px'
-    });
-    $('.recent > p').hover(function(){
-      $('.recent').css({
-        'background-color':'rgb(212, 42, 88)'
-      });
-    },function(){
-      $('.recent').css({
-        'background-color':'#266BA8'
-      });
-    });
-
-    $('span').css({
-      'margin-top':($('.writing').outerHeight()-$('span').outerHeight())/2+'px'
-    });
-    //수정버튼을 누를때.
-    $('.modify_btn').on('click',function(){
-      click_modify(box,$('textarea').val());
-    });
   }
   else{
     alert('이미 상담을 등록하셨습니다!');
   }
 });
 
-function click_modify(box,text){
 
-  $('.recent_view').remove();
-  $('<textarea class="modify_textarea">').css({
-    'width':'100%',
-    'height':$(box).outerHeight()*0.6+'px',
-    'border':'none'
-  }).appendTo(box);
-  $('.modify_textarea').val(text);
-};
 
 function getContents()
 {
