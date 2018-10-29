@@ -1,23 +1,22 @@
 
-.writing,.recent{
+.writing{
   padding:0;
   margin-bottom:5%;
   background-color: #266BA8 ;
   border-radius: 15px;
   position: relative;
-
+  cursor: pointer;
 }
-.writing > p,.recent > p{
+.writing > p{
   position: absolute;
   right: 0;
   color:white;
   margin:0;
   font-size: 3vw;
-  cursor: pointer;
 
 }
 
-.writing_wrapper,.read_wrapper{
+.writing_wrapper{
   background-color: white;
   width: 95%;
 }
@@ -28,7 +27,7 @@
 }
 .box,.writing_box{
   background: white;
-
+  
 
 }
 .box > p,.writing_box > p{

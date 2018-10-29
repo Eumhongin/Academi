@@ -13,9 +13,3 @@ $('.sl_form').css({
   'height': $(window).outerHeight() * 0.8 + 'px',
   'margin-top': $(window).outerHeight() * 0.1 + 'px'
 });
-$('td > input').css({
-  'height':$('td').outerHeight()+'px'
-});
-$('.address > input').css({
-
-})
