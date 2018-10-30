@@ -59,7 +59,7 @@ $('.writing > p').on('click',function(){
     });
     //수정버튼을 누를때.
     var tempdata = $('textarea').val();
-    $('.modify_btn').on('click',function(){
+    $('.modify_btn').on('click',function(){ 
       if($(this).hasClass('Btn_Actived')){
         //
         let r = confirm("수정 하시겠습니까?");
