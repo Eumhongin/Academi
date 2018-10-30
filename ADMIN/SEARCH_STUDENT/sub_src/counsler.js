@@ -58,6 +58,7 @@ $('.writing > p').on('click',function(){
       'margin-top':($('.writing').outerHeight()-$('span').outerHeight())/2+'px'
     });
     //수정버튼을 누를때.
+<<<<<<< HEAD
     var tempdata = $('textarea').val();
     $('.modify_btn').on('click',function(){ 
       if($(this).hasClass('Btn_Actived')){
@@ -77,6 +78,10 @@ $('.writing > p').on('click',function(){
      else{
        click_modify(box,tempdata);
      }
+=======
+    $('.modify_btn').on('click',function(){
+      click_modify(box,$('textarea').val());
+>>>>>>> 2804698ea408119f97da51bc7f51f994fccb2839
     });
   }
   else{
@@ -101,6 +106,19 @@ function free_modify(){
   $('.modify_textarea').remove();
 
 }
+
+function click_modify(box,text){
+
+  $('.recent_view').remove();
+  $('<textarea class="modify_textarea">').css({
+    'width':'100%',
+    'height':$(box).outerHeight()*0.6+'px',
+    'border':'none'
+  }).appendTo(box);
+  $('.modify_textarea').val(text);
+};
+
+
 
 function getContents()
 {
@@ -145,10 +163,9 @@ function setContents(set)
 {
   $.ajax({
     url:"sub_src/setAdviceContents.php",
-    dataType:"json",
     type:"POST",
     data :{set:set},
-    success:function(result)
+    success:function()
     {
       alert('완료');
     },
