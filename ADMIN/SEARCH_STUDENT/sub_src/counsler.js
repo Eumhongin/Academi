@@ -64,6 +64,8 @@ $('.writing > p').on('click',function(){
   }
 });
 
+
+
 function click_modify(box,text){
 
   $('.recent_view').remove();
@@ -74,6 +76,8 @@ function click_modify(box,text){
   }).appendTo(box);
   $('.modify_textarea').val(text);
 };
+
+
 
 function getContents()
 {
@@ -118,10 +122,9 @@ function setContents(set)
 {
   $.ajax({
     url:"sub_src/setAdviceContents.php",
-    dataType:"json",
     type:"POST",
     data :{set:set},
-    success:function(result)
+    success:function()
     {
       alert('완료');
     },
