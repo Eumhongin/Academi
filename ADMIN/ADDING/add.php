@@ -119,10 +119,10 @@
               <br>
               <div class="ALFS_CheckBox row">
                 <!-- 최소 1개 이상 선택하도록 해야함. -->
-                <li><input type="checkbox" name="type[]" value="사고력"><span>사고력</span></li>
-                <li><input type="checkbox" name="type[]" value="이해력"><span>이해력</span></li>
-                <li><input type="checkbox" name="type[]" value="문제해결력"><span>문제해결력</span></li>
-                <li><input type="checkbox" name="type[]" value="창의력"><span>창의력</span></li>
+                <li><input type="checkbox" name="type[]" value="0"><span>사고력</span></li>
+                <li><input type="checkbox" name="type[]" value="1"><span>이해력</span></li>
+                <li><input type="checkbox" name="type[]" value="2"><span>문제해결력</span></li>
+                <li><input type="checkbox" name="type[]" value="3"><span>창의력</span></li>
               </div>
               <br>
 

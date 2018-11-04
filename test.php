@@ -23,33 +23,13 @@
       </script>
   </head>
   <body>
-    <?php
-    include("module\dbConnect.php");
-    include("module\dbContentsEcho.php");
-
-    date_default_timezone_set('Asia/Seoul');
-
-
-
-    $abc = "aaaa1111";
-
-    $sql = "SELECT * FROM advice WHERE user_id = '$abc' ORDER BY registerdate DESC";
-
-
-    $data[0] = DB_echo($sql, 'contents');
-    $data[1] = DB_echo($sql, 'registerdate');
-
-    echo $sql."</br>";
-    print_r($data);
-    echo "</br>";
-    echo $data[0][0]."</br>";
-    echo $data[0][1]."</br>";
-    echo $data[0][2]."</br>";
-    echo $data[0][3]."</br>";
-    echo date("Y-m-d" ,strtotime($data[1][0]))."</br>";
-    echo date("Y-m-d H:i:s");
-
-    ?>
+    <form class="" action="test1.php" method="post">
+      <li><input type="checkbox" name="type[]" value="0"><span>사고력</span></li>
+      <li><input type="checkbox" name="type[]" value="1"><span>이해력</span></li>
+      <li><input type="checkbox" name="type[]" value="2"><span>문제해결력</span></li>
+      <li><input type="checkbox" name="type[]" value="3"><span>창의력</span></li>
+      <button class="ALFS_Submit" type="submit">추가</button>
+    </form>
 
   </body>
 </html>

@@ -72,7 +72,7 @@ $('.writing > p').on('click',function(){
               textarea.text(temp).appendTo(box);  //수정할떄 썼던 내용을 다시 div에 담아서 붙임.
               alert('수정한걸 넣는 AJAX를 작성해주세요!!!!');
               $.ajax({
-                url:,
+                url:"sub_src/updateAdviceContents.php",
                 type:"POST",
                 data:{contents:temp},
                 success:function()
@@ -130,20 +130,23 @@ function getContents()
     dataType:"json",
     success:function(result)
     {
-      for(var idx = 0; idx < result[0].length; idx++)
+      if(result[0].length != null)
       {
-        var wrapper = $('<div>').addClass('read_wrapper').appendTo('.read');
-        var box = $('<div>').addClass('box').appendTo(wrapper);
-        var p = $('<p>').text(result[1][idx]+' 상담내용').appendTo(box);
-        var hr = $('<hr>').appendTo(box);
-        var content = $('<div>').text(result[0][idx]).appendTo(box);
-        box.css({
-          'height':$('.writing_wrapper').outerHeight()+'px'
-        });
-        content.css({
-          'word-break':'break-all',
-          'margin':'1% 0 1% 0'
-        });
+        for(var idx = 0; idx < result[0].length; idx++)
+        {
+          var wrapper = $('<div>').addClass('read_wrapper').appendTo('.read');
+          var box = $('<div>').addClass('box').appendTo(wrapper);
+          var p = $('<p>').text(result[1][idx]+' 상담내용').appendTo(box);
+          var hr = $('<hr>').appendTo(box);
+          var content = $('<div>').text(result[0][idx]).appendTo(box);
+          box.css({
+            'height':$('.writing_wrapper').outerHeight()+'px'
+          });
+          content.css({
+            'word-break':'break-all',
+            'margin':'1% 0 1% 0'
+          });
+        }
       }
 
       // 오늘 해당 학생에게 글을 썻으면 다시 못쓰게하귀 휘한 췌크

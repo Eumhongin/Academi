@@ -27,23 +27,35 @@ if($_FILES['upload'] != null)
   // print_r($_FILES['upload']['error']);
 // echo "<script>alert('".$file_name.$_FILES['upload']['name'].$uploadfile."');</script>";
   $type_list = $_POST['type'];
-  $type = '';
+  $type_val = [0,0,0,0];
   $idx = 0;
   while($type_list[$idx] != null)
   {
-    $type .= $type_list[$idx++]."_";
+    $type_val[$type_list[$idx]] = 1;
+    $idx++;
   }
 
-  if($type == ''){$type = '없음';}
 
-  $sql = "INSERT INTO question_image (image, grade, page, number,level,book_name,type_index_num,type)
-  VALUES ('".$file_name."','".$_POST[grade]."' ,'".$_POST[page]."', '".$_POST[num]."', $_POST[difficult],$book_num[0] , $type_index_num[0] ,'".$type."')";
+  $sql = "INSERT INTO question_image (image, grade, page, number, level, book_num, type_index_num, type1, type2, type3, type4)
+  VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult],$book_num[0] , $type_index_num[0] , $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
   $result = mysqli_query($conn, $sql);
   if($result != null)
   {
     echo "<script>alert('DB 등록 성공');</script>";
   }else
   {
+    echo $sql."</br>";
+    print_r($type_val);
+    echo $file_name."</br>";
+    echo $_POST['grade']."</br>";
+    echo $_POST['page']."</br>";
+    echo $_POST['difficult']."</br>";
+    echo $book_num[0]."</br>";
+    echo $type_index_num[0]."</br>";
+    echo "<script>alert('".$type_val[0]."');</script>";
+    echo "<script>alert('".$type_val[1]."');</script>";
+    echo "<script>alert('".$type_val[2]."');</script>";
+    echo "<script>alert('".$type_val[3]."');</script>";
     echo "<script>alert('DB 등록 실패. 입력내용 확인 바람.');</script>";
   }
 

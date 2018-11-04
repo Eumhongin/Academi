@@ -8,7 +8,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>문제추가하기</title>
+    <title>문제출력하기</title>
     <script src="../js/jquery-min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="../fonts/font.css">
     <link rel="stylesheet" href="../css/main.css">
