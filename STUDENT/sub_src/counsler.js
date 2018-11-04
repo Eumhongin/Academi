@@ -79,22 +79,22 @@ function getContents()
 
 
 
-function setContents(set)
-{
-  $.ajax({
-    url:"sub_src/setAdviceContents.php",
-    dataType:"json",
-    type:"POST",
-    data :{set:set},
-    success:function(result)
-    {
-      alert('완료');
-    },
-    error:function(request,status,error){
-      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-    }
-  });
-}
+// function setContents(set)
+// {
+//   $.ajax({
+//     url:"sub_src/setAdviceContents.php",
+//     dataType:"json",
+//     type:"POST",
+//     data :{set:set},
+//     success:function(result)
+//     {
+//       alert('완료');
+//     },
+//     error:function(request,status,error){
+//       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+//     }
+//   });
+// }
 
 
 

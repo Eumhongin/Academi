@@ -80,7 +80,7 @@
               <table>
                 <tbody>
                   <td>이름</td>
-<<<<<<< HEAD
+
                   <td><input type="text" name="stu_name" value="" placeholder="<?php echo $_SESSION['stu_name'][0]; ?> "></td>
                   <td>휴대폰</td>
                   <td class="target"> <input type="text" name="stu_phone_num" value="" placeholder="<?php echo $_SESSION['stu_phone_num'][0]; ?>"> </td>
@@ -104,7 +104,7 @@
                 <tbody>
                   <td>계열</td>
                   <td><input type="text" name="stu_affiliation" value="" placeholder="<?php echo $_SESSION['stu_affiliation'][0]; ?>"> </td>
-=======
+
                   <td><input type="text" name="stu_name" value="<?php echo $_SESSION['stu_name'][0]; ?>" placeholder=" "></td>
                   <td>휴대폰</td>
                   <td class="target"> <input type="text" name="stu_phone_num" value="<?php echo $_SESSION['stu_phone_num'][0]; ?>" placeholder=""> </td>
@@ -128,7 +128,7 @@
                 <tbody>
                   <td>계열</td>
                   <td><input type="text" name="stu_affiliation" value="<?php echo $_SESSION['stu_affiliation'][0]; ?>" placeholder=""> </td>
->>>>>>> 2804698ea408119f97da51bc7f51f994fccb2839
+
                   <td>목표대학</td>
                   <td>하버드</td>
                   <td>성적</td>

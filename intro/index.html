@@ -58,9 +58,10 @@
         <h1 class="time" v-text="currentTime"></h1>
         <!-- <h3 class="title" v-text="message"></h3> -->
       </div>
-      <form class="loginform" action="Temp.html" method="post">
+      <form class="loginform" action="../LOG_member.php" method="post">
         <p>로그인</p>
-        <input class="id" type="text" name="ID" value="" required placeholder="ex)zizon0wpxm@naver.com">
+        <input class="id" type="text" autocomplete="off" name="LOG_id" value="" required placeholder="ID">
+        <input class="id" type="password" name="LOG_pw" value="" required placeholder="Password">
         <button type="submit" name="button">로그인</button>
       </form>
     </div>

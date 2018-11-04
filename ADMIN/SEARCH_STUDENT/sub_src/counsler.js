@@ -66,10 +66,24 @@ $('.writing > p').on('click',function(){
           if (r == true) {
               //확인 눌렀을떄.
               let temp = $('.modify_textarea').val();
+              alert(temp);
               tempdata = temp;
               free_modify();
               textarea.text(temp).appendTo(box);  //수정할떄 썼던 내용을 다시 div에 담아서 붙임.
               alert('수정한걸 넣는 AJAX를 작성해주세요!!!!');
+              $.ajax({
+                url:,
+                type:"POST",
+                data:{contents:temp},
+                success:function()
+                {
+                  alert('완료');
+                },
+                error:function(request,status,error){
+                  alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+
+              });
           } else {
               //취소 눌렀을때
           }
@@ -84,6 +98,8 @@ $('.writing > p').on('click',function(){
   }
 });
 
+
+
 function click_modify(box,text){
   $('.recent_view').remove();
   $('<textarea class="modify_textarea">').css({
@@ -96,11 +112,16 @@ function click_modify(box,text){
   $('.modify_textarea').val(text);
   $('.modify_btn').addClass('Btn_Actived');
 };
+
+
+
 function free_modify(){
   $('.modify_btn').removeClass('Btn_Actived');
   $('.modify_textarea').remove();
 
 }
+
+
 
 function getContents()
 {
@@ -145,10 +166,9 @@ function setContents(set)
 {
   $.ajax({
     url:"sub_src/setAdviceContents.php",
-    dataType:"json",
     type:"POST",
     data :{set:set},
-    success:function(result)
+    success:function()
     {
       alert('완료');
     },

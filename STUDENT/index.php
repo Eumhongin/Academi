@@ -135,47 +135,7 @@
     </section>
 
     <!--dialog는 스케줄 변경할 떄 사용  -->
-    <div id="dialog" title="변경 & 삭제 선택">
-      변경, 삭제를 선택하세요.
-    </div>
-    <div id="dialog1" title="과목 선택">
-      과목을 선택하세요.
-    </div>
-    <?php
 
-    /*if(!isset($_SESSION['LOG_id']))
-    {
-      echo ("<script>alert('로그인해야 이용가능 합니다.');</script>");
-      echo("<script>location.href = '../index.html';</script>");
-    }*/
-
-    // echo ("이름 : $_SESSION[name]<br/>\n");
-    // echo ("학교 : $_SESSION[school_name]<br/>\n");
-    // echo ("학년 : $_SESSION[grade]<br/>\n");
-     ?>
-
-    <?php     // 파일에 데이터를 써내려가는건 http://araikuma.tistory.com/164 에서 참고 할것
-    //readfile("stu_history/$_SESSION[name].txt");
-    // $lines = @file("stu_history/$_SESSION[name].txt") or $result = "파일을 못 읽음.";
-    // if($lines != null)
-    // {
-    //   $result = '<table border ="1">';  // ★★★★★CSS입혀서 이쁘게 뽑을 수 있는지 해볼것,
-    //   $result .= "<tr><th>NAME</th><th>BOOK_NAME</th><th>TYPE_MATE</th><th>TYPE_INDEX</th><th>PAGE</th><th>NUMBER</th></tr>";
-    //   for($i = 0; $i < count($lines); $i++)
-    //   {
-    //     $result .= "<tr>";
-    //     $arr = explode(",", $lines[$i]);
-    //     for($j = 0; $j<6; $j++)
-    //     {
-    //       $result .= "<td>{$arr[$j]}</td>";
-    //     }
-    //     $result .= "</tr>";
-    //   }
-    //   $result .= "</table>";
-    // }
-    //
-    // echo $result;
-     ?>
 
      <script src="js/fullcalender.js" charset="utf-8"></script>
      <script src="js/search.js" charset="utf-8"></script>
