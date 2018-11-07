@@ -28,3 +28,45 @@ var calendar = $('#calendar').fullCalendar({
   selectHelper: true
 
 });
+var calendar = $('#calendar_name').fullCalendar({
+  editable:false,
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek,agendaDay,listWeek'
+  },
+
+  events: '../fullcalendar/fullCalendar_load.php',
+  navLinks: true, // can click day/week names to navigate views
+  selectable: true,
+  selectHelper: true
+
+}); 
+var calendar = $('#calendar_name1').fullCalendar({
+  editable:false,
+  header: {
+    left: 'prev,next today',
+    center: 'title',
+    right: 'month,agendaWeek,agendaDay,listWeek'
+  },
+
+  events: '../fullcalendar/fullCalendar_load.php',
+  navLinks: true, // can click day/week names to navigate views
+  selectable: true,
+  selectHelper: true
+
+});
+// var calendar = $('#calendar_선생님이름').fullCalendar({
+//   editable:false,
+//   header: {
+//     left: 'prev,next today',
+//     center: 'title',
+//     right: 'month,agendaWeek,agendaDay,listWeek'
+//   },
+//
+//   events: '../fullcalendar/fullCalendar_load.php',
+//   navLinks: true, // can click day/week names to navigate views
+//   selectable: true,
+//   selectHelper: true
+//
+// });

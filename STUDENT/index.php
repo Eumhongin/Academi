@@ -130,7 +130,7 @@
         <div id='calendar'>
 
         </div>
-
+        <a href="check_teacher_schedule.html">시간표 짜러가기</a>
       </div>
     </section>
 
