@@ -20,13 +20,19 @@
   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
   <script type="text/javascript" src="../fullcalendar-3.9.0/fullcalendar.min.js"></script>
 
+
+  <script type="text/javascript">
+  $(document).ready(function(){
+    // var user_id;
+  });
+  </script>
 </head>
 
 <body>
   <div class="left">
     <div class="student_schadule">
       <!-- 학생의 스케쥴 넣으면댐.. -->
-      <h1>임중섭의 스케쥴</h1>
+      <h1>나의 스케쥴</h1>
       <div id='calendar'>
 
       </div>
@@ -35,20 +41,25 @@
   </div>
   <div class="right">
     <div class="teacher_Schedule">
-      <div class="teacher_name">
-        <p><h1>Teacher Name</h1></p>
-        <div id='calendar_name'>
 
-        </div>
 
-      </div>
-      <div class="teacher_name">
+      <!-- <div class="teacher_name"> -->
+        <!--선생님 한명당 이거 한개 씩 추가-->
+        <!-- <p><h1>Teacher Name</h1></p>
+        <div id='calendar_name'> -->
+           <!--calendar_이름 이렇게 바꾸기 -->
+
+        <!-- </div>
+      </div> -->
+
+
+
+      <!-- <div class="teacher_name">
         <p><h1>Teacher Name</h1></p>
         <div id='calendar_name1'>
 
         </div>
-
-      </div>
+      </div> -->
       <!-- div teacher_name을 반드시 복사해서 붙이는 방식으로 할것. name 칸에는 선생님의 이름이 들어가야함
       ex)div class = 'teacher_hongin -->
       <!-- 추가시 js/fullCalendar.js 참조할것 -->
@@ -56,6 +67,7 @@
     </div>
   </div>
   <script src="sub_src/check_teacher.js" charset="utf-8"></script>
+  <script src="sub_src/get_teacher.js" charset="utf-8"></script>
   <script src="js/fullcalender.js" charset="utf-8"></script>
 
 </body>
