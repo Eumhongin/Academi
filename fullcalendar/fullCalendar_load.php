@@ -49,7 +49,6 @@
   }
 
 
-
   $sun_sql = "SELECT * FROM sun WHERE user_id='".$_SESSION[stu_id][0]."'";
   $mon_sql = "SELECT * FROM mon WHERE user_id='".$_SESSION[stu_id][0]."'";
   $tue_sql = "SELECT * FROM tue WHERE user_id='".$_SESSION[stu_id][0]."'";
