@@ -103,30 +103,6 @@
                 </tbody>
                 <tbody>
                   <td>계열</td>
-                  <td><input type="text" name="stu_affiliation" value="" placeholder="<?php echo $_SESSION['stu_affiliation'][0]; ?>"> </td>
-
-                  <td><input type="text" name="stu_name" value="<?php echo $_SESSION['stu_name'][0]; ?>" placeholder=" "></td>
-                  <td>휴대폰</td>
-                  <td class="target"> <input type="text" name="stu_phone_num" value="<?php echo $_SESSION['stu_phone_num'][0]; ?>" placeholder=""> </td>
-                  <td class="target1 c">팀장</td>
-                  <td class="target2"> <input type="text" name="stu_team_leader" value="<?php echo $_SESSION['stu_team_leader'][0]; ?>" placeholder=""> </td>
-                </tbody>
-                <tbody>
-                  <td>학교</td>
-                  <td> <input type="text" name="stu_school_name" value="<?php echo $_SESSION['stu_school_name'][0]; ?>" placeholder=""> </td>
-                  <td>보호자<br />연락처</td>
-                  <td> <input type="text" name="stu_parents_phone_num" value="<?php echo $_SESSION['stu_parents_phone_num'][0]; ?>" placeholder=""> </td>
-                  <td class="c">매니저</td>
-                  <td> <input type="text" name="stu_manager_name" value="<?php echo $_SESSION['stu_manager_name'][0]; ?>" placeholder=""> </td>
-                </tbody>
-                <tbody>
-                  <td>학년</td>
-                  <td> <input type="text" name="stu_grade" value="<?php echo $_SESSION['stu_grade'][0]; ?>" placeholder=""> </td>
-                  <td>주소</td>
-                  <td class="address"><input type="text" name="stu_address" value="<?php echo $_SESSION['stu_address'][0]; ?>" placeholder=""> </td>
-                </tbody>
-                <tbody>
-                  <td>계열</td>
                   <td><input type="text" name="stu_affiliation" value="<?php echo $_SESSION['stu_affiliation'][0]; ?>" placeholder=""> </td>
 
                   <td>목표대학</td>
