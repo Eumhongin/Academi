@@ -1,0 +1,54 @@
+@font-face {
+  font-family: BS1;
+  src: local(a1),
+       url(a1.ttf) format('truetype'),
+       url(a1.woff) format('woff');
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-10FFFF;
+}
+@font-face {
+  font-family: BS2;
+  src: local(a2),
+       url(a2.ttf) format('truetype'),
+       url(a2.woff) format('woff');
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-10FFFF;
+}
+@font-face {
+  font-family: BS3;
+  src: local(a3),
+       url(a3.ttf) format('truetype'),
+       url(a3.woff) format('woff');
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-10FFFF;
+}
+@font-face {
+  font-family: BS4;
+  src: local(a4),
+       url(a4.ttf) format('truetype'),
+       url(a4.woff) format('woff');
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-10FFFF;
+}
+@font-face {
+  font-family: BS5;
+  src: local(a5),
+       url(a5.ttf) format('truetype'),
+       url(a5.woff) format('woff');
+  font-style: normal;
+  font-weight: normal;
+  unicode-range: U+0-10FFFF;
+}
+@font-face {
+  font-family: 'TR';
+  src:local(trump_gothic_east_bold),
+    url(trump_gothic_east_bold.ttf) format('truetype'),
+    url(trump_gothic_east_bold.woff) format('woff');
+    font-style: normal;
+    font-weight: normal;
+    unicode-range: U+0-10FFFF;
+}
