@@ -71,8 +71,8 @@
                   //수 1, 수 2 이런식으로도 선택할 수 있게 해야함
 
                   //문제 세부 유형
-                  $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index", "type_index_name");
-                  $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index", "type_index_num");
+                  $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE hide=1", "type_index_name");
+                  $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
                 ?>
                 <select class="ALFSO_Subject" name="subject" required>
                   <option value="" selected>과목</option>
@@ -121,10 +121,10 @@
               <br>
               <div class="ALFS_CheckBox row">
                 <!-- 최소 1개 이상 선택하도록 해야함. -->
-                <li><input type="checkbox" name="type[]" value="사고력"><span>사고력</span></li>
-                <li><input type="checkbox" name="type[]" value="이해력"><span>이해력</span></li>
-                <li><input type="checkbox" name="type[]" value="문제해결력"><span>문제해결력</span></li>
-                <li><input type="checkbox" name="type[]" value="창의력"><span>창의력</span></li>
+                <li><input type="checkbox" name="type[]" value="0"><span>사고력</span></li>
+                <li><input type="checkbox" name="type[]" value="1"><span>이해력</span></li>
+                <li><input type="checkbox" name="type[]" value="2"><span>문제해결력</span></li>
+                <li><input type="checkbox" name="type[]" value="3"><span>창의력</span></li>
               </div>
               <br>
 

@@ -14,14 +14,24 @@
   <body>
     <?php
     print_r($_POST);
+
+    $type_list = $_POST['type'];
+    $type_val = [0,0,0,0];
+    $idx = 0;
+    while($type_list[$idx] != null)
+    {
+      $type_val[$type_list[$idx]] = 1;
+      $idx++;
+    }
+
       // 타입 받아오기.
-      $type_list = $_POST['type'];
-      $type = '';
-      $idx = 0;
-      while($type_list[$idx] != null)
-      {
-        $type .= $type_list[$idx++]."_";
-      }
+      // $type_list = $_POST['type'];
+      // $type = '';
+      // $idx = 0;
+      // while($type_list[$idx] != null)
+      // {
+      //   $type .= $type_list[$idx++]."_";
+      // }
       echo "</br>".$type;
       $sql =
       "SELECT image FROM question_image
@@ -29,7 +39,10 @@
         and type_index_num = '".$_POST['question_type']."'
         and book_num = '".$_POST['book_name']."'
         and grade = '".$_POST['grade']."'
-        and type LIKE '%".$type."%'
+        and type1 = '".$type_val[0]."'
+        and type2 = '".$type_val[1]."'
+        and type3 = '".$type_val[2]."'
+        and type4 = '".$type_val[3]."'
       order by rand()
       limit 10";
 

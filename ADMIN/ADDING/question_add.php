@@ -35,9 +35,10 @@ if($_FILES['upload'] != null)
     $idx++;
   }
 
-
   $sql = "INSERT INTO question_image (image, grade, page, number, level, book_num, type_index_num, type1, type2, type3, type4)
-  VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult],$book_num[0] , $type_index_num[0] , $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
+  VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult], $_POST[book_name], $_POST[question_type], $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
+  // $sql = "INSERT INTO question_image (image, grade, page, number, level, book_num, type_index_num, type1, type2, type3, type4)
+  // VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult],$book_num[0] , $type_index_num[0] , $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
   $result = mysqli_query($conn, $sql);
   if($result != null)
   {

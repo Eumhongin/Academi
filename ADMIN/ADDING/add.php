@@ -65,16 +65,18 @@
                 <?php
                   // 문제지 이름
                   $book_name = DB_echo("SELECT book_name FROM question_book_name","book_name");
+                  $book_num = DB_echo("SELECT book_num FROM question_book_name","book_num");
 
                   //문제 유형
                   //수 1, 수 2 이런식으로도 선택할 수 있게 해야함
 
                   //문제 세부 유형
-                  $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index", "type_index_name");
+                  $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE hide=1", "type_index_name");
+                  $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
                 ?>
                 <select class="ALFSO_Subject" name="subject" required>
                   <option value="" selected>과목</option>
-                  <option value="수학" >수학</option>
+                  <option value="2" >수학</option>
 
                 </select>
                 <select class="ALFSO_Grade" name="grade" required>
@@ -88,7 +90,7 @@
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
                     {
-                      echo "<option value='".$book_name[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
                     }
                   ?>
                   <!-- <option value="0" >1</option>
@@ -102,7 +104,7 @@
                   <?php
                     for($idx = 1; $idx <= count($type_index_name); $idx++)
                     {
-                      echo "<option value='".$type_index_name[$idx-1]."'>".$type_index_name[$idx-1]."</option>";
+                      echo "<option value='".$type_index_num[$idx-1]."'>".$type_index_name[$idx-1]."</option>";
                     }
                   ?>
                   <!-- <option value="0" >1</option>
