@@ -79,6 +79,15 @@
                 <button type = "submit"/>정보저장</button>
               <table>
                 <tbody>
+                  <td>아이디</td>
+
+                  <td><input type="text" name="stu_name" value="" placeholder="<?php echo $_SESSION['stu_name'][0]; ?> "></td>
+                  <td>비밀번호</td>
+                  <td class="target"> <input type="text" name="stu_phone_num" value="" placeholder="<?php echo $_SESSION['stu_phone_num'][0]; ?>"> </td>
+                  <td class="target1 c">분류</td>
+                  <td class="target2"> <input type="text" name="stu_team_leader" value="" placeholder="<?php echo $_SESSION['stu_team_leader'][0]; ?>"> </td>
+                </tbody>
+                <tbody>
                   <td>이름</td>
 
                   <td><input type="text" name="stu_name" value="" placeholder="<?php echo $_SESSION['stu_name'][0]; ?> "></td>
@@ -117,10 +126,7 @@
 
             </div>
           </div>
-          <div class="sfs_frame">
-            <p>상담내용</p>
-            <iframe src="counsler.html"></iframe>
-          </div>
+
 
 
           <?php
@@ -132,21 +138,11 @@
       </div>
 
       <!-- /////////////오른쪽//////////// -->
-      <div class="search_right">
-        <div id='calendar'>
 
-        </div>
-
-      </div>
     </section>
 
     <!--dialog는 스케줄 변경할 떄 사용  -->
-    <div id="dialog" title="변경 & 삭제 선택">
-      변경, 삭제를 선택하세요.
-    </div>
-    <div id="dialog1" title="과목 선택">
-      과목을 선택하세요.
-    </div>
+
     <?php
 
     /*if(!isset($_SESSION['LOG_id']))
