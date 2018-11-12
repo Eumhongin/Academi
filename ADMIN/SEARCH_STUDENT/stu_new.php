@@ -126,10 +126,7 @@
 
             </div>
           </div>
-          <div class="sfs_frame">
-            <p>상담내용</p>
-            <iframe src="counsler.html"></iframe>
-          </div>
+
 
 
           <?php
@@ -141,21 +138,11 @@
       </div>
 
       <!-- /////////////오른쪽//////////// -->
-      <div class="search_right">
-        <div id='calendar'>
 
-        </div>
-
-      </div>
     </section>
 
     <!--dialog는 스케줄 변경할 떄 사용  -->
-    <div id="dialog" title="변경 & 삭제 선택">
-      변경, 삭제를 선택하세요.
-    </div>
-    <div id="dialog1" title="과목 선택">
-      과목을 선택하세요.
-    </div>
+
     <?php
 
     /*if(!isset($_SESSION['LOG_id']))
