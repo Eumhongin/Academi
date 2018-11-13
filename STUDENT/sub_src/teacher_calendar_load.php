@@ -34,12 +34,41 @@ function getEventData($sql)
   while($row = mysqli_fetch_array($result))
   {
     $GLOBALS['data'][$GLOBALS['data_idx']]['id'] = $row["no"];
-    // $GLOBALS['data'][$GLOBALS['data_idx']]['title'] = $row["title"];
-    $GLOBALS['data'][$GLOBALS['data_idx']]['title'] = '***';
+    $GLOBALS['data'][$GLOBALS['data_idx']]['title'] = $row["title"];
+    // $GLOBALS['data'][$GLOBALS['data_idx']]['title'] = '***';
     $GLOBALS['data'][$GLOBALS['data_idx']]['start'] = $row["start_event"];
     $GLOBALS['data'][$GLOBALS['data_idx']]['end'] = $row["end_event"];
-    // $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = $row["object"];
+    $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = $row["object"];
 
+    switch ($GLOBALS['data'][$GLOBALS['data_idx']]['color']) {
+      case 0: //국
+        // $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#FAAC58';
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#FF00BF';
+        break;
+      case 1: //영
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#D0FA58';
+        break;
+      case 2: //수
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#58FAF4';
+        break;
+      case 3: //사
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#8258FA';
+        break;
+      case 4: //과
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#848484';
+        break;
+      case 5: //선생님듦만 사용 기타
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#8CBA8B';
+        break;
+      case 6: //학생이 선생한테 예약
+        $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#6E6E6E';
+        break;
+
+
+      default:
+        // $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#378006';
+        break;
+    }
     $GLOBALS['data_idx']++;
   }
   return $week;

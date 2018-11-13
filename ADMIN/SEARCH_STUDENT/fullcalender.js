@@ -153,10 +153,11 @@ function setSelectEvent(object)
   var title = event_title;
   var dayOfWeek = DAY_name(start);
   var object = object; //과목
+  var check = 1;
   $.ajax({
     type : 'POST',
     url : '../../fullcalendar/fullCalendar_insert.php',
-    data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek, object:object},
+    data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek, object:object, check:check},
     success : function()
     {
       eventData = {

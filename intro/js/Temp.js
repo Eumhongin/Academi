@@ -1,5 +1,5 @@
 $('.Recent').on('click',function(){
-  alert('준비중');
+  document.location.href='../Teacher/Recent.html';
 });
 $('.Notice').on('click',function(){
   alert("준비중");

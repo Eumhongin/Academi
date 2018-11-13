@@ -32,7 +32,12 @@
         case 4: //과
           $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#848484';
           break;
-
+        case 5: //선생님듦만 사용 기타
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#8CBA8B';
+          break;
+        case 6: //학생이 선생한테 예약
+          $GLOBALS['data'][$GLOBALS['data_idx']]['color'] = '#6E6E6E';
+          break;
 
         default:
           // code...

@@ -3,6 +3,10 @@ var event_title;
 var event_start; // 스케줄 클릭시 해당 스케줄의 start time값을 저장하기 위한 변수eventClick:function(event)에서 사용
 var event_end;
 
+var teacher_num;
+var teacher_name;
+var teacher_id;
+
 var week=['sun','mon','tue','wed','thu','fri','sat'];//요일
 
 function DAY_name(date)//요일 받아오기
@@ -12,138 +16,163 @@ function DAY_name(date)//요일 받아오기
 }
 
 
+// 선생님 정보 받아오는 것
+$.ajax({
+  url:"../STUDENT/teacher_load/get_teacher.php",
+  dataType:"json",
+  success:function(result)
+  {
+
+      teacher_num = result[3][0];
+      teacher_name = result[3][1];
+      teacher_id = result[3][2];
+
+      teacher_calendar(teacher_num,teacher_name,teacher_id);
+  },
+  error:function(request,status,error){
+    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+  }
+});
+
+
+
+
 // page is now ready, initialize the calendar...
 // var result_index = 0;
-var calendar = $('#calendar').fullCalendar({
-  editable:true,
-  header: {
-    left: 'prev,next today',
-    center: 'title',
-    right: 'month,agendaWeek,agendaDay,listWeek'
-  },
+function teacher_calendar(teacher_num,teacher_name,teacher_id)
+{
 
-  events: '../fullcalendar/fullCalendar_load.php',
-  navLinks: true, // can click day/week names to navigate views
-  selectable: true,
-  selectHelper: true,
-  select: function(start, end) {
+  var calendar = $('#calendar').fullCalendar({
+    editable:true,
+    header: {
+      left: 'prev,next today',
+      center: 'title',
+      right: 'month,agendaWeek,agendaDay,listWeek'
+    },
+
+    events: '../STUDENT/teacher_load/teacher'+teacher_num+'.php',
+    navLinks: true, // can click day/week names to navigate views
+    selectable: true,
+    selectHelper: true,
+    select: function(start, end) {
 
 
-    event_start = $.fullCalendar.formatDate(start,"Y-MM-DD HH:mm:ss");
-    event_end = $.fullCalendar.formatDate(end,"Y-MM-DD HH:mm:ss");
-    event_title = prompt('Event Title');
-    if(event_title != null)// 타이틀 입력창을 껏을때 디이얼로그가 안뜨게
-    {
-      $("#dialog1").dialog("open");
-    }
+      event_start = $.fullCalendar.formatDate(start,"Y-MM-DD HH:mm:ss");
+      event_end = $.fullCalendar.formatDate(end,"Y-MM-DD HH:mm:ss");
+      event_title = prompt('Event Title');
+      if(event_title != null)// 타이틀 입력창을 껏을때 디이얼로그가 안뜨게
+      {
+        $("#dialog1").dialog("open");
+      }
 
-    $('#calendar').fullCalendar('unselect');
-  },
-  editable:true,
-  eventResize:function(event)
-  {
-    var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-    var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-    var dayOfWeek = DAY_name(start);
-    var title = event.title;
-    var id = event.id;
-    $.ajax({
-      type:'POST',
-      url:'../../fullcalendar/fullCalendar_update.php',
-      data:{title:title, start:start, end:end, id:id, dayOfWeek:dayOfWeek},
-      success:function(){
-       calendar.fullCalendar('refetchEvents');
-       alert('Event Update');
-     },
-     error:function(request,status,error){
-      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-    }
-    });
-  },
-
-  eventDragStop:function(event)//이벤트 드랍하기 전의 정보를 가져옴.
-  {
-    if(confirm("이동하시겠습니까?"))
+      $('#calendar').fullCalendar('unselect');
+    },
+    editable:true,
+    eventResize:function(event)
     {
       var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
       var dayOfWeek = DAY_name(start);
+      var title = event.title;
       var id = event.id;
-      //드랍 업데이트 구분 - 1) 원래있던 정보 삭제 따라서 fullCalendar_delte.php 사용
-
       $.ajax({
-        url:"../../fullcalendar/fullCalendar_delete.php",
-        type:"POST",
-        data:{id:id, dayOfWeek:dayOfWeek},
-        success:function()
-        {
-          alert("기존 데이터 삭제");
-         // calendar.fullCalendar('refetchEvents');
-         // alert("Event Updated");
+        type:'POST',
+        url:'../fullcalendar/fullCalendar_update.php',
+        data:{title:title, start:start, end:end, id:id, dayOfWeek:dayOfWeek},
+        success:function(){
+          calendar.fullCalendar('refetchEvents');
+          alert('Event Update');
         },
         error:function(request,status,error){
           alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
         }
       });
-    }else
+    },
+
+    eventDragStop:function(event)//이벤트 드랍하기 전의 정보를 가져옴.
     {
-      alert('이동취소');
-    }
-
-  },
-
-  eventDrop:function(event)
-  {
-
-     var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-     var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-     var title = event.title;
-     var dayOfWeek = DAY_name(start);
-     var id = event.id;
-     // var check = 2; //드랍 업데이트 구분 - 2) 옮긴 정보
-
-     alert(id);
-     $.ajax({
-      url:"../../fullcalendar/fullCalendar_insert.php",
-      type:"POST",
-      data:{title:title, start:start, end:end, dayOfWeek:dayOfWeek},
-      success:function()
+      if(confirm("이동하시겠습니까?"))
       {
-       calendar.fullCalendar('refetchEvents');
-       alert("Event Updated");
-      },
-      error:function(request,status,error){
-        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+        var dayOfWeek = DAY_name(start);
+        var id = event.id;
+        //드랍 업데이트 구분 - 1) 원래있던 정보 삭제 따라서 fullCalendar_delte.php 사용
+
+        $.ajax({
+          url:"../fullcalendar/fullCalendar_delete.php",
+          type:"POST",
+          data:{id:id, dayOfWeek:dayOfWeek},
+          success:function()
+          {
+            alert("기존 데이터 삭제");
+            // calendar.fullCalendar('refetchEvents');
+            // alert("Event Updated");
+          },
+          error:function(request,status,error){
+            alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+          }
+        });
+      }else
+      {
+        alert('이동취소');
       }
-     });
-  },
 
-  eventClick:function(event)
-  {
-    event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-    event_id = event.id;
+    },
 
-    $("#dialog").dialog("open");
+    eventDrop:function(event)
+    {
+
+      var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
+      var title = event.title;
+      var dayOfWeek = DAY_name(start);
+      var id = event.id;
+      // var check = 2; //드랍 업데이트 구분 - 2) 옮긴 정보
+
+      alert(id);
+      $.ajax({
+        url:"../fullcalendar/fullCalendar_insert.php",
+        type:"POST",
+        data:{title:title, start:start, end:end, dayOfWeek:dayOfWeek},
+        success:function()
+        {
+          calendar.fullCalendar('refetchEvents');
+          alert("Event Updated");
+        },
+        error:function(request,status,error){
+          alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+      });
+    },
+
+    eventClick:function(event)
+    {
+      event_start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
+      event_id = event.id;
+
+      $("#dialog").dialog("open");
       // if(confirm("Are you sure you want to remove it?"))
       // {
-      //   var id = event.id;
-      //   $.ajax({
-      //     url:"fullCalendar_delete.php",
-      //     type:"POST",
-      //     data:{id:id},
-      //     success:function()
-      //     {
-      //       calendar.fullCalendar('refetchEvents');
-      //       alert("Event Removed");
-      //       _delete = 0;
-      //     },
-      //     error:function(request,status,error){
-      //       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-      //     }
-      //   });
-      // }
-  }
+        //   var id = event.id;
+        //   $.ajax({
+          //     url:"fullCalendar_delete.php",
+          //     type:"POST",
+          //     data:{id:id},
+          //     success:function()
+          //     {
+            //       calendar.fullCalendar('refetchEvents');
+            //       alert("Event Removed");
+            //       _delete = 0;
+            //     },
+            //     error:function(request,status,error){
+              //       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+              //     }
+              //   });
+              // }
+            }
 
-});
+          });
+}
 
 
 function setSelectEvent(object)
@@ -153,10 +182,11 @@ function setSelectEvent(object)
   var title = event_title;
   var dayOfWeek = DAY_name(start);
   var object = object; //과목
+  var check1 = 2;
   $.ajax({
     type : 'POST',
-    url : '../../fullcalendar/fullCalendar_insert.php',
-    data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek, object:object},
+    url : '../fullcalendar/fullCalendar_insert.php',
+    data : {title : title, start:start, end:end, dayOfWeek:dayOfWeek, object:object, check:check1},
     success : function()
     {
       eventData = {
@@ -218,6 +248,10 @@ $(function(){
               $(this).dialog("close");
               setSelectEvent(4);
               alert('과학');
+            },"기타":function(){
+              $(this).dialog("close");
+              setSelectEvent(5);
+              alert('기타');
             }
         }
     });
@@ -239,10 +273,10 @@ $(function(){
 
                $.ajax({
                    type:'POST',
-                   url:'../../fullcalendar/fullCalendar_update.php',
+                   url:'../fullcalendar/fullCalendar_update.php',
                    data:{title:title, id:id, check:check, dayOfWeek:dayOfWeek},
                    success:function(result){
-                    calendar.fullCalendar('refetchEvents');
+                    $('#calendar').fullCalendar('refetchEvents');
                     alert('Event Update');
                     event_id = null;
                     event_start = null;
@@ -259,12 +293,12 @@ $(function(){
                 var id = event_id;
                 alert(dayOfWeek);
                 $.ajax({
-                  url:"../../fullcalendar/fullCalendar_delete.php",
+                  url:"../fullcalendar/fullCalendar_delete.php",
                   type:"POST",
                   data:{id:id, dayOfWeek:dayOfWeek},
                   success:function()
                   {
-                    calendar.fullCalendar('refetchEvents');
+                    $('#calendar').fullCalendar('refetchEvents');
                     alert("Event Removed");
                     event_id = null;
                     event_start = null;
