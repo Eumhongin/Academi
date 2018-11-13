@@ -105,6 +105,11 @@
         <input type="text" id="change_type" > 으로
         <button type="button" id="update_button">변경</button>
       </div></li>
+      <li>
+        <p>토큰생성</p>
+        <button type="button" name="button">토큰생성</button>
+
+      </li>
 
     </div>
 
