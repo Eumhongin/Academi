@@ -5,7 +5,7 @@ $('.Notice').on('click',function(){
   alert("준비중");
 });
 $('.Setting').on('click',function(){
-  document.location.href='../ADMIN/SETTING/setting.html';
+  document.location.href='../ADMIN/SETTING/setting.php';
 });
 $('.search').on('click',function(){
   document.location.href='../ADMIN/SEARCH_STUDENT/search_stu.php';

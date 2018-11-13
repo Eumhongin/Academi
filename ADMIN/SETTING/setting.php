@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+  session_start();
   include("..\..\module\dbConnect.php");
   include("..\..\module\dbContentsEcho.php");
  ?>
@@ -7,6 +8,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="../js/jquery-min.js" charset="utf-8"></script>
     <style media="screen">
       html,body{
         padding: 0;
@@ -105,15 +107,22 @@
         <input type="text" id="change_type" > 으로
         <button type="button" id="update_button">변경</button>
       </div></li>
-      <li>
-        <p>토큰생성</p>
-        <button type="button" name="button">토큰생성</button>
 
-      </li>
+
+        <?php
+        if($_SESSION['LOG_id'] == 'quhb2455')
+        {
+          echo "<li><p>토큰생성</p><button type='button' id='token' name='button'>토큰생성</button></li>";
+        }
+        ?>
+
+
+
 
     </div>
 
     <!-- <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">사진추가하기</button> -->
     <script src="test.js" charset="utf-8"></script>
+    <script src="tokenSET.js" charset="utf-8"></script>
   </body>
 </html>
