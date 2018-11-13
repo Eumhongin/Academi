@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+  include("..\..\module\dbConnect.php");
+  include("..\..\module\dbContentsEcho.php");
+ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -45,8 +49,6 @@
 
     </div>
     <div class="SET_Section container">
-      <p>학생정보</p>
-      <li><button onclick="location.href = 'INFO_STUDENT/stu_info_change.php'">학생 정보</button></li>
       <p>교사정보</p>
       <li><button onclick="location.href = 'INFO_TEACHER/tea_info_change.php'">교사 정보</button></li>
       <p>배경수정</p>
@@ -54,17 +56,59 @@
         <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
         <input class="Background_Setting" type="file" name="upload" id="selectedFile">
         <button class="picedit" type="submit">변경된 정보 저장하기</button>
-      </li>
       </form>
-      <p>유형 추가/제거</p>
-      <li><button onclick="location.href = 'INFO_type_index/math_type_index_change.php'">수학 유형추가/제거</button></li>
-      <li><button onclick="location.href = 'INFO_type_index/math_type_index_change.php'">영어 유형추가/제거</button></li>
-      <li><button onclick="location.href = 'INFO_type_index/math_type_index_change.php'">국어 유형추가/제거</button></li>
-      <li><button onclick="location.href = 'INFO_type_index/math_type_index_change.php'">사회 유형추가/제거</button></li>
-      <li><button onclick="location.href = 'INFO_type_index/math_type_index_change.php'">과학 유형추가/제거</button></li>
+      </li>
+      <p>유형및 책 수정</p>
+      <li><div class="modify">
+
+        <?php
+
+        $sql = "SELECT * FROM question_type_math_index WHERE hide=1";
+
+        $math = DB_echo($sql, 'type_index_name');
+        $math_num = DB_echo($sql, 'type_index_num');
+
+        $idx = 0;
+
+
+        ?>
+        <strong>삭제</strong>
+        <select class="" id="delete_type">
+          <option value="999">=== 유형 ===</option>
+          <?php
+          while($math[$idx] != null)
+          {
+            echo "<option value='".$math_num[$idx]."'>".$math[$idx++]."</option>";
+          }
+          $idx = 0;
+          ?>
+        </select>
+        <button type="button" id="delete_button">삭제</button>
+
+        <hr>
+        <strong>추가</strong>
+        <input type="text" id="insert_type" >
+        <button type="button" id="insert_button">추가</button>
+
+        <hr>
+        <strong>변경</strong>
+        <select class="" id="update_type">
+          <option value="999">=== 유형 ===</option>
+          <?php
+          while($math[$idx] != null)
+          {
+            echo "<option value='".$math_num[$idx]."'>".$math[$idx++]."</option>";
+          }
+          $idx = 0;
+          ?>
+        </select> 을(를)
+        <input type="text" id="change_type" > 으로
+        <button type="button" id="update_button">변경</button>
+      </div></li>
+
     </div>
 
     <!-- <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">사진추가하기</button> -->
-
+    <script src="test.js" charset="utf-8"></script>
   </body>
 </html>
