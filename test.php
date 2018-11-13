@@ -1,32 +1,29 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
-<?php session_start(); ?>
-=======
 <?php include('module/rand_string.php') ?>
->>>>>>> 0d6365472277ae90a6d4a3dd3fdcda5b99ed73b9
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script src="js/jquery-min.js" charset="utf-8"></script>
   </head>
   <body>
+
+
     <?php
-    echo genRandom();
+    $key = genRandom();
 
-<<<<<<< HEAD
-    $sql = "SELECT * FROM member WHERE stu_tea = 0";
-    $num[0] = DB_echo($sql,'school_name'); //선생님 번호
-    $num[1] = DB_echo($sql, 'name');
-    $num[2] = DB_echo($sql, 'id');
+    $conn = mysqli_connect('localhost','root','um0723','video');
+    echo $key;
+    $sql = "INSERT INTO hong(token) VALUES('$key')";
+    mysqli_query($conn,$sql);
+    mysqli_close($conn);
 
-    $sql2 = "SELECT * FROM member WHERE id ='".$_SESSION[LOG_id]."'";
-    $num[3][0] =DB_echo($sql2, 'school_name');
-    $num[3][1] =DB_echo($sql2, 'name');
-    $num[3][2] =DB_echo($sql2, 'id');
 
-    print_r($num[3][0]);
-=======
->>>>>>> 0d6365472277ae90a6d4a3dd3fdcda5b99ed73b9
      ?>
+     <form class="" action="deletetoken.php" method="post">
+       <input type="text" name="hello" value="">
+       <button type="submit" name="button">제출</button>
+     </form>
+
   </body>
 </html>
