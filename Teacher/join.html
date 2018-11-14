@@ -1,10 +1,65 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="font/font.css">
+  <style media="screen">
+  body *{
+    font-family: 'bs3';
+  }
+    html,body{
+      padding:0;
+      margin:0;
+      width: 100%;
+    }
+    body{
+      width: 70%;
+      margin:0 auto;
+    }
+    h1{
+      text-align: center;
+
+    }
+    .wrapper{
+      margin-top:10%;
+      padding:5%;
+      background-color: rgb(244, 244, 244);
+      box-shadow: 0 0 5px rgb(161, 161, 161);
+    }
+    form{
+      margin:0 auto;
+      text-align: center;
+      margin-top:10%;
+    }
+    input{
+      margin-top:1%;
+      width: 30%;
+      height: 40px;
+    }
+    button{
+      margin-top:10%;
+      margin-bottom:5%;
+      width: 100px;
+      height: 50px;
+      background-color: rgb(56, 186, 96);
+      color: white;
+      border:none;
+      box-shadow: 0 3px 5px rgb(168, 168, 168);
+      cursor: pointer;
+      transition: 0.2s;
+
+    }
+    button:hover{
+      background-color: rgb(56, 88, 186);
+    }
+    </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <h1>선생님 회원가입 페이지</h1>
     <form class="" action="../member.php" method="post">
       <input type="text" name="name" value="" placeholder="이름"><br>
       <input type="text" name="id" value="" placeholder="아이디 8자 이상, 특문x"><Br>
@@ -14,5 +69,7 @@
       <button type="submit" name="button">가입하기</button>
 
     </form>
-  </body>
+  </div>
+</body>
+
 </html>
