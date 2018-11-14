@@ -114,7 +114,7 @@ td{
 td > input{
   border : none;
   width: 100%;
-  
+
 
 }
 .c{
@@ -139,4 +139,21 @@ td > input{
 .sfs_frame > p{
   font-size: 1.5vw;
   font-family: 'bs2';
+}
+.changebtn{
+  margin-top:10%;
+  margin-bottom:5%;
+  width: 100%;
+  height: 50px;
+  background-color: rgb(56, 186, 96);
+  color: white;
+  border:none;
+  box-shadow: 0 3px 5px rgb(168, 168, 168);
+  cursor: pointer;
+  transition: 0.2s;
+  font-family: 'bs2';
+  font-size: 1.2vw;
+}
+.changebtn:hover{
+  background-color: rgb(56, 88, 186);
 }
