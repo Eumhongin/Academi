@@ -69,59 +69,59 @@
           <div class="sfs">
 
             <div class="sfs_top">
-              <span><?php echo $_SESSION['stu_name'][0]; ?> 학생</span>
+              <span>신규 학생</span>
               <hr>
               <p>학생 특징</p>
             </div>
             <div class="sfs_info">
               <p>상세정보</p>
-              <form class="" action="modify_stu_info.php" method="post">
-                <button type = "submit"/>정보저장</button>
+              <form class="" action="?????.php" method="post">
+
               <table>
                 <tbody>
                   <td>아이디</td>
 
-                  <td><input type="text" name="stu_name" value="" placeholder="<?php echo $_SESSION['stu_name'][0]; ?> "></td>
+                  <td><input type="text" name="stu_name" value=""></td>
                   <td>비밀번호</td>
-                  <td class="target"> <input type="text" name="stu_phone_num" value="" placeholder="<?php echo $_SESSION['stu_phone_num'][0]; ?>"> </td>
+                  <td class="target"> <input type="text" name="stu_phone_num" value=""> </td>
                   <td class="target1 c">분류</td>
-                  <td class="target2"> <input type="text" name="stu_team_leader" value="" placeholder="<?php echo $_SESSION['stu_team_leader'][0]; ?>"> </td>
+                  <td class="target2"> <input type="text" name="stu_team_leader" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>이름</td>
 
-                  <td><input type="text" name="stu_name" value="" placeholder="<?php echo $_SESSION['stu_name'][0]; ?> "></td>
+                  <td><input type="text" name="stu_name" value=""></td>
                   <td>휴대폰</td>
-                  <td class="target"> <input type="text" name="stu_phone_num" value="" placeholder="<?php echo $_SESSION['stu_phone_num'][0]; ?>"> </td>
+                  <td class="target"> <input type="text" name="stu_phone_num" value=""> </td>
                   <td class="target1 c">팀장</td>
-                  <td class="target2"> <input type="text" name="stu_team_leader" value="" placeholder="<?php echo $_SESSION['stu_team_leader'][0]; ?>"> </td>
+                  <td class="target2"> <input type="text" name="stu_team_leader" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>학교</td>
-                  <td> <input type="text" name="stu_school_name" value="" placeholder="<?php echo $_SESSION['stu_school_name'][0]; ?>"> </td>
+                  <td> <input type="text" name="stu_school_name" value=""> </td>
                   <td>보호자<br />연락처</td>
-                  <td> <input type="text" name="stu_parents_phone_num" value="" placeholder="<?php echo $_SESSION['stu_parents_phone_num'][0]; ?>"> </td>
+                  <td> <input type="text" name="stu_parents_phone_num" value=""> </td>
                   <td class="c">매니저</td>
-                  <td> <input type="text" name="stu_manager_name" value="" placeholder="<?php echo $_SESSION['stu_manager_name'][0]; ?>"> </td>
+                  <td> <input type="text" name="stu_manager_name" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>학년</td>
-                  <td> <input type="text" name="stu_grade" value="" placeholder="<?php echo $_SESSION['stu_grade'][0]; ?>"> </td>
+                  <td> <input type="text" name="stu_grade" value=""> </td>
                   <td>주소</td>
-                  <td class="address"><input type="text" name="stu_address" value="" placeholder="<?php echo $_SESSION['stu_address'][0]; ?>"> </td>
+                  <td class="address"><input type="text" name="stu_address" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>계열</td>
-                  <td><input type="text" name="stu_affiliation" value="<?php echo $_SESSION['stu_affiliation'][0]; ?>" placeholder=""> </td>
+                  <td><input type="text" name="stu_affiliation" value=""> </td>
 
                   <td>목표대학</td>
-                  <td>하버드</td>
+                  <td><input type="text" name="stu_univ" value=""></td>
                   <td>성적</td>
-                  <td>상</td>
+                  <td><input type="text" name="stu_score" value=""></td>
                 </tbody>
 
               </table>
-
+              <button type = "submit" style="width:100px;height:30px;margin-top:30px;margin-left:90%;border:none;background-color:rgb(20, 121, 150);box-shadow:0 0 5px rgb(201, 201, 201);color:white;font-family:'bs3';">정보저장</button>
               </form>
 
             </div>

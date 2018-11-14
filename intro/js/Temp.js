@@ -2,7 +2,7 @@ $('.Recent').on('click',function(){
   document.location.href='../Teacher/Recent.html';
 });
 $('.Notice').on('click',function(){
-  alert("준비중");
+  document.location.href='../ADMIN/SEARCH_STUDENT/stu_new.php';
 });
 $('.Setting').on('click',function(){
   document.location.href='../ADMIN/SETTING/setting.php';

@@ -33,6 +33,7 @@ $('.changebtn').on('click', function() {
   }
 });
 
+
 //kindlength 는 불러오는 유형의 갯수
 function makestatic(kindlength) {
   let i = 0;
