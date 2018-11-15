@@ -89,7 +89,7 @@
         <button class="picedit" type="submit">변경된 정보 저장하기</button>
       </form>
       </li>
-      <p>유형및 책 수정</p>
+      <p>유형 및 책 수정</p>
       <hr>
       <li><div class="modify">
 
@@ -100,10 +100,20 @@
         $math = DB_echo($sql, 'type_index_name');
         $math_num = DB_echo($sql, 'type_index_num');
 
+
+
+        $sql = "SELECT * FROM question_book_name WHERE hide=1";
+
+        $book = DB_echo($sql, 'book_name');
+        $book_num = DB_echo($sql, 'book_num');
+
+
         $idx = 0;
 
 
         ?>
+        <strong>== 유형 ==</strong>
+        <br><br>
         <strong>삭제</strong>
         <select class="" id="delete_type">
           <option value="999">=== 유형 ===</option>
@@ -117,12 +127,12 @@
         </select>
         <button type="button" id="delete_button">삭제</button>
 
-        <hr>
+        <br><br>
         <strong>추가</strong>
         <input type="text" id="insert_type" >
         <button type="button" id="insert_button">추가</button>
 
-        <hr>
+        <br><br>
         <strong>변경</strong>
         <select class="" id="update_type">
           <option value="999">=== 유형 ===</option>
@@ -136,13 +146,55 @@
         </select> 을(를)
         <input type="text" id="change_type" > 으로
         <button type="button" id="update_button">변경</button>
+
+
+
+        <br><br>
+        <strong>== 책 ==</strong>
+        <br><br>
+        <strong>삭제</strong>
+        <select class="" id="book_delete_type">
+          <option value="999">=== 유형 ===</option>
+          <?php
+          while($math[$idx] != null)
+          {
+            echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
+          }
+          $idx = 0;
+          ?>
+        </select>
+        <button type="button" id="book_delete_button">삭제</button>
+
+        <br><br>
+        <strong>추가</strong>
+        <input type="text" id="book_insert_type" >
+        <button type="button" id="book_insert_button">추가</button>
+
+        <br><br>
+        <strong>변경</strong>
+        <select class="" id="book_update_type">
+          <option value="999">=== 유형 ===</option>
+          <?php
+          while($math[$idx] != null)
+          {
+            echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
+          }
+          $idx = 0;
+          ?>
+        </select> 을(를)
+        <input type="text" id="book_change_type" > 으로
+        <button type="button" id="book_update_button">변경</button>
+
+
+
       </div></li>
+
 
 
         <?php
         if($_SESSION['LOG_id'] == 'quhb2455')
         {
-          echo "<li><p>토큰생성</p><button type='button' id='token' name='button'>토큰생성</button></li>";
+          echo "<p>토큰생성</p><hr><li><p>토큰생성</p><button type='button' id='token' name='button'>토큰생성</button></li>";
         }
         ?>
 

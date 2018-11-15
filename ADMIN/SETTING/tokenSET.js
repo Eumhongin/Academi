@@ -18,7 +18,7 @@ $("#token").on('click',function(){
         var tag = $('.SET_Section>li:last>p').text();
         // var ff = $(tag+'>p').text();
         $('.SET_Section>li:last>p').text(result);
-        var next = $('<button type="button">').attr('id','next').text('계정 생성하기').appendTo('.SET_Section>li:last');
+        var next = $('<br><button type="button">').attr('id','next').text('계정 생성하기').appendTo('.SET_Section>li:last');
         aaa = $('#next');
 
         count++;
