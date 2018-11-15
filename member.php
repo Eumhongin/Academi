@@ -101,8 +101,8 @@
 
 
           //echo $member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_name."</br>".$member_school_name."</br>".$member_school_level."</br>".$member_grade."</br>".$member_sort;
-          $sql12 = "INSERT INTO member (id, pw_hash, pw_salt, school_name, school_level, grade, stu_tea, name, phone_num, parents_phone_num, address, affiliation, manager_name, team_leader)
-          VALUES ('".$member_id."','".$member_pw_hash."','".$member_pw_salt."' ,'".$member_school_name."', '0', '0', '0','".$member_name."', $member_phone, '0', 'ok', '매니저', '".$member_name."', '이광진')";
+          $sql12 = "INSERT INTO member (id, pw_hash, pw_salt, school_name, school_level, grade, univ, score,stu_tea, name, phone_num, parents_phone_num, address, affiliation, manager_name, team_leader)
+          VALUES ('".$member_id."','".$member_pw_hash."','".$member_pw_salt."' ,'".$member_school_name."', '0', '0', '0', '0','0','".$member_name."', $member_phone, '0', 'ok', '매니저', '".$member_name."', '이광진')";
 
           if(mysqli_query($conn,$sql12) != null)
           {
@@ -144,38 +144,57 @@
         echo "<script>location.href='Login.html';</script>";
       }else if($_POST['id'] == $user_id){
 
-        $member_id = $user_id; //id
-        $member_pw_salt = genRandom(); //64자리 랜덤 문자열 sort값으로 사용
-        $member_pw_hash = hash('sha256', $_POST['pw'].$member_pw_salt, false);//hash
-        $member_name = $_POST['name'];//이름
-        $member_school_name = $_POST['school_name'];// 학교이름
-        $member_school_level = $_POST['school_level'];// 중학교 or 고등학교
-        $member_grade = $_POST['grade'];//학년
-
-
-        if($member_school_name == '임중섭' )
+        if(IDcheck($_POST['id']) == 0)
         {
-          $member_sort = 0; //선생님
-        }else if($member_school_name != '임중섭')
-        {
-          $member_sort = 1; //학생
-        }
-
-        //echo $member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_name."</br>".$member_school_name."</br>".$member_school_level."</br>".$member_grade."</br>".$member_sort;
-        $sql12 = "INSERT INTO member (id, pw_hash, pw_salt, school_name, school_level, grade, stu_tea, name)
-        VALUES ('".$member_id."','".$member_pw_hash."','".$member_pw_salt."' ,'".$member_school_name."','".$member_school_level."',$member_grade, $member_sort,'".$member_name."')";
-
-        if(mysqli_query($conn,$sql12) != null)
-        {
-          echo ("<script>alert('회원가입이 완료되었습니다.');</script>");
-          echo ("<script>location.href='index.html';</script>");
-        }
-        else{
           echo ("<script>alert('ID가 중복됩니다.다른 ID를 입력해주세요.');</script>");
-          echo ("<script>location.href='Login.html';</script>");
+          // delete_token();
+          // echo $sql12."</br>".$member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_school_name."</br>".$member_name."</br>".$member_phone."</br>";
+          echo ("<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>");
+        }else{
+
+          $member_id = $user_id; //id
+          $member_pw_salt = genRandom(); //64자리 랜덤 문자열 sort값으로 사용
+          $member_pw_hash = hash('sha256', $_POST['pw'].$member_pw_salt, false);//hash
+          $member_name = $_POST['name'];//이름
+          $member_school_name = $_POST['school_name'];// 학교이름
+          $member_school_level = $_POST['school_level'];// 중학교 or 고등학교
+          $member_grade = $_POST['grade'];//학년
+          $member_phone = $_POST['phone_num']; //폰번호
+          $member_parents_phone = $_POST['parents_phone_num'];//보호자 폰번호
+          $member_address = $_POST['address']; //주소
+          $member_affiliation = $_POST['affiliation']; //계열
+          $member_univ = $_POST['univ']; //목표대학
+          $member_score = $_POST['score'];  //현재 성적
+          $manager_name = $_POST['manager_name']; //매니저 이름
+          $team_leader = $_POST['team_leader']; //팀장
+          $member_sort = 1; //학생
+
+
+
+
+          //echo $member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_name."</br>".$member_school_name."</br>".$member_school_level."</br>".$member_grade."</br>".$member_sort;
+          $sql12 = "INSERT INTO member (id, pw_hash, pw_salt, school_name, school_level, grade,
+            univ, score, stu_tea, name, phone_num, parents_phone_num, address, affiliation, manager_name, team_leader)
+            VALUES ('".$member_id."',  '".$member_pw_hash."',   '".$member_pw_salt."' ,
+              '".$member_school_name."',   '".$member_school_level."',   $member_grade,
+              '".$mamber_univ."',   '".$member_score."',   $member_sort,
+              '".$member_name."',       '".$member_phone."',    '".$member_parents_phone."',
+              '".$member_address."', '".$member_affiliation."', '".$manager_name."', '".$team_leader."')";
+
+              if(mysqli_query($conn,$sql12) != null)
+              {
+                echo ("<script>alert('회원가입이 완료되었습니다.');</script>");
+                echo ("<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>");
+              }
+              else{
+                echo ("<script>alert('ID생성 오류 입력 값 확인 바람.');</script>");
+                echo ("<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>");
+              }
+
+              mysqli_close($conn);
+
         }
 
-        mysqli_close($conn);
 
 
       }

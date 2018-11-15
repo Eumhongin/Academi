@@ -75,49 +75,49 @@
             </div>
             <div class="sfs_info">
               <p>상세정보</p>
-              <form class="" action="?????.php" method="post">
+              <form class="" action="../../member.php" method="post">
 
               <table>
                 <tbody>
                   <td>아이디</td>
 
-                  <td><input type="text" name="stu_name" value=""></td>
+                  <td><input type="text" name="id" value=""></td>
                   <td>비밀번호</td>
-                  <td class="target"> <input type="text" name="stu_phone_num" value=""> </td>
+                  <td class="target"> <input type="password" name="pw" value=""> </td>
                   <td class="target1 c">분류</td>
-                  <td class="target2"> <input type="text" name="stu_team_leader" value=""> </td>
+                  <td class="target2"> <input type="text" name="school_level" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>이름</td>
 
-                  <td><input type="text" name="stu_name" value=""></td>
+                  <td><input type="text" name="name" value=""></td>
                   <td>휴대폰</td>
-                  <td class="target"> <input type="text" name="stu_phone_num" value=""> </td>
+                  <td class="target"> <input type="text" name="phone_num" value=""> </td>
                   <td class="target1 c">팀장</td>
                   <td class="target2"> <input type="text" name="stu_team_leader" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>학교</td>
-                  <td> <input type="text" name="stu_school_name" value=""> </td>
+                  <td> <input type="text" name="school_name" value=""> </td>
                   <td>보호자<br />연락처</td>
-                  <td> <input type="text" name="stu_parents_phone_num" value=""> </td>
+                  <td> <input type="text" name="parents_phone_num" value=""> </td>
                   <td class="c">매니저</td>
-                  <td> <input type="text" name="stu_manager_name" value=""> </td>
+                  <td> <input type="text" name="manager_name" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>학년</td>
-                  <td> <input type="text" name="stu_grade" value=""> </td>
+                  <td> <input type="text" name="grade" value=""> </td>
                   <td>주소</td>
-                  <td class="address"><input type="text" name="stu_address" value=""> </td>
+                  <td class="address"><input type="text" name="address" value=""> </td>
                 </tbody>
                 <tbody>
                   <td>계열</td>
-                  <td><input type="text" name="stu_affiliation" value=""> </td>
+                  <td><input type="text" name="affiliation" value=""> </td>
 
                   <td>목표대학</td>
-                  <td><input type="text" name="stu_univ" value=""></td>
+                  <td><input type="text" name="univ" value=""></td>
                   <td>성적</td>
-                  <td><input type="text" name="stu_score" value=""></td>
+                  <td><input type="text" name="score" value=""></td>
                 </tbody>
 
               </table>
