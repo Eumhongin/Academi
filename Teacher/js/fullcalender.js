@@ -127,13 +127,14 @@ function teacher_calendar(teacher_num,teacher_name,teacher_id)
       var title = event.title;
       var dayOfWeek = DAY_name(start);
       var id = event.id;
+      var check = 3;
       // var check = 2; //드랍 업데이트 구분 - 2) 옮긴 정보
 
       alert(id);
       $.ajax({
         url:"../fullcalendar/fullCalendar_insert.php",
         type:"POST",
-        data:{title:title, start:start, end:end, dayOfWeek:dayOfWeek},
+        data:{title:title, start:start, end:end, dayOfWeek:dayOfWeek, check:check},
         success:function()
         {
           calendar.fullCalendar('refetchEvents');

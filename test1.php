@@ -4,7 +4,8 @@
 
 <?php include('module/rand_string.php');
 include('module/dbConnect.php');
-include('module/dbContentsEcho.php'); ?>
+include('module/dbContentsEcho.php');
+include("module\\EVENTdbConnect.php"); ?>
 
 <html lang="en" dir="ltr">
   <head>
@@ -13,13 +14,20 @@ include('module/dbContentsEcho.php'); ?>
   </head>
   <body>
     <?php
-    function delete_token()
-    {
-      $desql = "DELETE FROM hong WHERE no = 1";
-      mysqli_query($GLOBALS['conn'],$desql);
-    }
+    $sql = "SELECT * FROM sun WHERE no=8";
 
-    delete_token();
+
+    $i = 0;
+    $result = mysqli_query($conn2, $sql);
+    while($row = mysqli_fetch_array($result))
+    {
+      $_SESSION['eventObject'] = $row['object'];
+      $_SESSION['reserve_name'] = $row['reserve_name'];
+
+    }
+    print_r($_SESSION['eventObject']);
+    echo "</br>".$_SESSION['eventObject'];
+    echo "</br>".$_SESSION['reserve_name'];
      ?>
   </body>
 </html>

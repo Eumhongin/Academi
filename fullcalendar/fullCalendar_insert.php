@@ -30,6 +30,19 @@ include("..\module\EVENTdbConnect.php");
 
     $result = mysqli_query($conn2, $sql);
 
+  }else if($_POST['check'] == 3)
+  {
+
+    $sql = "INSERT INTO $_POST[dayOfWeek] (user_id, title, start_event, end_event, object, reserve_name)
+    VALUES('".$_SESSION[LOG_id]."', '".$_POST[title]."', '".$_POST[start]."', '".$_POST[end]."', '".$_SESSION[eventObject]."', '".$_SESSION[reserve_name]."') ";
+
+    $result = mysqli_query($conn2, $sql);
+
+  }else if($_POST['check'] == 4)
+  {
+
+
+
   }
 
  ?>
