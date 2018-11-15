@@ -9,16 +9,17 @@
     <meta charset="utf-8">
     <title></title>
     <script src="../js/jquery-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="../fonts/font.css">
     <style media="screen">
       html,body{
         padding: 0;
         margin:0;
         height:100%;
-        background-color: #eee;
+
       }
       .SET_Header{
-        background-color: rgb(230, 174, 6);
-        box-shadow:0 0 10px #626262;
+        background-color: rgb(6, 142, 230);
+        box-shadow: 0 3px 8px rgb(55, 55, 55);
 
         height: 5%;
       }
@@ -36,13 +37,39 @@
 
       }
       li{
-        background-color: #ccc;
+        background: white;
         box-shadow: 1px 1px 5px #626262;
         height: 30%;
+        padding:1%;
       }
       p{
         margin:4px;
         margin-top:2%;
+        font-size: 1vw;
+        font-family: 'bs3';
+      }
+      button{
+        height: 25px;
+        border:none;
+        background-color: rgb(9, 95, 175);
+        color: white;
+        font-family: 'bs2';
+        font-size: 20px;
+        box-shadow: 0 2px 3px rgb(101, 101, 101);
+      }
+      .container{
+
+        padding:2%;
+        border-top: none;
+        border-bottom: none;
+        background-color: rgb(244, 244, 244);
+        box-shadow: 0 4px 8px rgb(55, 55, 55);
+      }
+      input{
+        height: 24px;
+      }
+      select{
+        height: 30px;
       }
     </style>
   </head>
@@ -52,8 +79,10 @@
     </div>
     <div class="SET_Section container">
       <p>교사정보</p>
+      <hr>
       <li><button onclick="location.href = 'INFO_TEACHER/tea_info_change.php'">교사 정보</button></li>
       <p>배경수정</p>
+      <hr>
       <li> <form name = "form" action="BG_setting.php" method="post" enctype="multipart/form-data">
         <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
         <input class="Background_Setting" type="file" name="upload" id="selectedFile">
@@ -61,6 +90,7 @@
       </form>
       </li>
       <p>유형및 책 수정</p>
+      <hr>
       <li><div class="modify">
 
         <?php
