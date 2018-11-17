@@ -14,49 +14,65 @@ include("module\\EVENTdbConnect.php"); ?>
   </head>
   <body>
     <?php
-    $sql = "SELECT * FROM sun WHERE no=8";
+    $book_name = DB_echo("SELECT book_name FROM question_book_name","book_name");
+    $book_num = DB_echo("SELECT book_num FROM question_book_name","book_num");
 
+    //문제 유형
+    //수 1, 수 2 이런식으로도 선택할 수 있게 해야함
 
-    $i = 0;
-    $result = mysqli_query($conn2, $sql);
-    while($row = mysqli_fetch_array($result))
+    //문제 세부 유형
+    $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE hide=1", "type_index_name");
+    $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
+
+    $print = DB_echo("SELECT image FROM question_image",'image');
+    echo"</br>";echo"</br>";
+    print_r($book_num);
+    echo"</br>";echo"</br>";
+    print_r($type_index_num);
+echo"</br>";echo $book_num[2]."</br>";
+    print_r($print);
+    $A = 0;
+    $B = 0;
+    $C = 0;
+    $D = 0;
+
+    for($idx = 0; $idx < count($print); $idx++)
     {
-      $_SESSION['eventObject'] = $row['object'];
-      $_SESSION['reserve_name'] = $row['reserve_name'];
 
+      // if(strpos($print[$idx], '1_2_3_5_') !== false)
+      // {
+      //   $A++;
+      // }
+      if(strpos($print[$idx], '1_2_'.$book_num[2].'_'.$type_index_num[0].'') !== false)
+      {
+        $A++;
+      }
+      else if(strpos($print[$idx], '1_2_'.$book_num[2].'_'.$type_index_num[2].'') !== false)
+      {
+        $B++;
+      }else if(strpos($print[$idx], '1_2_'.$book_num[2].'_'.$type_index_num[4].'') !== false)
+      {
+        $C++;
+      }else if(strpos($print[$idx], '1_2_'.$book_num[3].'_'.$type_index_num[2].'') !== false)
+      {
+        $D++;
+      }
     }
-    print_r($_SESSION['eventObject']);
-    echo "</br>".$_SESSION['eventObject'];
-    echo "</br>".$_SESSION['reserve_name'];
-    echo "</br>";echo "</br>";echo "</br>";echo "</br>";
+
+    echo "</br></br>A : ".$A."</br>";
+    echo "B : ".$B."</br>";
+    echo "C : ".$C."</br>";
+    echo "D : ".$D."</br>";
+
+    $str = 6;
+    $abc =123;
+    $z = $str.$abc;
+echo $z."</br>";
+    $z = $z+10;
+    echo $z;
 
 
-
-    echo "</br>".$_POST['stu_id'];
-    echo "</br>".$_POST['stu_pw'];
-    echo "</br>".$_POST['stu_school_level'];
-    echo "</br>".$_POST['stu_phone_num'];
-    echo "</br>".$_POST['stu_team_leader'];
-    echo "</br>".$_POST['stu_name'];
-    echo "</br>".$_POST['stu_school_name'];
-    echo "</br>".$_POST['stu_parents_phone_num'];
-    echo "</br>".$_POST['stu_manager_name'];
-    echo "</br>".$_POST['stu_grade'];
-    echo "</br>".$_POST['stu_address'];
-    echo "</br>".$_POST['stu_affiliation'];
-    echo "</br>".$_POST['stu_univ'];
-    echo "</br>".$_POST['stu_score'];
-    0101010
-    이광진
-    임중섭
-    경원
-    123123
-    임주어
-    3
-    여기저기
-    이과
-    경대
-    높다
      ?>
+
   </body>
 </html>
