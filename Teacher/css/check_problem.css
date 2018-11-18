@@ -1,0 +1,24 @@
+html,body{
+  padding:0;
+  margin:0;
+  font-family: 'bs3';
+}
+.wrapper{
+  width: 50%;
+  margin:0 auto;
+  background-color: rgb(222, 222, 222);
+  text-align: center;
+}
+.form{
+  margin:0 auto;
+  width: 80%;
+}
+p{
+  cursor: pointer;
+  font-size: 2vw;
+  margin-top : 0;
+}
+p:hover{
+  background-color: rgb(254, 95, 95);
+
+}
