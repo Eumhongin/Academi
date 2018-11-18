@@ -142,24 +142,24 @@
             <h1>수학</h1>
             <table>
               <thead>
-                <td>미적</td>
+                <!-- <td>미적</td>
                 <td>확통</td>
                 <td>극한</td>
                 <td>멜롱</td>
                 <td>미적</td>
                 <td>확통</td>
                 <td>극한</td>
-                <td>멜롱</td>
+                <td>멜롱</td> -->
               </thead>
               <tbody>
-                <td>91%</td>
+                <!-- <td>91%</td>
                 <td>77%</td>
                 <td>81%</td>
                 <td>85%</td>
                 <td>91%</td>
                 <td>77%</td>
                 <td>81%</td>
-                <td>85%</td>
+                <td>85%</td> -->
               </tbody>
             </table>
           </div>

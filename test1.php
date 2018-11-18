@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 
 <?php session_start(); ?>
 
@@ -7,88 +6,53 @@ include('module/dbConnect.php');
 include('module/dbContentsEcho.php');
 include("module\\EVENTdbConnect.php"); ?>
 
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+
     <?php
-    $book_name = DB_echo("SELECT book_name FROM question_book_name","book_name");
-    $book_num = DB_echo("SELECT book_num FROM question_book_name","book_num");
+    $sql="SELECT type_index_name FROM question_type_math_index WHERE hide=1";
+    $get = DB_echo($sql, 'type_index_name');
 
-    //문제 유형
-    //수 1, 수 2 이런식으로도 선택할 수 있게 해야함
 
-    //문제 세부 유형
-    $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE hide=1", "type_index_name");
-    $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
+    $sql = "SELECT * FROM correct_math WHERE  id = '".$_SESSION[stu_id][0]."' ";
 
-    $print = DB_echo("SELECT image FROM question_image",'image');
-    $print_num = DB_echo("SELECT no FROM question_image order by no ASC",'no');
-    echo"</br>";echo"</br>";
-    print_r($book_num);
-    echo"</br>";echo"</br>";
-    print_r($type_index_num);
-echo"</br>";echo $book_num[2]."</br>";
-    print_r($print);
-    $A = 0;
-    $B = 0;
-    $C = 0;
-    $D = 0;
-
-    for($idx = 0; $idx < count($print); $idx++)
+    for($idx = 0; $idx < count($get); $idx++)
     {
-      $list .= '|'.$print_num[$idx];
-      // if(strpos($print[$idx], '1_2_3_5_') !== false)
-      // {
-      //   $A++;
-      // }
-      if(strpos($print[$idx], '1_2_'.$book_num[2].'_'.$type_index_num[0].'') !== false)
-      {
-        $A++;
-      }
-      else if(strpos($print[$idx], '1_2_'.$book_num[2].'_'.$type_index_num[2].'') !== false)
-      {
-        $B++;
-      }else if(strpos($print[$idx], '1_2_'.$book_num[2].'_'.$type_index_num[4].'') !== false)
-      {
-        $C++;
-      }else if(strpos($print[$idx], '1_2_'.$book_num[3].'_'.$type_index_num[2].'') !== false)
-      {
-        $D++;
-      }
+      $correct[$idx] = DB_echo($sql, $get[$idx]);
     }
 
-    echo "</br></br>A : ".$A."</br>";
-    echo "B : ".$B."</br>";
-    echo "C : ".$C."</br>";
-    echo "D : ".$D."</br>";
 
-    $str = 6;
-    $abc =123;
-    $z = $str.$abc;
-echo $z."</br>";
-    $z = $z+10;
-    echo $z;
-    echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
-    echo $list;
-    echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
-    // $num = preg_replace("/[^0-9]*/s", "", $list);
 
-    $num = explode("|", $list);
+    $sql = "SELECT * FROM print_math WHERE  id = '".$_SESSION[stu_id][0]."' ";
 
-    print_r($num);
-    echo "</br>";echo "</br>";
-
-    $idxx = 1;
-    while($num[$idxx] != null)
+    for($idx = 0; $idx < count($get); $idx++)
     {
-      echo $num[$idxx++]."</br>";
-
+      $print[$idx] = DB_echo($sql, $get[$idx]);
     }
 
+    $a = count($get) + 1;
+    $b = count($correct[0]) + 1;
+echo "</br>".$b."</br>";
+    for($idx = 0; $idx < count($get); $idx++)
+    {
+      for($idx2 = 0; $idx2 < count($correct[0]); $idx2++)
+      {
+        $correct[$idx][$b] += $correct[$idx][$idx2];
+        $print[$idx][$b] += $print[$idx][$idx2];
+        // $total[$idx][$idx2] = ($correct[$idx][$idx2] / $print[$idx][$idx2]) * 100;
+        // echo $total[$idx][$idx2]."</br>";
+      }
+      // echo "=======================</br>";
+    }
+
+    // print_r($total);
+    // echo $a."</br>".$b;
+
+    for($q =0; $q < count($get); $q++)
+    {
+      $total[$q]= ($correct[$q][$b] / $print[$q][$b]) * 100;
+      // echo $correct[$q][$b]."<====>".$print[$q][$b]."</br>".$total[$q]."</br>==========</br>";
+    }
+
+    // echo $_SESSION['stu_id'][0];
+    print_r($total);
+    // echo json_encode($_SESSION['stu_id'][0]);
      ?>
-
-  </body>
-</html>

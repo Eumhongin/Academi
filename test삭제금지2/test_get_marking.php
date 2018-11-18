@@ -11,12 +11,17 @@ $get[2] = DB_echo($sql, 'student_id');
 
 // //////////////////////////////////////
 
-$get[4][0] = explode("|", $get[1][0]);
-$get[4][1] = explode("|", $get[1][1]);
-$get[4][2] = explode("|", $get[1][2]);
-$get[4][3] = explode("|", $get[1][3]);
-$get[4][4] = explode("|", $get[1][4]);
-$get[4][5] = explode("|", $get[1][5]);
+for($idx = 0; $idx < count($get[0]); $idx++)
+{
+  $get[4][$idx] = explode("|", $get[1][$idx]);
+}
+
+// $get[4][0] = explode("|", $get[1][0]);
+// $get[4][1] = explode("|", $get[1][1]);
+// $get[4][2] = explode("|", $get[1][2]);
+// $get[4][3] = explode("|", $get[1][3]);
+// $get[4][4] = explode("|", $get[1][4]);
+// $get[4][5] = explode("|", $get[1][5]);
 
 ///////////////////////////////////////////
 

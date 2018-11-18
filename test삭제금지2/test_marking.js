@@ -18,10 +18,11 @@ function getgetget(num)
         //   }
         //
         // }
+        $('.set').empty();
         var idx = 1;
         while(result[4][num][idx] != null)
         {
-          var first = $('<div>').text(result[4][idx]).appendTo('.set');
+          var first = $('<div>').text(result[4][num][idx++]).appendTo('.set');
         }
 
       },error:function(request,status,error){
@@ -31,6 +32,9 @@ function getgetget(num)
     });
   });
 }
+
+
+
 $(document).ready(function(){
 
   $.ajax({

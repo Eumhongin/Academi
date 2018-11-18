@@ -1,3 +1,55 @@
+var type_num;
+var type_name;
+var score = new Array();
+
+
+
+$.ajax({
+  url : "sub_src/getStatistics.php",  //url 바꾸기.
+  type:"POST",
+  data:{check:0},
+  dataType :"json",
+  success : function(result)
+  {
+    type_num = result.length;
+    type_name = new Array(type_num);
+
+    for(var idx = 0; idx < result.length; idx++)
+    {
+      type_name[idx] = result[idx];
+      score[idx] = new Array();
+    }
+
+  },error:function(request,status,error){
+    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+  }
+
+});
+
+
+
+$.ajax({
+  url : "sub_src/getStatistics.php",  //url 바꾸기.
+  type:"POST",
+  data:{check:1},
+  dataType :"json",
+  success : function(result1)
+  {
+    // alert(result1);
+    for(var idx = 0; idx < result1.length; idx++)
+    {
+      score[idx] = new Array();
+      score[idx] = result1[idx];
+    }
+
+  },error:function(request,status,error){
+    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+  }
+
+});
+
+
+
 $('.v-line').css({
   'height': $(window).outerHeight() * 0.9 + 'px',
   'top': $(window).outerHeight() * 0.05 + 'px'
@@ -23,7 +75,7 @@ $('.changebtn').on('click', function() {
     $('#calendar').addClass('hide');
     $('#student_statics').removeClass('hide');
     $('#student_statics').addClass('Active');
-    makestatic(8);
+    makestatic(type_num);
   } else {
     $(this).text('오답 통계보기');
     $('#student_staticsstudent_statics').removeClass('Active');
@@ -36,19 +88,20 @@ $('.changebtn').on('click', function() {
 
 //kindlength 는 불러오는 유형의 갯수
 function makestatic(kindlength) {
+  $('#student_statics').empty();
   let i = 0;
   let wrapper = $('<div>').addClass('subject_name').appendTo('#student_statics');
-  let subjectname = '과목이름';
+  let subjectname = '수학';
   let h1 = $('<h1>').text(subjectname).appendTo(wrapper);
   let table = $('<table>').appendTo(wrapper);
   let thead = $('<thead>').appendTo(table);
 
   for (i = 0; i < kindlength; i++) {
-    $('<td>').text('유형의 이름').appendTo(thead);
+    $('<td>').text(type_name[i]).appendTo(thead);
   }
   let tbody = $('<tbody>').appendTo(table);
   for (i = 0; i < kindlength; i++) {
-    $('<td>').text('통계값').appendTo(tbody);
+    $('<td>').text(score[i]+'%').appendTo(tbody);
   }
 
 }
