@@ -75,6 +75,7 @@ $('.changebtn').on('click', function() {
     $('#calendar').addClass('hide');
     $('#student_statics').removeClass('hide');
     $('#student_statics').addClass('Active');
+    $('.subject_name').remove();
     makestatic(type_num);
   } else {
     $(this).text('오답 통계보기');
@@ -88,7 +89,7 @@ $('.changebtn').on('click', function() {
 
 //kindlength 는 불러오는 유형의 갯수
 function makestatic(kindlength) {
-  $('#student_statics').empty();
+  //$('#student_statics').empty();
   let i = 0;
   let wrapper = $('<div>').addClass('subject_name').appendTo('#student_statics');
   let subjectname = '수학';
