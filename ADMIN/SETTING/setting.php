@@ -91,7 +91,8 @@
       </li>
       <p>유형 및 책 수정</p>
       <hr>
-      <li><div class="modify">
+      <li>
+        <div class="modify">
 
         <?php
 
@@ -146,48 +147,46 @@
         </select> 을(를)
         <input type="text" id="change_type" > 으로
         <button type="button" id="update_button">변경</button>
-
-
-
-        <br><br>
-        <strong>== 책 ==</strong>
-        <br><br>
-        <strong>삭제</strong>
-        <select class="" id="book_delete_type">
-          <option value="999">=== 유형 ===</option>
-          <?php
-          while($math[$idx] != null)
-          {
-            echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
-          }
-          $idx = 0;
-          ?>
-        </select>
-        <button type="button" id="book_delete_button">삭제</button>
-
-        <br><br>
-        <strong>추가</strong>
-        <input type="text" id="book_insert_type" >
-        <button type="button" id="book_insert_button">추가</button>
-
-        <br><br>
-        <strong>변경</strong>
-        <select class="" id="book_update_type">
-          <option value="999">=== 유형 ===</option>
-          <?php
-          while($math[$idx] != null)
-          {
-            echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
-          }
-          $idx = 0;
-          ?>
-        </select> 을(를)
-        <input type="text" id="book_change_type" > 으로
-        <button type="button" id="book_update_button">변경</button>
-
-
-
       </div></li>
+      <li style="margin-top:10px;">
+        <div class="modify">
+          <strong>== 책 ==</strong>
+          <br><br>
+          <strong>삭제</strong>
+          <select class="" id="book_delete_type">
+            <option value="999">=== 유형 ===</option>
+            <?php
+            while($math[$idx] != null)
+            {
+              echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
+            }
+            $idx = 0;
+            ?>
+          </select>
+          <button type="button" id="book_delete_button">삭제</button>
+
+          <br><br>
+          <strong>추가</strong>
+          <input type="text" id="book_insert_type" >
+          <button type="button" id="book_insert_button">추가</button>
+
+          <br><br>
+          <strong>변경</strong>
+          <select class="" id="book_update_type">
+            <option value="999">=== 유형 ===</option>
+            <?php
+            while($math[$idx] != null)
+            {
+              echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
+            }
+            $idx = 0;
+            ?>
+          </select> 을(를)
+          <input type="text" id="book_change_type" > 으로
+          <button type="button" id="book_update_button">변경</button>
+
+        </div>
+      </li>
 
 
 
