@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  //session_start();
+  session_start();
   include("..\..\module\dbConnect.php");
   include("..\..\module\dbContentsEcho.php");
  ?>
@@ -55,7 +55,7 @@
       // }
       echo "</br>".$type;
       $sql =
-      "SELECT image FROM question_image
+      "SELECT no, image FROM question_image
       WHERE level='".$_POST['difficult']."'
         and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
         and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
@@ -68,13 +68,19 @@
       limit $_POST[num]";
       echo "</br>".$sql."</br>";
       $print = DB_echo($sql,'image');
+      $print_num = DB_echo($sql,'no');
+
+
+
       $A = 0;
       $B = 0;
       $C = 0;
       $D = 0;
       $total = 0;
+
       for($idx = 0; $idx < count($print); $idx++)
       {
+        $list .= '|'.$print_num[$idx];
         echo "<div><img src='../ADDING/img/$print[$idx]'></div>";
         for($i = 1; $i < 5; $i++)
         {
@@ -108,9 +114,16 @@
       $sql2 = "INSERT INTO correct_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
               VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
       mysqli_query($conn,$sql2);
+
+      $sql3 = "INSERT INTO question_list (question_num, teacher_id, student_id)
+              VALUES ('".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."')";
+      mysqli_query($conn,$sql3);
+      
       print_r($print);
       echo "</br>".$type_index_num[1]."</br>".$type_index_num[2]."</br>".$type_index_num[3]."</br>".$type_index_num[4]."</br>".$sql2;
       echo "</br>".$book_num[1]."</br>".$book_num[2]."</br>".$book_num[3]."</br>".$book_num[4];
+      echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
+      echo $list;
      ?>
   </body>
 </html>

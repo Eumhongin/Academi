@@ -25,6 +25,7 @@ include("module\\EVENTdbConnect.php"); ?>
     $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
 
     $print = DB_echo("SELECT image FROM question_image",'image');
+    $print_num = DB_echo("SELECT no FROM question_image order by no ASC",'no');
     echo"</br>";echo"</br>";
     print_r($book_num);
     echo"</br>";echo"</br>";
@@ -38,7 +39,7 @@ echo"</br>";echo $book_num[2]."</br>";
 
     for($idx = 0; $idx < count($print); $idx++)
     {
-
+      $list .= '|'.$print_num[$idx];
       // if(strpos($print[$idx], '1_2_3_5_') !== false)
       // {
       //   $A++;
@@ -70,7 +71,22 @@ echo"</br>";echo $book_num[2]."</br>";
 echo $z."</br>";
     $z = $z+10;
     echo $z;
+    echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
+    echo $list;
+    echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
+    // $num = preg_replace("/[^0-9]*/s", "", $list);
 
+    $num = explode("|", $list);
+
+    print_r($num);
+    echo "</br>";echo "</br>";
+
+    $idxx = 1;
+    while($num[$idxx] != null)
+    {
+      echo $num[$idxx++]."</br>";
+
+    }
 
      ?>
 
