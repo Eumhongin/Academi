@@ -157,3 +157,9 @@ td > input{
 .changebtn:hover{
   background-color: rgb(56, 88, 186);
 }
+.history tbody{
+  cursor: pointer;
+}
+.history tbody:hover{
+  background-color: rgb(96, 173, 252);
+}

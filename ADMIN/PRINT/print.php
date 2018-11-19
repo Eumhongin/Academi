@@ -100,55 +100,26 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name2" required>
-                  <option value="" selected>책이름</option>
-                  <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
-                  ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
-                </select>
-                <select class="ALFSO_Bookname" name="book_name3" required>
-                  <option value="" selected>책이름</option>
-                  <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
-                  ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
-                </select>
-                <select class="ALFSO_Bookname" name="book_name4" required>
-                  <option value="" selected>책이름</option>
-                  <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
-                  ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
-                </select>
-                <!-- <br><br> -->
                 <select class="ALFSO_type" name="question_type1" required>
                   <option value="" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
                       echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
+                    }
+                  ?>
+                  <!-- <option value="0" >1</option>
+                  <option value="0" >2</option>
+                  <option value="0" >3</option>
+                  <option value="0" >4</option>
+                  <option value="0" >5</option> -->
+                </select>
+                <select class="ALFSO_Bookname" name="book_name2" required>
+                  <option value="" selected>책이름</option>
+                  <?php
+                    for($idx = 1; $idx <= count($book_name); $idx++)
+                    {
+                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
                     }
                   ?>
                   <!-- <option value="0" >1</option>
@@ -171,12 +142,40 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+                <select class="ALFSO_Bookname" name="book_name3" required>
+                  <option value="" selected>책이름</option>
+                  <?php
+                    for($idx = 1; $idx <= count($book_name); $idx++)
+                    {
+                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                    }
+                  ?>
+                  <!-- <option value="0" >1</option>
+                  <option value="0" >2</option>
+                  <option value="0" >3</option>
+                  <option value="0" >4</option>
+                  <option value="0" >5</option> -->
+                </select>
                 <select class="ALFSO_type" name="question_type3" required>
                   <option value="" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
                       echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
+                    }
+                  ?>
+                  <!-- <option value="0" >1</option>
+                  <option value="0" >2</option>
+                  <option value="0" >3</option>
+                  <option value="0" >4</option>
+                  <option value="0" >5</option> -->
+                </select>
+                <select class="ALFSO_Bookname" name="book_name4" required>
+                  <option value="" selected>책이름</option>
+                  <?php
+                    for($idx = 1; $idx <= count($book_name); $idx++)
+                    {
+                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
                     }
                   ?>
                   <!-- <option value="0" >1</option>

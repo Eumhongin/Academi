@@ -138,7 +138,58 @@
 
         </div>
         <div id="student_statics" class="hide">
-
+          <h1>히스토리</h1>
+          <hr>
+          <p style="font-family:'bs3'">최근 내역 8개만 표시됩니다</p>
+          <table class="history">
+            <thead>
+              <td>문제발급날짜</td>
+              <td>문제지이름</td>
+              <td>채점여부</td>
+            </thead>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+            <tbody>
+              <td>2018-02-22</td>
+              <td>고-2-수학-미적분</td>
+              <td>미채점</td>
+            </tbody>
+          </table>
+          <h1>오답 통계</h1>
+          <hr>
         </div>
         <button class="changebtn" type="button" name="button">오답 통계보기</button>
       </div>
