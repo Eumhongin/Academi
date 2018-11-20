@@ -17,6 +17,7 @@ p{
   cursor: pointer;
   font-size: 2vw;
   margin-top : 0;
+  background-color: rgb(13, 166, 33);
 }
 p:hover{
   background-color: rgb(254, 95, 95);
