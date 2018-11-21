@@ -20,7 +20,7 @@ function getgetget(num)
         // }
         $('.set').empty();
         var idx = 1;
-        while(result[4][num][idx] != null)
+        while(result[1][num][idx] != null)
         {
           var first = $('<div>').text(result[4][num][idx++]).appendTo('.set');
         }

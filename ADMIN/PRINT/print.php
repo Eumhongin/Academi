@@ -57,7 +57,7 @@
                 </div>
                 <div class="ALFSPN_Number">
                   <!-- 불필요 -->
-                  <input type="text" name="num" value="" placeholder="문제 개수" >
+                  <input type="text" name="num" value="" placeholder="문제 개수" required>
                 </div>
               </div>
               <br>
@@ -117,12 +117,16 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+<<<<<<< HEAD
                 <div class="sub" style="width:10%;border:none">
                   사용하기
                 </div>
 
 
                 <select id="lineB2" class="ALFSO_Bookname" name="book_name2" required disabled>
+=======
+                <select class="ALFSO_Bookname" name="book_name2" >
+>>>>>>> 7b2d1af530e705fc3d6b4ba817fcc997ca09ad0d
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -136,9 +140,14 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+<<<<<<< HEAD
 
                 <select id="lineT2" class="ALFSO_type" name="question_type2" required disabled>
                   <option value="" selected>유형</option>
+=======
+                <select class="ALFSO_type" name="question_type2" >
+                  <option value="100" selected>유형</option>
+>>>>>>> 7b2d1af530e705fc3d6b4ba817fcc997ca09ad0d
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
@@ -151,10 +160,14 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+<<<<<<< HEAD
                 <div class="sub" style="width:10%;">
                   <input type="checkbox" name="check1" value="2">
                 </div>
                 <select id="lineB3" class="ALFSO_Bookname" name="book_name3" required disabled>
+=======
+                <select class="ALFSO_Bookname" name="book_name3" >
+>>>>>>> 7b2d1af530e705fc3d6b4ba817fcc997ca09ad0d
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -168,8 +181,13 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+<<<<<<< HEAD
                 <select id="lineT3" class="ALFSO_type" name="question_type3" required disabled>
                   <option value="" selected>유형</option>
+=======
+                <select class="ALFSO_type" name="question_type3" >
+                  <option value="101" selected>유형</option>
+>>>>>>> 7b2d1af530e705fc3d6b4ba817fcc997ca09ad0d
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
@@ -182,10 +200,14 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+<<<<<<< HEAD
                 <div class="sub" style="width:10%;">
                   <input type="checkbox" name="check2" value="3">
                 </div>
                 <select id="lineB4" class="ALFSO_Bookname" name="book_name4" required style="margin-bottom:10%;" disabled>
+=======
+                <select class="ALFSO_Bookname" name="book_name4" >
+>>>>>>> 7b2d1af530e705fc3d6b4ba817fcc997ca09ad0d
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -199,8 +221,13 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+<<<<<<< HEAD
                 <select id="lineT4" class="ALFSO_type" name="question_type4" required style="margin-bottom:10%;" disabled>
                   <option value="" selected>유형</option>
+=======
+                <select class="ALFSO_type" name="question_type4" >
+                  <option value="102" selected>유형</option>
+>>>>>>> 7b2d1af530e705fc3d6b4ba817fcc997ca09ad0d
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
