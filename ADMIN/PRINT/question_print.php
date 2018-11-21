@@ -33,6 +33,10 @@
     $type_index_num[3] = $_POST['question_type3'];
     $type_index_num[4] = $_POST['question_type4'];
 
+    if($_POST['question_type2'] == 100){$type_index_name[2][0] = 2;}
+    if($_POST['question_type3'] == 101){$type_index_name[3][0] = 3;}
+    if($_POST['question_type4'] == 102){$type_index_name[4][0] = 4;}
+
 
     print_r($_POST);
 
@@ -78,6 +82,28 @@
       $D = 0;
       $total = 0;
 
+      for($i = 0; $i < 5; $i++)
+      {
+        for($j = ($i+1); $j < 5; $j++)
+        {
+          if($book_num[$i] == $book_num[$j])
+          {
+            $book_num[$i] = 'x';
+          }
+        }
+      }
+
+      for($i = 4; $i > 0; $i--)
+      {
+        for($j = ($i-1); $j >0; $j--)
+        {
+          if($type_index_name[$i] == $type_index_name[$j])
+          {
+            $type_index_name[$i][0] = $i;
+          }
+        }
+      }
+
       for($idx = 0; $idx < count($print); $idx++)
       {
         $list .= '|'.$print_num[$idx];
@@ -115,15 +141,26 @@
               VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
       mysqli_query($conn,$sql2);
 
-      $sql3 = "INSERT INTO question_list (question_num, teacher_id, student_id)
-              VALUES ('".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."')";
+      $sql3 = "INSERT INTO question_list (title, question_num, teacher_id, student_id, checked)
+              VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."', 0)";
       mysqli_query($conn,$sql3);
-      
+
+
       print_r($print);
       echo "</br>".$type_index_num[1]."</br>".$type_index_num[2]."</br>".$type_index_num[3]."</br>".$type_index_num[4]."</br>".$sql2;
       echo "</br>".$book_num[1]."</br>".$book_num[2]."</br>".$book_num[3]."</br>".$book_num[4];
       echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
       echo $list;
+      echo "</br>";echo "</br>";echo "</br>";
+      echo $sql3;
+      echo "</br>";echo "</br>";echo "</br>";
+      print_r($type_index_name);
+      echo "</br>";echo "</br>";echo "</br>";
+      print_r($book_num);
+      echo "</br>";echo "</br>";echo "</br>";
+      echo $sql;
+      echo "</br>";echo "</br>";echo "</br>";
+      echo $sql2;
      ?>
   </body>
 </html>

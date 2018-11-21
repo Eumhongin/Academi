@@ -29,4 +29,14 @@ function check(a){
 $(document).ready(function(){
   // 스타일 시트 나중에 적용하는거
   $('<link>').attr({'rel' : 'stylesheet','href' : 'css/check_problem.css'}).appendTo('head');
+  $('p').on('click',function(){
+    if($(this).css('background-color') != 'rgb(254, 95, 95)'){
+      console.log('hello');
+    }
+    else{
+      $(this).css({
+        'background-color':'rgb(254, 95, 95)'
+      });
+    }
+  });
 });
