@@ -5,7 +5,7 @@ makeproblem(6);
 function makeproblem(plength){
   for(let i = 0; i < plength; i++){
     console.log(plength);
-    $('<p onclick=check('+i+')>').text('문제').appendTo('.form');
+    $('<p onclick=check('+i+')>').text('문제'+(i+1)).appendTo('.form');
   }
   $('<button type="button" name="button">').text('채점 완료 하기').appendTo('.form');
 }
@@ -30,12 +30,14 @@ $(document).ready(function(){
   // 스타일 시트 나중에 적용하는거
   $('<link>').attr({'rel' : 'stylesheet','href' : 'css/check_problem.css'}).appendTo('head');
   $('p').on('click',function(){
-    if($(this).css('background-color') != 'rgb(254, 95, 95)'){
-      console.log('hello');
+    if($(this).css('background-color') == 'rgb(255, 36, 36)'){
+      $(this).css({
+        'background-color':'rgb(13, 166, 33)'
+      });
     }
     else{
       $(this).css({
-        'background-color':'rgb(254, 95, 95)'
+        'background-color':'rgb(255, 36, 36)'
       });
     }
   });
