@@ -146,12 +146,13 @@
 }
 
 .ALFS_Option>* {
+  margin-top:5%;
   background-color: white;
   border-radius: 8px;
   border: solid 2px #023059;
   font-family: 'bs3';
   height: 38px;
-  width: 40%;
+  width: 30%;
   margin-right: 10%;
 }
 
@@ -234,4 +235,15 @@ input[type="text"] {
 .ALFS_PrintObjectName input{
   width: 90%;
 
+}
+.sub{
+  border:none;
+}
+.sub > input{
+  margin-left: 10%;
+  margin-top:20%;
+  transform:scale(1.8);
+}
+#lineT2,#lineB2,#lineB3,#lineT3,#lineB4,#lineT4{
+  opacity: 0.3;
 }

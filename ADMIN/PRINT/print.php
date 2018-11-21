@@ -32,12 +32,12 @@
     <span class="Subtitle_ADD">문제출력</span>
     <section class="row">
       <div class="ADD_LEFT">
-        <div class="ALPanel_Regular">
+        <!-- <div class="ALPanel_Regular">
           <span class="ALPR_span">정규문제</span>
         </div>
         <div class="ALPanel_UnRegular">
           <span class="ALPUR_span">비정규문제</span>
-        </div>
+        </div> -->
 
         <form  class="ADD_LEFT_FORM" name = "form" action="question_print.php" method="post" enctype="multipart/form-data">
             <div class="ALF_Shield">
@@ -85,6 +85,9 @@
                   <option value="2" >2</option>
                   <option value="3" >3</option>
                 </select>
+                <div class="sub" style="width:10%;border:none">
+                  &nbsp;
+                </div>
 
                 <select class="ALFSO_Bookname" name="book_name1" required>
                   <option value="" selected>책이름</option>
@@ -114,7 +117,12 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name2" required>
+                <div class="sub" style="width:10%;border:none">
+                  사용하기
+                </div>
+
+
+                <select id="lineB2" class="ALFSO_Bookname" name="book_name2" required disabled>
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -128,7 +136,8 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_type" name="question_type2" required>
+
+                <select id="lineT2" class="ALFSO_type" name="question_type2" required disabled>
                   <option value="" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
@@ -142,7 +151,10 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name3" required>
+                <div class="sub" style="width:10%;">
+                  <input type="checkbox" name="check1" value="2">
+                </div>
+                <select id="lineB3" class="ALFSO_Bookname" name="book_name3" required disabled>
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -156,7 +168,7 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_type" name="question_type3" required>
+                <select id="lineT3" class="ALFSO_type" name="question_type3" required disabled>
                   <option value="" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
@@ -170,7 +182,10 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name4" required>
+                <div class="sub" style="width:10%;">
+                  <input type="checkbox" name="check2" value="3">
+                </div>
+                <select id="lineB4" class="ALFSO_Bookname" name="book_name4" required style="margin-bottom:10%;" disabled>
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -184,7 +199,7 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_type" name="question_type4" required>
+                <select id="lineT4" class="ALFSO_type" name="question_type4" required style="margin-bottom:10%;" disabled>
                   <option value="" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
@@ -198,6 +213,9 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
+                <div class="sub" style="width:10%;">
+                  <input type="checkbox" name="check3" value="4">
+                </div>
               </div>
               <br>
               <div class="ALFS_Difficult">
@@ -270,13 +288,7 @@
 
       </div>
       <div class="ADD_RIGHT">
-        <div class="ADD_RIGHT_IMG">
-          트리처럼 이어지므로 선택할때마다<br>
-          드롭다운 목록이 바뀌게됩니다.<br>
-          또한 전체 라는 목록을 추가함으로써 <br>
-          학년 문제지 유형에 관계없이 문제를<br>
-          출력할 수 있습니다.
-        </div>
+
       </div>
     </section>
 
@@ -292,5 +304,6 @@
 
     </script> -->
     <script src="../js/add.js" charset="utf-8"></script>
+    <script src="../js/print.js" charset="utf-8"></script>
   </body>
 </html>
