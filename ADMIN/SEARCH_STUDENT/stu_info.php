@@ -147,46 +147,7 @@
               <td>문제지이름</td>
               <td>채점여부</td>
             </thead>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
-            <tbody>
-              <td>2018-02-22</td>
-              <td>고-2-수학-미적분</td>
-              <td>미채점</td>
-            </tbody>
+            
           </table>
           <h1>오답 통계</h1>
           <hr>
@@ -240,5 +201,6 @@
 
      <script src="fullcalender.js" charset="utf-8"></script>
      <script src="../js/search.js" charset="utf-8"></script>
+     <script src="sub_src/marking.js" charset="utf-8"></script>
   </body>
 </html>

@@ -57,7 +57,7 @@
                 </div>
                 <div class="ALFSPN_Number">
                   <!-- 불필요 -->
-                  <input type="text" name="num" value="" placeholder="문제 개수" >
+                  <input type="text" name="num" value="" placeholder="문제 개수" required>
                 </div>
               </div>
               <br>
@@ -114,7 +114,7 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name2" required>
+                <select class="ALFSO_Bookname" name="book_name2" >
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -128,8 +128,8 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_type" name="question_type2" required>
-                  <option value="" selected>유형</option>
+                <select class="ALFSO_type" name="question_type2" >
+                  <option value="100" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
@@ -142,7 +142,7 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name3" required>
+                <select class="ALFSO_Bookname" name="book_name3" >
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -156,8 +156,8 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_type" name="question_type3" required>
-                  <option value="" selected>유형</option>
+                <select class="ALFSO_type" name="question_type3" >
+                  <option value="101" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
@@ -170,7 +170,7 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_Bookname" name="book_name4" required>
+                <select class="ALFSO_Bookname" name="book_name4" >
                   <option value="" selected>책이름</option>
                   <?php
                     for($idx = 1; $idx <= count($book_name); $idx++)
@@ -184,8 +184,8 @@
                   <option value="0" >4</option>
                   <option value="0" >5</option> -->
                 </select>
-                <select class="ALFSO_type" name="question_type4" required>
-                  <option value="" selected>유형</option>
+                <select class="ALFSO_type" name="question_type4" >
+                  <option value="102" selected>유형</option>
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
