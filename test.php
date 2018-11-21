@@ -5,24 +5,19 @@ include("module\dbConnect.php");
 include("module\dbContentsEcho.php");
 
 
+$get = DB_echo("SELECT * FROM question_list WHERE no= '24'",'question_num');
 
-$arr = ['지수함수','2','지수함수','4'];
+$get[0] = explode("|", $get[0]);
 
-for($i =(count($arr) - 1); $i >= 0; $i--)
+
+print_r($get);
+
+echo "</br>".count($get[0])."</br>";
+
+for($idx = 1; $idx < count($get[0]); $idx++)
 {
-  for($j = ($i-1); $j >= 0; $j--)
-  {
-    if($arr[$i] == $arr[$j])
-    {
-      $arr[$i] = $j;
 
-    }
-  }
+  echo "</br>".$get[0][$idx];
 }
-
-print_r($arr);
-echo "</br>".count($arr);
-
-
 
        ?>

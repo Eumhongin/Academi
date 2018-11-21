@@ -85,9 +85,15 @@ $('.changebtn').on('click', function() {
     $('#calendar').addClass('Active');
   }
 });
-$('.history tbody').on('click',function(){
-  location.href='../../Teacher/Check_Problem.html';
-});
+
+$(document).on('click','.history tbody',function(){
+  var getId = $(this).attr('id');
+  location.href='../../Teacher/Check_Problem.php?id='+getId+'';
+})
+//
+// $('.history tbody').on('click',function(){
+  // location.href='../../Teacher/Check_Problem.html';
+// });
 
 
 //kindlength 는 불러오는 유형의 갯수

@@ -8,7 +8,7 @@ $(document).ready(function(){
     {
 
       for (i = 0; i < 8; i++) {
-        var tbody = $('<tbody>').appendTo('.history');
+        var tbody = $('<tbody>').attr('id',result[0][i]).appendTo('.history');
         $('<td>').text(result[5][i]).appendTo(tbody);
         $('<td>').text(result[1][i]).appendTo(tbody);
         $('<td>').text(result[4][i]).appendTo(tbody);

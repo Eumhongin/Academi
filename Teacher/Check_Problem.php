@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+session_start();
+include('../module/dbConnect.php');
+include('../module/dbContentsEcho.php');
+ ?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -9,6 +14,14 @@
 </head>
 
 <body>
+  <?php
+      // $sql = "SELECT * FROM question_list WHERE no='".$_GET[id]."'";
+
+      $get = DB_echo("SELECT * FROM question_list WHERE no='".$_GET[id]."'",'question_num');
+
+      $get[0] = explode("|", $get[0]);
+
+    ?>
   <div class="wrapper">
     <div class="form">
     </div>
