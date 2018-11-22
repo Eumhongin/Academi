@@ -8,6 +8,7 @@ include('../module/dbContentsEcho.php');
   $get = DB_echo("SELECT question_num FROM question_list WHERE no='".$_POST[number]."'", 'question_num');
 
   $get[0] = explode("|", $get[0]);
+  $get[1] = $_POST['number'];
 
   echo json_encode($get);
 ?>

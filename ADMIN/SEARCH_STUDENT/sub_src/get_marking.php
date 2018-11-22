@@ -9,7 +9,7 @@ $get[0] = DB_echo($sql, 'no');
 $get[1] = DB_echo($sql, 'title');
 $get[2] = DB_echo($sql, 'question_num');
 $get[3] = DB_echo($sql, 'student_id');
-$get[4] = DB_echo($sql, 'check');
+$get[4] = DB_echo($sql, 'checked');
 $get[5] = DB_echo($sql, 'registerdate');
 // //////////////////////////////////////
 

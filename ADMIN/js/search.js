@@ -88,7 +88,14 @@ $('.changebtn').on('click', function() {
 
 $(document).on('click','.history tbody',function(){
   var getId = $(this).attr('id');
-  location.href='../../Teacher/Check_Problem.php?id='+getId+'';
+  var tag = $('#'+getId+'>td:last').text();
+  if(tag == 'x')
+  {
+    location.href='../../Teacher/Check_Problem.php?id='+getId+'';
+  }else if(tag =='o')
+  {
+    alert('이미 채점한 문제지 입니다.');
+  }
 })
 //
 // $('.history tbody').on('click',function(){
