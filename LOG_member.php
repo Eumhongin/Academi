@@ -9,6 +9,7 @@
     <?php
       include("module\dbConnect.php");
       include("module\dbContentsEcho.php");
+      include("module\url_access_denied.php");
 
       $sql1 = "SELECT * FROM member WHERE id='".$_POST['LOG_id']."'";
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php session_start();
+include("..\..\module\url_access_denied.php");?>
 
 <html lang="en" dir="ltr">
   <head>

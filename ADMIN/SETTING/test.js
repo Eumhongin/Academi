@@ -77,6 +77,7 @@ $("#insert_button").on('click',function(){
       }
 
     });
+
   }
 });
 
@@ -125,7 +126,7 @@ $("#update_button").on('click',function(){
     $.ajax({
       url : "test1.php",  //url 바꾸기
       type : "POST",
-      data : {type:type, change:change, check:check},
+      data : {type:type, change:change, check:check, name:name},
       // dataType :"json",
       success : function(result)
       {

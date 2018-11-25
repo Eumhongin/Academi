@@ -13,4 +13,19 @@
     return $value;
   }
 
+  
+
+  function getLastField($sql)
+  {
+    $result = mysqli_query($GLOBALS['conn'], $sql);
+    while($row = mysqli_fetch_array($result))
+    {
+      $value[$i] = $row['Field'];
+      $i++;
+    }
+
+    $get = $value[$i - 7];
+    return $get;
+  }
+
  ?>

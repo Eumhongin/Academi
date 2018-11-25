@@ -2,7 +2,7 @@
 session_start();
 include('../module/dbConnect.php');
 include('../module/dbContentsEcho.php');
-
+include("..\module\url_access_denied.php");
 //correct_math에 맞춘거 넣기
 // $sql = "SELECT tmi.type_index_name
 //         FROM question_image as qi

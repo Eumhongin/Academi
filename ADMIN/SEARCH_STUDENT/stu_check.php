@@ -10,6 +10,7 @@
     <?php
     include("..\..\module\dbConnect.php");
     include("..\..\module\dbContentsEcho.php");
+    include("..\..\module\url_access_denied.php");
 
     $member_name = $_POST['name'];
     $member_school_name = $_POST['school_name'];

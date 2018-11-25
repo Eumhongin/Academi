@@ -2,6 +2,7 @@
 session_start();
 header("Content-Type:application/x-www-form-urlencoded");
 include("..\module\EVENTdbConnect.php");
+
 // echo "<script>alert(".$_POST['title'].");</script>";
   if($_POST['check'] == 1)
   {//선생이 학생에게 스케줄 추가할 때

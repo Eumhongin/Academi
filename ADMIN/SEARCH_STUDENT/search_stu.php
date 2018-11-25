@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<?php
+include("..\..\module\url_access_denied.php");
+ ?>
 
 <html lang="en" dir="ltr">
   <head>
@@ -39,7 +42,7 @@
             </select>
 
             <button class="sfs_subtmit" type="submit">찾기</button>
-            
+
           </div>
         </form>
       </div>

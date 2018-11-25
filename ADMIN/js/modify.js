@@ -67,3 +67,90 @@ $('tbody > tr').hover(function() {
     'border': '1px solid black'
   });
 });
+
+
+
+
+
+
+$.ajax({
+  url:"getImage.php",
+  type : "POST",
+  data : {chk:1},
+  dataType : "json",
+  success : function(result)
+  {
+    for(var idx =0; idx < result[0].length; idx++)
+    {
+      var tbody = $('<tbody>').attr('class','col-1').attr('id',idx).appendTo('#history');
+      var tr = $('<tr class="col-1">').appendTo(tbody);
+
+      $('<td>').attr('class', 'col-4').text(result[0][idx]).appendTo(tr);//날짜
+      $('<td>').attr('class', 'col-2').text(result[1][idx]).appendTo(tr);//파일 이름
+      $('<td>').attr('class', 'col-4').text('출력안할래').appendTo(tr);//최근 수정일 없에기
+    }
+  },error:function(request,status,error){
+    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+  }
+
+});
+
+
+
+$(document).on('click','#history tbody',function(){
+  var getId = $(this).attr('id');
+  var title = $('#'+getId+'>tr>td:nth-child(2)').text();
+
+  alert(title);
+  // $.ajax({
+  //   url:"getSelectedInfo.php",
+  //   type:"POST",
+  //   data:{title:title},
+  //   dataType : "json",
+  //   success : function(result)
+  //   {
+  //
+  //   },error:function(request,status,error){
+  //     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+  //   }
+  //
+  // });
+
+});
+
+
+
+$('#search').on('click', function() {
+  var sub = $("#subject option:selected").val();
+  var gra = $("#grade option:selected").val();
+  var b_n = $("#book_name option:selected").val();
+  var q_t = $("#question_type option:selected").val();
+  var chk = 0;
+  $.ajax({
+    url:"getImage.php",
+    type : "POST",
+    data : {sub:sub, grade:gra, book_name:b_n, question_type:q_t, chk:chk},
+    dataType : "json",
+    success : function(result)
+    {
+      alert(result);
+      for(var idx =0; idx < result[0].length; idx++)
+      {
+        var tbody = $('<tbody>').attr('class','col-1').attr('id',idx).appendTo('#search_history');
+        var tr = $('<tr class="col-1">').appendTo(tbody);
+
+        $('<td>').attr('class', 'col-4').text(result[0][idx]).appendTo(tr);//날짜
+        $('<td>').attr('class', 'col-2').text(result[1][idx]).appendTo(tr);//파일 이름
+        $('<td>').attr('class', 'col-4').text('출력안할래').appendTo(tr);//최근 수정일 없에기
+      }
+    },error:function(request,status,error){
+      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+
+  });
+  // alert(sub);
+  // alert(gra);
+  // alert(b_n);
+  // alert(q_t);
+  // alert('검새쿠');
+});

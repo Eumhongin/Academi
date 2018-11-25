@@ -10,6 +10,7 @@
     include("module\dbConnect.php");
     include("module\dbContentsEcho.php");
     include("module\\rand_string.php");
+    include("module\url_access_denied.php");
     $teacher_num = null;
 
     function get_token($token)

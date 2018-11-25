@@ -2,6 +2,7 @@
 
 include('../module/dbConnect.php');
 include('../module/dbContentsEcho.php');
+include("..\module\url_access_denied.php");
 //include('../module/dbContentsEcho.php');
 
 $name = $_POST['name'];

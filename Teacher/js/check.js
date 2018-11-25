@@ -104,7 +104,9 @@ $(document).ready(function(){
 
   $(document).on('click','#submit',function(){
 // alert('asdf');
-    $.ajax({
+  if(confirm('제출하게 되면 다시 채점 할 수 없습니다.\n제출하시겠습니까?'))
+  {
+      $.ajax({
       url : "marking.php",  //url 바꾸기.
       type:"POST",
       data:{number:check_array ,no:num},
@@ -112,17 +114,20 @@ $(document).ready(function(){
       dataType :"json",
       success : function(result)
       {
-        alert(num);
-        alert(check_array);
-        for(var idx = 0; idx < result.length; idx++)
-        {
-          console.log(result[idx][0]);
-        }
+        // alert(num);
+        // alert(check_array);
+        // for(var idx = 0; idx < result.length; idx++)
+        // {
+          // console.log(result[idx][0]);
+        // }
+        alert('완료 채점 완료');
+        location.href='../ADMIN/SEARCH_STUDENT/stu_info.php';
 
       },error:function(request,status,error){
         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
       }
     });
+  }
 
   });
 });
