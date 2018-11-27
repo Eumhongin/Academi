@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<?php session_start(); ?>
+<?php session_start();
+include("..\..\module\url_access_denied.php");
+?>
 
 <html lang="en" dir="ltr">
   <head>
@@ -147,7 +149,7 @@
               <td>문제지이름</td>
               <td>채점여부</td>
             </thead>
-            
+
           </table>
           <h1>오답 통계</h1>
           <hr>
