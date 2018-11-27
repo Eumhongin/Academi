@@ -121,6 +121,7 @@ $(document).on('click','#history tbody',function(){
 
 
 $('#search').on('click', function() {
+  $('tbody').remove();
   var sub = $("#subject option:selected").val();
   var gra = $("#grade option:selected").val();
   var b_n = $("#book_name option:selected").val();
@@ -136,7 +137,7 @@ $('#search').on('click', function() {
       alert(result);
       for(var idx =0; idx < result[0].length; idx++)
       {
-        var tbody = $('<tbody>').attr('class','col-1').attr('id',idx).appendTo('#search_history');
+        var tbody = $('<tbody>').attr('class','col-1').attr('id',idx).appendTo('#history');
         var tr = $('<tr class="col-1">').appendTo(tbody);
 
         $('<td>').attr('class', 'col-4').text(result[0][idx]).appendTo(tr);//날짜

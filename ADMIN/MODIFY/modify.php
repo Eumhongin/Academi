@@ -101,26 +101,7 @@ $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index W
           <button class="MRO_Submit" id="search" type="button">검색</button>
         </form>
 
-        <div class="ML_History">
-          <table id="search_history" class="col-1">
-            <thead class="col-1">
-              <tr class="col-1">
-                <th class="col-4">추가날짜</th>
-                <th class="col-2">파일</th>
-                <th class="col-4">최근수정일자</th>
-              </tr>
-            </thead>
-            <!-- <tbody class="col-1">
-            <tr class="col-1">
-            <td class="col-4">hongo</td>
-            <td class="col-2">gg</td>
-            <td class="col-4">wdw</td>
-          </tr>
-        </tbody> -->
 
-
-      </table>
-    </div>
       </div>
     </section>
 
