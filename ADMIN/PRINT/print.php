@@ -209,8 +209,8 @@
                   <input type="checkbox" name="check3" value="4">
                 </div>
               </div>
-              <br>
-              <div class="ALFS_Difficult">
+
+              <div class="ALFS_Difficult">                
                 <input type="text" name="difficult" value="" placeholder="난이도 [0 - 10]" required>
               </div>
               <br>

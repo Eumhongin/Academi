@@ -141,12 +141,12 @@
 }
 
 .ALFS_Option {
-  margin-top: 10%;
+
   width: 100%;
 }
 
 .ALFS_Option>* {
-  margin-top:5%;
+  margin-top:2%;
   background-color: white;
   border-radius: 8px;
   border: solid 2px #023059;
@@ -157,7 +157,7 @@
 }
 
 .ALFS_Difficult {
-  margin-top: 25%;
+
   width: 100%;
 }
 
@@ -170,7 +170,7 @@
   width: 90%;
 }
 
-.ADD_LEFT_FORM2 .ALFS_Difficult {
+.ADD_LEFT_FORM2 {
   margin-top: 15%;
 }
 

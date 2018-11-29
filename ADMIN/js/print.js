@@ -1,4 +1,6 @@
-
+$('.ALFS_Difficult').css({
+  'margin-top':$('.ADD_LEFT_FORM').outerHeight()*0.47+'px'
+});
 $('.sub > input').change(function(){
   if(this.checked){
     $('#lineB'+$(this).val()).addClass('Activate');
