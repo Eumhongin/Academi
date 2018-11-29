@@ -124,9 +124,9 @@
                 </div>
 
 
-                <select id="lineB2" class="ALFSO_Bookname" name="book_name2" required disabled>
+                <!-- <select id="lineB2" class="ALFSO_Bookname" name="book_name2" required disabled> -->
 
-                <select class="ALFSO_Bookname" name="book_name2" >
+                <select id="lineB2" class="ALFSO_Bookname" name="book_name2" required disabled >
 
                   <option value="" selected>책이름</option>
                   <?php
@@ -145,105 +145,66 @@
 
                 <select id="lineT2" class="ALFSO_type" name="question_type2" required disabled>
                   <option value="" selected>유형</option>
-
-                <select class="ALFSO_type" name="question_type2" >
-                  <option value="100" selected>유형</option>
-
                   <?php
                     for($idx = 0; $idx < count($type_index_name); $idx++)
                     {
                       echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
                     }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
                 </select>
+
 
                 <div class="sub" style="width:10%;">
                   <input type="checkbox" name="check1" value="2">
                 </div>
                 <select id="lineB3" class="ALFSO_Bookname" name="book_name3" required disabled>
-
-                <select class="ALFSO_Bookname" name="book_name3" >
-
                   <option value="" selected>책이름</option>
                   <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
+                  for($idx = 1; $idx <= count($book_name); $idx++)
+                  {
+                    echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                  }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
                 </select>
 
                 <select id="lineT3" class="ALFSO_type" name="question_type3" required disabled>
                   <option value="" selected>유형</option>
-
-                <select class="ALFSO_type" name="question_type3" >
-                  <option value="101" selected>유형</option>
-
                   <?php
-                    for($idx = 0; $idx < count($type_index_name); $idx++)
-                    {
-                      echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
-                    }
+                  for($idx = 0; $idx < count($type_index_name); $idx++)
+                  {
+                    echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
+                  }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
                 </select>
+
+
 
                 <div class="sub" style="width:10%;">
                   <input type="checkbox" name="check2" value="3">
                 </div>
                 <select id="lineB4" class="ALFSO_Bookname" name="book_name4" required style="margin-bottom:10%;" disabled>
-
-                <select class="ALFSO_Bookname" name="book_name4" >
-
                   <option value="" selected>책이름</option>
                   <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
+                  for($idx = 1; $idx <= count($book_name); $idx++)
+                  {
+                    echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                  }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
                 </select>
 
-                <select class="ALFSO_type" name="question_type4" >
-                  <option value="102" selected>유형</option>
+
+
 
                 <select id="lineT4" class="ALFSO_type" name="question_type4" required style="margin-bottom:10%;" disabled>
                   <option value="" selected>유형</option>
-
-                <select class="ALFSO_type" name="question_type4" >
-                  <option value="102" selected>유형</option>
-
                   <?php
-                    for($idx = 0; $idx < count($type_index_name); $idx++)
-                    {
-                      echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
-                    }
+                  for($idx = 0; $idx < count($type_index_name); $idx++)
+                  {
+                    echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
+                  }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
                 </select>
+
                 <div class="sub" style="width:10%;">
                   <input type="checkbox" name="check3" value="4">
                 </div>
