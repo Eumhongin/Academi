@@ -12,6 +12,7 @@ include("..\..\module\url_access_denied.php");
     <link rel="stylesheet" href="../fonts/font.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/search.css">
+    
   </head>
   <body>
     <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../../intro/Temp.html'">
