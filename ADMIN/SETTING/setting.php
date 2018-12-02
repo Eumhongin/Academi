@@ -4,7 +4,7 @@
   include("..\..\module\dbConnect.php");
   include("..\..\module\dbContentsEcho.php");
   include("..\..\module\url_access_denied.php");
-  
+
  ?>
 <html lang="en" dir="ltr">
   <head>
@@ -186,11 +186,6 @@
           </select> 을(를)
           <input type="text" id="book_change_type" > 으로
           <button type="button" id="book_update_button">변경</button>
-
-        </div>
-      </li>
-      <li>
-        <div class="jungsup">
 
         </div>
       </li>

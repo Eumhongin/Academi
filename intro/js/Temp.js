@@ -16,7 +16,7 @@ $('.Print').on('click',function(){
 });
 
 $('.Modify').on('click',function(){
-  document.location.href='../ADMIN/MODIFY/modify.html';
+  document.location.href='../ADMIN/MODIFY/modify.php';
 });
 
 $('.Add').on('click',function(){
