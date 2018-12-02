@@ -15,8 +15,9 @@
     $member_name = $_POST['name'];
     $member_school_name = $_POST['school_name'];
     $member_grade = $_POST['grade'];
+    $member_school_level = $_POST['school_level'];
 
-    $sql = "SELECT * FROM member WHERE name = '$member_name' AND school_name ='$member_school_name' AND grade = '$member_grade'";
+    $sql = "SELECT * FROM member WHERE name = '$member_name' AND school_name ='$member_school_name' AND grade = '$member_grade' AND school_level= '$member_school_level'";
 
     $_SESSION['stu_id'] = DB_echo($sql, 'id');
     $_SESSION['stu_name'] = DB_echo($sql, 'name');

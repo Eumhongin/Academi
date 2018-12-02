@@ -44,6 +44,17 @@
       else{return 0;}
     }
 
+    function Namecheck($name, $school_name, $school_level, $grade)
+    {
+      $sql = "SELECT name FROM member
+              WHERE name = '".$name."' and school_name = '".$school_name."' and school_level = '".$school_level."' and grade = '".$grade."' ";
+      $chk = DB_echo($sql, 'name');
+
+      if($chk == null)
+      {return 1;}
+      else{return 0;}
+    }
+
     // 선생님들 정보를 받아와서 회원가입 진행
     if($_POST['token'] != null)
     {
@@ -79,11 +90,14 @@
 
         if(IDcheck($_POST['id']) == 0)
         {
+
           echo ("<script>alert('ID가 중복됩니다.다른 ID를 입력해주세요.');</script>");
           delete_token();
-          echo $sql12."</br>".$member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_school_name."</br>".$member_name."</br>".$member_phone."</br>";
+          // echo $sql12."</br>".$member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_school_name."</br>".$member_name."</br>".$member_phone."</br>";
           echo "<script>location.href='ADMIN/SETTING/setting.php';</script>";
-        }else{
+
+        }
+        else{
 
           $member_id = $user_id; //id
           $member_pw_salt = genRandom(); //64자리 랜덤 문자열 sort값으로 사용
@@ -138,11 +152,11 @@
       if((strlen($_POST['pw']) < 8) || (strlen($_POST['id']) < 8))
       {
         echo "<script>alert('아이디와 비밀번호를 8자 이상으로 입력바랍니다.');</script>";
-        echo "<script>location.href='Login.html';</script>";
+        echo "<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>";
       }else if($_POST['id'] != $user_id)
       {
         echo "<script>alert('영어(소문자)와 숫자외의 문자는 이용할 수 없습니다.');</script>";
-        echo "<script>location.href='Login.html';</script>";
+        echo "<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>";
       }else if($_POST['id'] == $user_id){
 
         if(IDcheck($_POST['id']) == 0)
@@ -151,6 +165,14 @@
           // delete_token();
           // echo $sql12."</br>".$member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_school_name."</br>".$member_name."</br>".$member_phone."</br>";
           echo ("<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>");
+
+        }else if(Namecheck($_POST['name'], $_POST['school_name'], $_POST['school_level'], $_POST['grade']) == 0)
+        {
+          echo ("<script>alert('같은 학교, 같은 학년에 동명이인이 존재합니다.');</script>");
+
+          // echo $sql12."</br>".$member_id."</br>".$member_pw_hash."</br>".$member_pw_salt."</br>".$member_school_name."</br>".$member_name."</br>".$member_phone."</br>";
+          echo "<script>location.href='ADMIN/SEARCH_STUDENT/stu_new.php';</script>";
+
         }else{
 
           $member_id = $user_id; //id

@@ -34,9 +34,9 @@
     $type_index_num[3] = $_POST['question_type3'];
     $type_index_num[4] = $_POST['question_type4'];
 
-    if($_POST['question_type2'] == 100){$type_index_name[2][0] = 2;}
-    if($_POST['question_type3'] == 101){$type_index_name[3][0] = 3;}
-    if($_POST['question_type4'] == 102){$type_index_name[4][0] = 4;}
+    if(($_POST['question_type2'] == 100) || ($_POST['question_type2'] == null)){$type_index_name[2][0] = 2;}
+    if(($_POST['question_type3'] == 101) || ($_POST['question_type3'] == null)){$type_index_name[3][0] = 3;}
+    if(($_POST['question_type4'] == 102) || ($_POST['question_type4'] == null)){$type_index_name[4][0] = 4;}
 
 
     print_r($_POST);
@@ -72,8 +72,16 @@
       order by rand()
       limit $_POST[num]";
       echo "</br>".$sql."</br>";
-      $print = DB_echo($sql,'image');
-      $print_num = DB_echo($sql,'no');
+
+      $i = 0;
+      $result = mysqli_query($conn, $sql);
+      while($row = mysqli_fetch_array($result))
+      {
+        $print[$i] = $row['image'];
+        $print_num[$i++] = $row['no'];
+      }
+      // $print = DB_echo($sql,'image');
+      // $print_num = DB_echo($sql,'no');
 
 
 

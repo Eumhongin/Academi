@@ -3,6 +3,7 @@ session_start();
 
 include("..\..\module\dbConnect.php");
 include("..\..\module\dbContentsEcho.php");
+include("..\..\module\url_access_denied.php");
 
 $sql = "SELECT * FROM member WHERE stu_tea = 0";
 $num[0] = DB_echo($sql,'school_name'); //선생님 번호

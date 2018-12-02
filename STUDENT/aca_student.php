@@ -3,6 +3,7 @@ session_start();
 
 include("..\module\dbConnect.php");
 include("..\module\dbContentsEcho.php");
+include("..\module\url_access_denied.php");
 
 $sql = "SELECT * FROM member WHERE id = '".$_SESSION[LOG_id]."' ";
 
