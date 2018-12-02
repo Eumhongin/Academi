@@ -12,7 +12,7 @@ include("..\..\module\url_access_denied.php");
     <link rel="stylesheet" href="../fonts/font.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/search.css">
-    
+
   </head>
   <body>
     <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../../intro/Temp.html'">
@@ -26,13 +26,13 @@ include("..\..\module\url_access_denied.php");
         <form  class="sl_form" name = "form" action="stu_check.php" method="post" enctype="multipart/form-data">
           <div class="sf_shield">
             <div class="sfs_input">
-              <input type="text" name="" value="" placeholder="뭐들어가지" required>
-            </div>
-            <div class="sfs_input">
               <input type="text" name="name" value="" placeholder="이름" required>
             </div>
             <div class="sfs_input">
               <input type="text" name="school_name" value="" placeholder="학교" required>
+            </div>
+            <div class="sfs_input">
+              <input type="text" name="school_level" value="" placeholder="분류" required>
             </div>
             <div class="sfs_input">
               <input type="text" name="grade" value="" placeholder="학년" required>

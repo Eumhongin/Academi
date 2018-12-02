@@ -12,6 +12,7 @@
     <title></title>
     <script src="../js/jquery-min.js" charset="utf-8"></script>
     <link rel="stylesheet" href="../fonts/font.css">
+    <link rel="stylesheet" href="../css/search.css">
     <style media="screen">
       html,body{
         padding: 0;
@@ -77,7 +78,7 @@
   </head>
   <body>
     <div class="SET_Header">
-
+      <img class="gohome" src="../img/home-ios-icon.png" alt="go-index" onclick="location.href='../../intro/Temp.html'">
     </div>
     <div class="SET_Section container">
       <p>교사정보</p>
