@@ -1,0 +1,15 @@
+html,body{
+  padding:0;
+  margin:0;
+}
+.wrapper{
+  display: grid;
+}
+.left,.right{
+  padding:5%;
+}
+
+.right > img{
+  width: 100%;
+
+}

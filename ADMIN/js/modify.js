@@ -108,8 +108,9 @@ $(document).on('click','#history tbody',function(){
     data:{title:title},
     success : function(result)
     {
-      alert(title);
-      document.location.href='ChangeInfo.php';
+      //alert(title);
+      window.open('ChangeInfo.php');
+
     },error:function(request,status,error){
       alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
     }
