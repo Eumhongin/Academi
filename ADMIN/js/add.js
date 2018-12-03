@@ -97,3 +97,10 @@ $('.ALPanel_Regular').click(function() {
   $('.ADD_LEFT_FORM2').addClass('hide');
   $('.ADD_LEFT_FORM').removeClass('hide');
 });
+
+$('.ALFS_Submit').click(function(){
+    if(confirm('추가하시면 삭제는 불가능 합니다.\n제대로 입력하셨습니까?'))
+    {
+      $('.hello').trigger('click');
+    }else {}
+})

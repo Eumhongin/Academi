@@ -9,7 +9,7 @@ include("..\sub_src\\teacher_calendar_load.php");
   // $teacher_id = DB_echo($day_sql, 'id');
   // $teacher_num = DB_echo($day_sql, 'school_name');//선생님 번호
 
-setSQL('5');
+setSQL('30');
 
 echo json_encode($GLOBALS['data']);
  ?>

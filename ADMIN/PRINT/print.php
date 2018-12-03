@@ -52,13 +52,13 @@
               </div>
               <br>
               <div class="ALFS_Paging_Number row">
-                <div class="ALFSPN_Page">
-                  <!-- 불필요 -->
-                  <input type="text" name="page" value="" placeholder="??" >
-                </div>
                 <div class="ALFSPN_Number">
                   <!-- 불필요 -->
-                  <input type="text" name="num" value="" placeholder="문제 개수" required>
+                  <input type="text" name="num" value="" placeholder="총 문제 개수" required>
+                </div>
+                <div class="ALFSPN_Page">
+                  <!-- 불필요 -->
+                  <input type="text" name="wrong" value="" placeholder="총 문제 개수 중 틀린 문제 개수" >
                 </div>
               </div>
               <br>
@@ -210,7 +210,7 @@
                 </div>
               </div>
 
-              <div class="ALFS_Difficult">                
+              <div class="ALFS_Difficult">
                 <input type="text" name="difficult" value="" placeholder="난이도 [0 - 10]" required>
               </div>
               <br>

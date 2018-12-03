@@ -129,13 +129,10 @@
               </div>
               <br>
 
-
-
-
-
-            <button class="ALFS_Submit" type="submit">추가</button>
-          </div>
+          <button class="ALFS_Submit" type="button">추가</button>
+          <button class="hello" style="display:none;" type="submit">추가</button>          </div>
         </form>
+
         <form  class="ADD_LEFT_FORM2 hide" name = "form2" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
@@ -179,7 +176,8 @@
 
 
 
-            <button class="ALFS_Submit" type="submit">추가</button>
+            <button class="ALFS_Submit" type="button">추가</button>
+            <button class="hello" style="display:none;" type="submit">추가</button>
           </div>
         </form>
 
