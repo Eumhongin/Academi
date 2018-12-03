@@ -59,12 +59,36 @@
       //   $type .= $type_list[$idx++]."_";
       // }
       echo "</br>".$type;
-      if($_POST['wrong'] == null)
-      {
-        $_POST['wrong'] = 1;
-      }
-      $_POST['num'] = $_POST['num'] - $_POST['wrong'];
-      
+      // if($_POST['wrong'] == null)
+      // {
+      //   $_POST['wrong'] = 1;
+      // }
+      // $_POST['num'] = $_POST['num'] - $_POST['wrong'];
+      //
+      // $sql =
+      // "SELECT no, image FROM question_image
+      // WHERE level='".$_POST['difficult']."'
+      //   and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
+      //   and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
+      //   and grade = '".$_POST['grade']."'
+      //   and type1 = '".$type_val[0]."'
+      //   and type2 = '".$type_val[1]."'
+      //   and type3 = '".$type_val[2]."'
+      //   and type4 = '".$type_val[3]."'
+      //   and wrong_student LIKE '%".$_POST[student_id]."%';
+      // order by rand()
+      // limit $_POST[wrong]";
+      // echo "</br>".$sql."</br>";
+      //
+      // $i = 0;
+      // $result = mysqli_query($conn, $sql);
+      // while($row = mysqli_fetch_array($result))
+      // {
+      //   $print[$i] = $row['image'];
+      //   $print_num[$i++] = $row['no'];
+      // }
+
+
       $sql =
       "SELECT no, image FROM question_image
       WHERE level='".$_POST['difficult']."'
