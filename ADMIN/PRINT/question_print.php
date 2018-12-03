@@ -59,7 +59,12 @@
       //   $type .= $type_list[$idx++]."_";
       // }
       echo "</br>".$type;
+      if($_POST['wrong'] == null)
+      {
+        $_POST['wrong'] = 1;
+      }
       $_POST['num'] = $_POST['num'] - $_POST['wrong'];
+      
       $sql =
       "SELECT no, image FROM question_image
       WHERE level='".$_POST['difficult']."'
