@@ -101,20 +101,20 @@ $(document).on('click','#history tbody',function(){
   var getId = $(this).attr('id');
   var title = $('#'+getId+'>tr>td:nth-child(2)').text();
 
-  alert(title);
-  // $.ajax({
-  //   url:"getSelectedInfo.php",
-  //   type:"POST",
-  //   data:{title:title},
-  //   dataType : "json",
-  //   success : function(result)
-  //   {
-  //
-  //   },error:function(request,status,error){
-  //     alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-  //   }
-  //
-  // });
+
+  $.ajax({
+    url:"getSelectedInfo.php",
+    type:"POST",
+    data:{title:title},
+    success : function(result)
+    {
+      alert(title);
+      document.location.href='ChangeInfo.php';
+    },error:function(request,status,error){
+      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+
+  });
 
 });
 
