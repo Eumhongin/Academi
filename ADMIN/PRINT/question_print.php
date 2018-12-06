@@ -152,7 +152,7 @@
 
         <div class='box' style='padding:5%;box-sizing:border-box;'>
           <div class='content' style='height:100%'>
-            <img src='../ADDING/img/<?php echo "1_2_3_1_111_111.png";?>' style='width:100%'>
+            <img src='../ADDING/img/default.png' style='width:100%'>
           </div>
         </div>
         <!-- 얘만만져라 -->
