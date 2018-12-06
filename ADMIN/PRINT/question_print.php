@@ -10,7 +10,8 @@
   <head>
     <meta charset="utf-8">
 
-    <title><strong><?php echo $_POST['paper']; ?></strong></title>
+    <title><?php echo $_POST['paper']; ?></title>
+    <script src="../js/jquery-min.js" charset="utf-8"></script>
   </head>
   <body>
     <?php
@@ -39,7 +40,7 @@
     if(($_POST['question_type4'] == 102) || ($_POST['question_type4'] == null)){$type_index_name[4][0] = 4;}
 
 
-    print_r($_POST);
+    //print_r($_POST);
 
     $type_list = $_POST['type'];
     $type_val = [0,0,0,0];
@@ -58,10 +59,10 @@
       // {
       //   $type .= $type_list[$idx++]."_";
       // }
-      echo "</br>".$type;
+      //echo "</br>".$type;
       if($_POST['wrong'] == null)
       {
-        $_POST['wrong'] = 1;
+        $_POST['wrong'] = 0;
       }
       $_POST['num'] = $_POST['num'] - $_POST['wrong'];
 
@@ -78,7 +79,7 @@
         and wrong_student LIKE '%".$_POST[student_id]."%'
       order by rand()
       limit $_POST[wrong]";
-      echo "</br>".$sql."</br>";
+      //echo "</br>".$sql."</br>";
 
       $i = 0;
       $result = mysqli_query($conn, $sql);
@@ -102,7 +103,7 @@
         and NOT wrong_student LIKE '%".$_POST[student_id]."%'
       order by rand()
       limit $_POST[num]";
-      echo "</br>".$sql."</br>";
+      //echo "</br>".$sql."</br>";
 
       $result = mysqli_query($conn, $sql);
       while($row = mysqli_fetch_array($result))
@@ -142,13 +143,31 @@
           }
         }
       }
+      ?>
+      <div class="wrapper" style="display:grid;grid:764px/50% 50%;grid-auto-rows:764px">
 
-      for($idx = 0; $idx < count($print); $idx++)
-      {
-        $list .= '|'.$print_num[$idx];
-        echo "<div><img src='../ADDING/img/$print[$idx]'></div>";
-        for($i = 1; $i < 5; $i++)
+
+
+
+
+        <div class='box' style='padding:5%;box-sizing:border-box;'>
+          <div class='content' style='height:100%'>
+            <img src='../ADDING/img/<?php echo "1_2_3_1_111_111.png";?>' style='width:100%'>
+          </div>
+        </div>
+        <!-- 얘만만져라 -->
+
+
+
+
+        <!-- 1122.519685 -->
+        <?php
+        for($idx = 0; $idx < count($print); $idx++)
         {
+          $list .= '|'.$print_num[$idx];
+          echo "<div class='box' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/img/$print[$idx]' style='width:100%'></div></div>";
+          for($i = 1; $i < 5; $i++)
+          {
 
             if(strpos($print[$idx], '1_2_'.$book_num[$i].'_'.$type_index_num[1].'') !== false)
             {
@@ -165,8 +184,11 @@
               $D++;
             }
 
+          }
         }
-      }
+        ?>
+      </div>
+      <?php
       //echo "adf";
       // echo "?";
 
@@ -185,7 +207,7 @@
       mysqli_query($conn,$sql3);
 
 
-      print_r($print);
+      /*print_r($print);
       echo "</br>".$type_index_num[1]."</br>".$type_index_num[2]."</br>".$type_index_num[3]."</br>".$type_index_num[4]."</br>".$sql2;
       echo "</br>".$book_num[1]."</br>".$book_num[2]."</br>".$book_num[3]."</br>".$book_num[4];
       echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";echo "</br>";
@@ -200,6 +222,8 @@
       echo $sql;
       echo "</br>";echo "</br>";echo "</br>";
       echo $sql2;
+      */
      ?>
+     <script src="question.js" charset="utf-8"></script>
   </body>
 </html>
