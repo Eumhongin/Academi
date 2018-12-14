@@ -43,10 +43,15 @@
         <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
-                <span class="ALFSFS_FilePath"></span>
+                <span class="ALFSFS_FilePath" > 문제지 </span>
                 <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
                 <input type="file" name="upload" id="selectedFile" style="display: none;" required/>
                 <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">찾기</button>
+                <br><br>
+                <span class="ALFSFS_FilePath2" > 답지 </span>
+                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                <input type="file" name="upload2" id="selectedFile2" style="display: none;"  required/>
+                <button class='picedit2' type="button" name="button" onclick="document.getElementById('selectedFile2').click();">찾기</button>
               </div>
               <br>
               <div class="Not_Defined">
@@ -133,7 +138,7 @@
           <button class="hello" style="display:none;" type="submit">추가</button>          </div>
         </form>
 
-        <form  class="ADD_LEFT_FORM2 hide" name = "form2" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
+        <!-- <form  class="ADD_LEFT_FORM2 hide" name = "form2" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
                 <span class="ALFSFS_FilePath"></span>
@@ -179,7 +184,7 @@
             <button class="ALFS_Submit" type="button">추가</button>
             <button class="hello" style="display:none;" type="submit">추가</button>
           </div>
-        </form>
+        </form> -->
 
 
         <br><br>
@@ -189,6 +194,7 @@
       <div class="ADD_RIGHT">
         <div class="ADD_RIGHT_IMG">
           <img id="ARI_Priview">
+          <img id="ARI_Priview2">
         </div>
       </div>
     </section>

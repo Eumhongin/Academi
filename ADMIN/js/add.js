@@ -31,10 +31,26 @@ $('#selectedFile').on('change', function() {
     // filename = "blahblah.jpg", without path
   });
 });
+
+// 중섭추가12-15 ★★★★★★★★★★★★★★★★★★★★★★★
+$('#selectedFile2').on('change', function() {
+  $.each($('#selectedFile2').prop("files"), function(k, v) {
+    var filename = v['name'];
+    $('.ALFSFS_FilePath2').text(filename);
+    // filename = "blahblah.jpg", without path
+  });
+});
+
 //console.log($('.ALFSFS_FilePath').outerHeight());
 $('.picedit').css({
   'height': $('.ALFSFS_FilePath').outerHeight()
 });
+
+// 중섭추가12-15 ★★★★★★★★★★★★★★★★★★★★★★★
+$('.picedit2').css({
+  'height': $('.ALFSFS_FilePath2').outerHeight()
+});
+
 $('.Subtitle_ADD').css({
   'left': ($(window).outerWidth() * 0.5 - $('.ADD_RIGHT_IMG').outerWidth()) * 0.5 + 'px'
 });
@@ -50,10 +66,26 @@ function readURL(input) {
 
   }
 }
+// 중섭추가12-15 ★★★★★★★★★★★★★★★★★★★★★★★
+function readURL2(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      // $('.ADD_RIGHT_IMG').css({'background-image':'url('+e.target.result+')'});
+      $('#ARI_Priview2').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+
+  }
+}
 $('#selectedFile').change(function() {
   readURL(this);
 });
 
+// 중섭추가12-15 ★★★★★★★★★★★★★★★★★★★★★★★
+$('#selectedFile2').change(function() {
+  readURL2(this);
+});
 
 
 $('.ALPanel_Regular').css({

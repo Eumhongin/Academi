@@ -7,10 +7,16 @@ include("..\..\module\url_access_denied.php");
 if($_FILES['upload'] != null)
 {
   $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\ADMIN\ADDING\img\\';
+  $uploaddir2 = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\ADMIN\ADDING\answer-img\\';
+
   $_FILES['upload']['name'] = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."_".$_POST['page']."_".$_POST['num'].".png";
+  $_FILES['upload2']['name'] = "ANSWER_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."_".$_POST['page']."_".$_POST['num'].".png";
   //학년_과목_문제지이름_유형_쪽수_문제번호.jpg
   $file_name = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."_".$_POST['page']."_".$_POST['num'].".png";
+  $file_name2 = "ANSWER_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."_".$_POST['page']."_".$_POST['num'].".png";
+
   $uploadfile = $uploaddir . basename($_FILES['upload']['name']);
+  $uploadfile2 = $uploaddir2 . basename($_FILES['upload2']['name']);
 
   $sql = "SELECT type_index_num FROM question_type_math_index WHERE type_index_name = '".$_POST['question_type']."' ";
   $type_index_num = DB_echo($sql , "type_index_num");
@@ -36,11 +42,18 @@ if($_FILES['upload'] != null)
     $idx++;
   }
 
-  $sql = "INSERT INTO question_image (image, grade, page, number, level, book_num, type_index_num, type1, type2, type3, type4, wrong_student)
-  VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult], $_POST[book_name], $_POST[question_type], $type_val[0], $type_val[1], $type_val[2], $type_val[3], '0')";
+  $sql = "INSERT INTO question_image (image, grade, subject, book_num, type_index_num, page, number, level, type1, type2, type3, type4, wrong_student)
+  VALUES ('".$file_name."',$_POST[grade] , $_POST[subject], $_POST[book_name], $_POST[question_type], $_POST[page], $_POST[num], $_POST[difficult], $type_val[0], $type_val[1], $type_val[2], $type_val[3], '0')";
   // $sql = "INSERT INTO question_image (image, grade, page, number, level, book_num, type_index_num, type1, type2, type3, type4)
   // VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult],$book_num[0] , $type_index_num[0] , $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
   $result = mysqli_query($conn, $sql);
+
+  $sql = "INSERT INTO answer_image (image, grade,  subject, book_num, type_index_num,  page, number, level, type1, type2, type3, type4)
+  VALUES ('".$file_name2."',$_POST[grade] , $_POST[subject], $_POST[book_name], $_POST[question_type], $_POST[page], $_POST[num], $_POST[difficult], $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
+  // $sql = "INSERT INTO question_image (image, grade, page, number, level, book_num, type_index_num, type1, type2, type3, type4)
+  // VALUES ('".$file_name."',$_POST[grade] ,$_POST[page], $_POST[num], $_POST[difficult],$book_num[0] , $type_index_num[0] , $type_val[0], $type_val[1], $type_val[2], $type_val[3])";
+  $result = mysqli_query($conn, $sql);
+
   if($result != null)
   {
     echo "<script>alert('DB 등록 성공');</script>";
@@ -48,7 +61,7 @@ if($_FILES['upload'] != null)
   {
     echo $sql."</br>";
     print_r($type_val);
-    echo $file_name."</br>";
+    echo $file_name2."</br>";
     echo $_POST['grade']."</br>";
     echo $_POST['page']."</br>";
     echo $_POST['difficult']."</br>";
@@ -63,11 +76,21 @@ if($_FILES['upload'] != null)
 
   if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
 
-    echo "<script>alert('사진 등록 성공');</script>";
+    echo "<script>alert('문제 등록 성공');</script>";
     // print_r($_FILES);
     echo "<script>location.href ='add.php';</script>";
   } else {
     echo "<script>alert('사진 등록 실패');</script>";
+    echo "<script>location.href ='add.php';</script>";
+  }
+
+  if (move_uploaded_file($_FILES['upload2']['tmp_name'], $uploadfile2)) {
+
+    echo "<script>alert('답지 등록 성공');</script>";
+    // print_r($_FILES);
+    echo "<script>location.href ='add.php';</script>";
+  } else {
+    echo "<script>alert('답지 등록 실패');</script>";
     echo "<script>location.href ='add.php';</script>";
   }
 

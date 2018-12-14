@@ -108,7 +108,27 @@
   padding-left: 3px;
 }
 
+.ALFSFS_FilePath2 {
+  border: solid 2px #023059;
+  border-radius: 8px;
+  background: white;
+  width: 70%;
+  margin-right: 5%;
+  height: 30px;
+  padding-top: 8px;
+  font-weight: bold;
+  padding-left: 3px;
+}
+
 .picedit {
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+}
+
+.picedit2 {
   width: 20%;
   background-color: white;
   border-radius: 8px;

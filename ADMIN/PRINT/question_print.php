@@ -144,15 +144,16 @@
         }
       }
       ?>
-      <div class="wrapper" style="display:grid;grid:764px/50% 50%;grid-auto-rows:764px">
-
+      <!-- <div class="wrapper" style="display:grid;grid:764px/50% 50%;grid-auto-rows:764px"> -->
+      <!-- 중섭이가 764-> 350 으로 수정 12-15 ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
+      <div class="wrapper" style="display:grid;grid:350px/50% 50%;grid-auto-rows:350px">
 
 
 
 
         <div class='box' style='padding:5%;box-sizing:border-box;'>
           <div class='content' style='height:100%'>
-            <img src='../ADDING/img/default.png' style='width:100%'>
+            <img src='../ADDING/img/mark.png' style='width:100%'>
           </div>
         </div>
         <!-- 얘만만져라 -->
@@ -185,6 +186,11 @@
             }
 
           }
+        }
+        echo "<div class='box' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/answer-img/line.PNG' style='width:100%'></div></div>";
+        for($idx = 0; $idx < count($print); $idx++)
+        {
+          echo "<div class='box' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/answer-img/ANSWER_$print[$idx]' style='width:100%'></div></div>";
         }
         ?>
       </div>
