@@ -75,9 +75,13 @@
                   $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE hide=1", "type_index_name");
                   $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
                 ?>
-                <select class="ALFSO_Subject" name="subject" required>
+                <select class="ALFSO_Subject" id="ALFSO_Subject_id" name="subject" required>
                   <option value="" selected>과목</option>
-                  <option value="수학" >수학</option>
+                  <option value="1" >국어</option>
+                  <option value="2" >수학</option>
+                  <option value="3" >영어</option>
+                  <option value="4" >사회</option>
+                  <option value="5" >과학</option>
 
                 </select>
                 <select class="ALFSO_Grade" name="grade" required>
@@ -93,10 +97,10 @@
                 <select class="ALFSO_Bookname" name="book_name1" required>
                   <option value="" selected>책이름</option>
                   <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
+                    // for($idx = 1; $idx <= count($book_name); $idx++)
+                    // {
+                    //   echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                    // }
                   ?>
                   <!-- <option value="0" >1</option>
                   <option value="0" >2</option>
@@ -107,10 +111,10 @@
                 <select class="ALFSO_type" name="question_type1" required>
                   <option value="" selected>유형</option>
                   <?php
-                    for($idx = 0; $idx < count($type_index_name); $idx++)
-                    {
-                      echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
-                    }
+                    // for($idx = 0; $idx < count($type_index_name); $idx++)
+                    // {
+                    //   echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
+                    // }
                   ?>
                   <!-- <option value="0" >1</option>
                   <option value="0" >2</option>
@@ -130,10 +134,10 @@
 
                   <option value="" selected>책이름</option>
                   <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
+                    // for($idx = 1; $idx <= count($book_name); $idx++)
+                    // {
+                    //   echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
+                    // }
                   ?>
                   <!-- <option value="0" >1</option>
                   <option value="0" >2</option>
@@ -146,10 +150,10 @@
                 <select id="lineT2" class="ALFSO_type" name="question_type2" required disabled>
                   <option value="" selected>유형</option>
                   <?php
-                    for($idx = 0; $idx < count($type_index_name); $idx++)
-                    {
-                      echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
-                    }
+                    // for($idx = 0; $idx < count($type_index_name); $idx++)
+                    // {
+                    //   echo "<option value='".$type_index_num[$idx]."'>".$type_index_name[$idx]."</option>";
+                    // }
                   ?>
                 </select>
 
@@ -250,11 +254,11 @@
               </div>
               <br>
               <div class="ALFS_PrintName">
-                <input type="text" name="printname" value="" placeholder="프린트물 이름" required>
+                <input type="text" name="printname" value="" placeholder="문제 개수" required>
               </div>
               <br>
               <div class="ALFS_Difficult">
-                <input type="text" name="difficult" value="" placeholder="난이도 [0 - 10]" required>
+                <input type="text" name="difficult" value="" placeholder="틀린단어 포함 개수" required>
               </div>
               <br>
               <div class="ALFS_CheckBox row">

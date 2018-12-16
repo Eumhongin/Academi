@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-  // session_start();
+  session_start();
   include("..\..\module\dbConnect.php");
   include("..\..\module\dbContentsEcho.php");
   include("..\..\module\url_access_denied.php");
@@ -37,7 +37,7 @@
           <span class="ALPR_span">정규문제</span>
         </div>
         <div class="ALPanel_UnRegular">
-          <span class="ALPUR_span">비정규문제</span>
+          <span class="ALPUR_span">영어 단어</span>
         </div>
 
         <form  class="ADD_LEFT_FORM" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
@@ -79,10 +79,21 @@
                   //문제 세부 유형
                   $type_index_name = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE hide=1", "type_index_name");
                   $type_index_num = DB_echo("SELECT type_index_num FROM question_type_math_index WHERE hide=1", "type_index_num");
+
+                  $type_social_index_name = DB_echo("SELECT type_index_name FROM question_type_social_index WHERE hide=1", "type_index_name");
+                  $type_social_index_num = DB_echo("SELECT type_index_num FROM question_type_social_index WHERE hide=1", "type_index_num");
+
+                  $type_science_index_name = DB_echo("SELECT type_index_name FROM question_type_science_index WHERE hide=1", "type_index_name");
+                  $type_science_index_num = DB_echo("SELECT type_index_num FROM question_type_science_index WHERE hide=1", "type_index_num");
+
                 ?>
-                <select class="ALFSO_Subject" name="subject" required>
+                <select class="ALFSO_Subject" id="subject" name="subject" required>
                   <option value="" selected>과목</option>
+                  <option value="1" >국어</option>
                   <option value="2" >수학</option>
+                  <option value="3" >영어</option>
+                  <option value="4" >사회</option>
+                  <option value="5" >과학</option>
 
                 </select>
                 <select class="ALFSO_Grade" name="grade" required>
@@ -94,30 +105,22 @@
                 <select class="ALFSO_Bookname" name="book_name" required>
                   <option value="" selected>책이름</option>
                   <?php
-                    for($idx = 1; $idx <= count($book_name); $idx++)
-                    {
-                      echo "<option value='".$book_num[$idx-1]."'>".$book_name[$idx-1]."</option>";
-                    }
+                    // for($idx = 1; $idx <= count($book_name); $idx++)
+                    // {
+                    //   echo "<option value='".$_SESSION['book_num'][$idx-1]."'>".$_SESSION['book_name'][$idx-1]."</option>";
+                    // }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
+
                 </select>
                 <select class="ALFSO_type" name="question_type" required>
                   <option value="" selected>유형</option>
                   <?php
-                    for($idx = 1; $idx <= count($type_index_name); $idx++)
-                    {
-                      echo "<option value='".$type_index_num[$idx-1]."'>".$type_index_name[$idx-1]."</option>";
-                    }
+                    // for($idx = 1; $idx <= count($type_index_name); $idx++)
+                    // {
+                    //   echo "<option value='".$_SESSION['type_index_num'][$idx-1]."'>".$_SESSION['type_index_name'][$idx-1]."</option>";
+                    // }
                   ?>
-                  <!-- <option value="0" >1</option>
-                  <option value="0" >2</option>
-                  <option value="0" >3</option>
-                  <option value="0" >4</option>
-                  <option value="0" >5</option> -->
+
                 </select>
               </div>
               <br>
@@ -138,6 +141,32 @@
           <button class="hello" style="display:none;" type="submit">추가</button>          </div>
         </form>
 
+
+
+        <div class="ADD_LEFT_FORM2 hide">
+          <div class="ALF_Shield">
+            <div class="ALFS_File_Shield row" style="overflow:auto; width:500px; height:700px;">
+              <?php
+                for($idx = 0; $idx < 30; $idx++)
+                { $no = $idx + 1;
+                  echo "<div class='ALFSPN_Page'>$no
+                    <input type='text' class='word$idx' value='' placeholder='단어' >&nbsp;&nbsp;
+                  </div>
+                  <div class=ALFSPN_Number>
+                    <input type='text' class='answer$idx' value='' placeholder='뜻' ><br>
+                  </div>";
+                }
+               ?>
+              <!-- <div class="ALFSPN_Page">
+                <input type="text" name="word" value="" placeholder="단어" required>&nbsp;&nbsp;
+              </div>
+              <div class="ALFSPN_Number">
+                <input type="text" name="answer" value="" placeholder="뜻" required><br><br><br>
+              </div> -->
+              <button class="word_submit" type="button">단어저장</button>
+            </div>
+          </div>
+        </div>
         <!-- <form  class="ADD_LEFT_FORM2 hide" name = "form2" action="question_add.php" method="post" enctype="multipart/form-data" novalidate>
             <div class="ALF_Shield">
               <div class="ALFS_File_Shield row">
@@ -169,8 +198,8 @@
               </div>
               <br>
               <div class="ALFS_CheckBox row">
-                <!-- 최소 1개 이상 선택하도록 해야함. -->
-                <li><input type="checkbox" name="type[]" value="사고력"><span>사고력</span></li>
+                최소 1개 이상 선택하도록 해야함. -->
+                <!-- <li><input type="checkbox" name="type[]" value="사고력"><span>사고력</span></li>
                 <li><input type="checkbox" name="type[]" value="이해력"><span>이해력</span></li>
                 <li><input type="checkbox" name="type[]" value="문제해결력"><span>문제해결력</span></li>
                 <li><input type="checkbox" name="type[]" value="창의력"><span>창의력</span></li>
@@ -184,7 +213,7 @@
             <button class="ALFS_Submit" type="button">추가</button>
             <button class="hello" style="display:none;" type="submit">추가</button>
           </div>
-        </form> -->
+        </form>  -->
 
 
         <br><br>

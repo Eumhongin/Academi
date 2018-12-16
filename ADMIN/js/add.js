@@ -1,5 +1,7 @@
 var inside;
 var outside;
+var word = new Array();
+var answer = new Array();
 $('.v-line').css({
   'height': $(window).outerHeight() * 0.9 + 'px',
   'top': $(window).outerHeight() * 0.05 + 'px'
@@ -135,4 +137,69 @@ $('.ALFS_Submit').click(function(){
     {
       $('.hello').trigger('click');
     }else {}
+})
+
+
+$('#subject').change(function(){
+  var drop_value = $('.ALFSO_Subject option:selected').val();
+  console.log(drop_value);
+
+  $(".ALFSO_Bookname").empty();
+  $(".ALFSO_type").empty();
+
+  $.ajax({
+    url : "subject_change.php",  //url 바꾸기.
+    type:"POST",
+    data:{drop_value:drop_value},
+    dataType :"json",
+    success : function(result)
+    {
+      $(".ALFSO_type").append($("<option selected></option>").attr("value",'').text("유형"));
+      $(".ALFSO_Bookname").append($("<option selected></option>").attr("value",'').text("책이름"));
+      for(var idx = 0; idx < result[0].length; idx++)
+      {//책이름, 책번호
+        $(".ALFSO_Bookname").append($("<option></option>").attr("value",result[1][idx]).text(result[0][idx]));
+      }
+
+      for(var idx = 0; idx < result[2].length; idx++)
+      {//타입 이름, 타입 번호
+        $(".ALFSO_type").append($("<option></option>").attr("value",result[3][idx]).text(result[2][idx]));
+      }
+
+    },error:function(request,status,error){
+      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+
+  });
+
+});
+
+
+$('.word_submit').click(function(){
+  for(var idx = 0; idx < 30; idx++)
+  {
+    var chkword=$(".word"+idx).val();
+    var chkanswer=$(".answer"+idx).val();
+    if(chkword != '')
+    {
+      word[idx] = chkword;
+      answer[idx] = chkanswer;
+    }
+  }
+
+  $.ajax({
+    url : "add_word.php",  //url 바꾸기.
+    type:"POST",
+    data:{word:word, answer:answer},
+    // dataType :"json",
+    success : function()
+    {
+      alert('추가완료');
+      location.href ='add.php';
+    },error:function(request,status,error){
+      alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+    }
+
+  });
+
 })

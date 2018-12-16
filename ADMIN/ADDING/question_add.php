@@ -78,10 +78,10 @@ if($_FILES['upload'] != null)
 
     echo "<script>alert('문제 등록 성공');</script>";
     // print_r($_FILES);
-    echo "<script>location.href ='add.php';</script>";
+    // echo "<script>location.href ='add.php';</script>";
   } else {
-    echo "<script>alert('사진 등록 실패');</script>";
-    echo "<script>location.href ='add.php';</script>";
+    echo "<script>alert('문제 등록 실패');</script>";
+    // echo "<script>location.href ='add.php';</script>";
   }
 
   if (move_uploaded_file($_FILES['upload2']['tmp_name'], $uploadfile2)) {

@@ -15,20 +15,82 @@
   </head>
   <body>
     <?php
-    $book_name[1] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name1]","book_name");
-    $book_name[2] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name2]","book_name");
-    $book_name[3] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name3]","book_name");
-    $book_name[4] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name4]","book_name");
+    if($_POST['subject'] == 1)
+    {
+
+      $book_name[1] = DB_echo("SELECT book_name FROM question_korean_book_name WHERE book_num =$_POST[book_name1]","book_name");
+      $book_name[2] = DB_echo("SELECT book_name FROM question_korean_book_name WHERE book_num =$_POST[book_name2]","book_name");
+      $book_name[3] = DB_echo("SELECT book_name FROM question_korean_book_name WHERE book_num =$_POST[book_name3]","book_name");
+      $book_name[4] = DB_echo("SELECT book_name FROM question_korean_book_name WHERE book_num =$_POST[book_name4]","book_name");
+
+      $type_index_name[1] = DB_echo("SELECT type_index_name FROM question_type_korean_index WHERE type_index_num=$_POST[question_type1]", "type_index_name");
+      $type_index_name[2] = DB_echo("SELECT type_index_name FROM question_type_korean_index WHERE type_index_num=$_POST[question_type2]", "type_index_name");
+      $type_index_name[3] = DB_echo("SELECT type_index_name FROM question_type_korean_index WHERE type_index_num=$_POST[question_type3]", "type_index_name");
+      $type_index_name[4] = DB_echo("SELECT type_index_name FROM question_type_korean_index WHERE type_index_num=$_POST[question_type4]", "type_index_name");
+
+
+    }else if($_POST['subject'] == 2)
+    {
+
+      $book_name[1] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name1]","book_name");
+      $book_name[2] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name2]","book_name");
+      $book_name[3] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name3]","book_name");
+      $book_name[4] = DB_echo("SELECT book_name FROM question_book_name WHERE book_num =$_POST[book_name4]","book_name");
+
+      $type_index_name[1] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type1]", "type_index_name");
+      $type_index_name[2] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type2]", "type_index_name");
+      $type_index_name[3] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type3]", "type_index_name");
+      $type_index_name[4] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type4]", "type_index_name");
+
+
+    }else if($_POST['subject'] == 3)
+    {
+
+      $book_name[1] = DB_echo("SELECT book_name FROM question_eng_book_name WHERE book_num =$_POST[book_name1]","book_name");
+      $book_name[2] = DB_echo("SELECT book_name FROM question_eng_book_name WHERE book_num =$_POST[book_name2]","book_name");
+      $book_name[3] = DB_echo("SELECT book_name FROM question_eng_book_name WHERE book_num =$_POST[book_name3]","book_name");
+      $book_name[4] = DB_echo("SELECT book_name FROM question_eng_book_name WHERE book_num =$_POST[book_name4]","book_name");
+
+      $type_index_name[1] = DB_echo("SELECT type_index_name FROM question_type_eng_index WHERE type_index_num=$_POST[question_type1]", "type_index_name");
+      $type_index_name[2] = DB_echo("SELECT type_index_name FROM question_type_eng_index WHERE type_index_num=$_POST[question_type2]", "type_index_name");
+      $type_index_name[3] = DB_echo("SELECT type_index_name FROM question_type_eng_index WHERE type_index_num=$_POST[question_type3]", "type_index_name");
+      $type_index_name[4] = DB_echo("SELECT type_index_name FROM question_type_eng_index WHERE type_index_num=$_POST[question_type4]", "type_index_name");
+
+
+    }else if($_POST['subject'] == 4)
+    {
+
+      $book_name[1] = DB_echo("SELECT book_name FROM question_social_book_name WHERE book_num =$_POST[book_name1]","book_name");
+      $book_name[2] = DB_echo("SELECT book_name FROM question_social_book_name WHERE book_num =$_POST[book_name2]","book_name");
+      $book_name[3] = DB_echo("SELECT book_name FROM question_social_book_name WHERE book_num =$_POST[book_name3]","book_name");
+      $book_name[4] = DB_echo("SELECT book_name FROM question_social_book_name WHERE book_num =$_POST[book_name4]","book_name");
+
+      $type_index_name[1] = DB_echo("SELECT type_index_name FROM question_type_social_index WHERE type_index_num=$_POST[question_type1]", "type_index_name");
+      $type_index_name[2] = DB_echo("SELECT type_index_name FROM question_type_social_index WHERE type_index_num=$_POST[question_type2]", "type_index_name");
+      $type_index_name[3] = DB_echo("SELECT type_index_name FROM question_type_social_index WHERE type_index_num=$_POST[question_type3]", "type_index_name");
+      $type_index_name[4] = DB_echo("SELECT type_index_name FROM question_type_social_index WHERE type_index_num=$_POST[question_type4]", "type_index_name");
+
+
+    }else if($_POST['subject'] == 5)
+    {
+      
+      $book_name[1] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name1]","book_name");
+      $book_name[2] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name2]","book_name");
+      $book_name[3] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name3]","book_name");
+      $book_name[4] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name4]","book_name");
+
+      $type_index_name[1] = DB_echo("SELECT type_index_name FROM question_type_science_index WHERE type_index_num=$_POST[question_type1]", "type_index_name");
+      $type_index_name[2] = DB_echo("SELECT type_index_name FROM question_type_science_index WHERE type_index_num=$_POST[question_type2]", "type_index_name");
+      $type_index_name[3] = DB_echo("SELECT type_index_name FROM question_type_science_index WHERE type_index_num=$_POST[question_type3]", "type_index_name");
+      $type_index_name[4] = DB_echo("SELECT type_index_name FROM question_type_science_index WHERE type_index_num=$_POST[question_type4]", "type_index_name");
+
+
+    }
 
     $book_num[1] = $_POST['book_name1'];
     $book_num[2] = $_POST['book_name2'];
     $book_num[3] = $_POST['book_name3'];
     $book_num[4] = $_POST['book_name4'];
-
-    $type_index_name[1] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type1]", "type_index_name");
-    $type_index_name[2] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type2]", "type_index_name");
-    $type_index_name[3] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type3]", "type_index_name");
-    $type_index_name[4] = DB_echo("SELECT type_index_name FROM question_type_math_index WHERE type_index_num=$_POST[question_type4]", "type_index_name");
 
     $type_index_num[1] = $_POST['question_type1'];
     $type_index_num[2] = $_POST['question_type2'];
@@ -68,7 +130,8 @@
 
       $sql =
       "SELECT no, image FROM question_image
-      WHERE level='".$_POST['difficult']."'
+      WHERE subject = '".$_POST['subject']."'
+        and level='".$_POST['difficult']."'
         and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
         and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
         and grade = '".$_POST['grade']."'
@@ -92,7 +155,8 @@
 
       $sql =
       "SELECT no, image FROM question_image
-      WHERE level='".$_POST['difficult']."'
+      WHERE subject = '".$_POST['subject']."'
+        and level='".$_POST['difficult']."'
         and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
         and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
         and grade = '".$_POST['grade']."'
@@ -200,17 +264,17 @@
 
       $total = $A + $B + $C + $D;
 
-      $sql = "INSERT INTO print_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
-              VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
-      mysqli_query($conn,$sql);
-
-      $sql2 = "INSERT INTO correct_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
-              VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
-      mysqli_query($conn,$sql2);
-
-      $sql3 = "INSERT INTO question_list (title, question_num, teacher_id, student_id, checked)
-              VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."', 0)";
-      mysqli_query($conn,$sql3);
+      // $sql = "INSERT INTO print_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+      //         VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+      // mysqli_query($conn,$sql);
+      //
+      // $sql2 = "INSERT INTO correct_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+      //         VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+      // mysqli_query($conn,$sql2);
+      //
+      // $sql3 = "INSERT INTO question_list (title, question_num, teacher_id, student_id, checked)
+      //         VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."', 0)";
+      // mysqli_query($conn,$sql3);
 
 
       /*print_r($print);
