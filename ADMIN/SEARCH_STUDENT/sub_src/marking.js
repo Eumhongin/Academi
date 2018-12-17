@@ -7,10 +7,11 @@ $(document).ready(function(){
     success : function(result)
     {
 
-      for (i = 0; i < 8; i++) {
-        var tbody = $('<tbody>').attr('id',result[0][i]).appendTo('.history');
+      for (i = 0; i < 10; i++) {
+        var tbody = $('<tbody class = '+result[7][i]+'>').attr('id',result[0][i]).appendTo('.history');
         $('<td>').text(result[5][i]).appendTo(tbody);
         $('<td>').text(result[1][i]).appendTo(tbody);
+        $('<td>').text(result[8][i]).appendTo(tbody);
         $('<td>').text(result[4][i]).appendTo(tbody);
       }
 

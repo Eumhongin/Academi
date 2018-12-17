@@ -142,11 +142,12 @@ include("..\..\module\url_access_denied.php");
         <div id="student_statics" class="hide">
           <h1>히스토리</h1>
           <hr>
-          <p style="font-family:'bs3'">최근 내역 8개만 표시됩니다</p>
+          <p style="font-family:'bs3'">최근 내역 10개만 표시됩니다</p>
           <table class="history">
             <thead>
               <td>문제발급날짜</td>
               <td>문제지이름</td>
+              <td>과목</td>
               <td>채점여부</td>
             </thead>
 

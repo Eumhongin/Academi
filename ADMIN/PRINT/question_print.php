@@ -73,7 +73,7 @@
 
     }else if($_POST['subject'] == 5)
     {
-      
+
       $book_name[1] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name1]","book_name");
       $book_name[2] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name2]","book_name");
       $book_name[3] = DB_echo("SELECT book_name FROM question_science_book_name WHERE book_num =$_POST[book_name3]","book_name");
@@ -233,18 +233,17 @@
           echo "<div class='box' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/img/$print[$idx]' style='width:100%'></div></div>";
           for($i = 1; $i < 5; $i++)
           {
-
-            if(strpos($print[$idx], '1_2_'.$book_num[$i].'_'.$type_index_num[1].'') !== false)
+            //여기에요! 여기가 grade를 추가할 곳이에요!
+            if(strpos($print[$idx], ''.$_POST['grade'].'_'.$_POST["subject"].'_'.$book_num[$i].'_'.$type_index_num[1].'') !== false)
             {
               $A++;
-            }
-            else if(strpos($print[$idx], '1_2_'.$book_num[$i].'_'.$type_index_num[2].'') !== false)
+            }else if(strpos($print[$idx], ''.$_POST['grade'].'_'.$_POST["subject"].'_'.$book_num[$i].'_'.$type_index_num[2].'') !== false)
             {
               $B++;
-            }else if(strpos($print[$idx], '1_2_'.$book_num[$i].'_'.$type_index_num[3].'') !== false)
+            }else if(strpos($print[$idx], ''.$_POST['grade'].'_'.$_POST["subject"].'_'.$book_num[$i].'_'.$type_index_num[3].'') !== false)
             {
               $C++;
-            }else if(strpos($print[$idx], '1_2_'.$book_num[$i].'_'.$type_index_num[4].'') !== false)
+            }else if(strpos($print[$idx], ''.$_POST['grade'].'_'.$_POST["subject"].'_'.$book_num[$i].'_'.$type_index_num[4].'') !== false)
             {
               $D++;
             }
@@ -264,17 +263,87 @@
 
       $total = $A + $B + $C + $D;
 
-      // $sql = "INSERT INTO print_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
-      //         VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
-      // mysqli_query($conn,$sql);
-      //
-      // $sql2 = "INSERT INTO correct_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
-      //         VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
-      // mysqli_query($conn,$sql2);
-      //
-      // $sql3 = "INSERT INTO question_list (title, question_num, teacher_id, student_id, checked)
-      //         VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."', 0)";
-      // mysqli_query($conn,$sql3);
+      if($_POST['subject'] == 1)
+      {
+
+        $sql = "INSERT INTO print_korean (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql);
+
+        $sql2 = "INSERT INTO correct_korean (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql2);
+
+        $sql3 = "INSERT INTO question_list_korean (title, question_num, teacher_id, student_id, grade, subject, checked)
+                VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."',  '".$_POST[grade]."', 1,0)";
+        mysqli_query($conn,$sql3);
+
+      }else if($_POST['subject'] == 2)
+      {
+
+        $sql = "INSERT INTO print_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql);
+
+        $sql2 = "INSERT INTO correct_math (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql2);
+
+        $sql3 = "INSERT INTO question_list (title, question_num, teacher_id, student_id, grade, subject, checked)
+                VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."',  '".$_POST[grade]."', 2,0)";
+        mysqli_query($conn,$sql3);
+
+
+      }else if($_POST['subject'] == 3)
+      {
+
+        $sql = "INSERT INTO print_eng (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql);
+
+        $sql2 = "INSERT INTO correct_eng (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql2);
+
+        $sql3 = "INSERT INTO question_list_eng (title, question_num, teacher_id, student_id, grade, subject, checked)
+                VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."',  '".$_POST[grade]."', 3,0)";
+        mysqli_query($conn,$sql3);
+
+
+      }else if($_POST['subject'] == 4)
+      {
+
+        $sql = "INSERT INTO print_social (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql);
+
+        $sql2 = "INSERT INTO correct_social (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql2);
+
+        $sql3 = "INSERT INTO question_list_social (title, question_num, teacher_id, student_id, grade, subject, checked)
+                VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."',  '".$_POST[grade]."', 4,0)";
+        mysqli_query($conn,$sql3);
+
+      }else if($_POST['subject'] == 5)
+      {
+
+        $sql = "INSERT INTO print_science (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql);
+
+        $sql2 = "INSERT INTO correct_science (`".$type_index_name[1][0]."`, `".$type_index_name[2][0]."`, `".$type_index_name[3][0]."`, `".$type_index_name[4][0]."`, total, id)
+                VALUES ($A, $B, $C, $D, $total, '".$_POST[student_id]."')";
+        mysqli_query($conn,$sql2);
+
+        $sql3 = "INSERT INTO question_list_science (title, question_num, teacher_id, student_id, grade, subject, checked)
+                VALUES ('".$_POST[paper]."','".$list."', '".$_SESSION[LOG_id]."', '".$_POST[student_id]."',  '".$_POST[grade]."', 5,0)";
+        mysqli_query($conn,$sql3);
+      }
+
+
+
+
 
 
       /*print_r($print);

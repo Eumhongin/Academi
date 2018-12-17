@@ -17,18 +17,61 @@ include("module\dbContentsEcho.php");
   </head>
   <body>
 
+
 <?php
-$result[0][0] = DB_echo("SELECT book_name FROM question_korean_book_name","book_name");
-$result[1] = DB_echo("SELECT book_num FROM question_korean_book_name","book_num");
-$result[2] = DB_echo("SELECT type_index_name FROM question_type_korean_index WHERE hide=1", "type_index_name");
-$result[3] = DB_echo("SELECT type_index_num FROM question_type_korean_index WHERE hide=1", "type_index_num");
+
+// $subject = DB_echo("SELECT subject FROM question_list WHERE no='19'", 'subject');
+// switch ($subject[0]) {
+//   case 1:
+//       $subject[0] = 'korean';
+//     break;
+//
+//   case 2:
+//       $subject[0] = 'eng';
+//     break;
+//
+//   case 3:
+//       $subject[0] = 'math';
+//     break;
+//
+//   case 4:
+//       $subject[0] = 'social';
+//     break;
+//
+//   case 5:
+//       $subject[0] = 'science';
+//     break;
+// }
+//     echo $subject[0]."</br>";
+//
+//     $num['a'] = 113;
+//
+//
+//     $sql = "SELECT tmi.type_index_name
+//             FROM question_image as qi
+//             JOIN question_type_".$subject[0]."_index as tmi
+//             ON qi.type_index_num = tmi.type_index_num
+//             WHERE qi.no = '".$num[a]."'";
+//     $get = DB_echo($sql, 'type_index_name');
+//
+//     $sql2 = "UPDATE correct_".$subject[0]." SET `".$get[0]."` = `".$get[0]."`-1  WHERE no = '".$_POST[no]."'";
+//     mysqli_query($conn, $sql2);
+//
+//     $sql4 = "UPDATE question_image SET wrong_student = CONCAT(wrong_student,'|".$_SESSION[stu_id][0]."') WHERE no ='".$_POST[number][$idx]."'";
+//     mysqli_query($conn, $sql4);
+//
+//     echo $sql."</br>";
+//     echo $sql2."</br>";
+//     echo $sql4."</br>";
+//     print_r($get);echo"</br>";
 
 
-print_r($result);
+
  ?>
 
 
 
-    <!-- <script src="ADMIN/js/add.js" charset="utf-8"></script> -->
+
+    <script src="test.js" charset="utf-8"></script>
   </body>
 </html>

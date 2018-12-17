@@ -1,18 +1,21 @@
 var check_array = new Array();
 var problem;
 var num = getParameters('id');
-get_marking(num);
+var sub = getParameters('sub');
+console.log(num);
+console.log(sub);
+get_marking(num, sub);
 // makeproblem(num);
 
 
 
-function get_marking (number)
+function get_marking (number,subject)
 {
 
   $.ajax({
     url : "get_question.php",  //url 바꾸기.
     type:"POST",
-    data:{number:number},
+    data:{number:number, subject:subject},
     dataType :"json",
     success : function(result)
     {
@@ -109,7 +112,7 @@ $(document).ready(function(){
       $.ajax({
       url : "marking.php",  //url 바꾸기.
       type:"POST",
-      data:{number:check_array ,no:num},
+      data:{number:check_array ,no:num ,subject:sub},
       // data:{number:check_array, problem:problem},
       dataType :"json",
       success : function(result)

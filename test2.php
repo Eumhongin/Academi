@@ -1,41 +1,60 @@
+<!DOCTYPE html>
 <?php
+session_start();
 include("module\dbConnect.php");
 include("module\dbContentsEcho.php");
 
-if($_FILES['upload'] != null)
-{
-  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\\';
-  // $uploaddir2 = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\\';
-  $_FILES['upload']['name'] = "1-1-11.png";
-  $_FILES['upload2']['name'] = "2-2-22.png";
-  //학년_과목_문제지이름_유형_쪽수_문제번호.jpg
-  $file_name = "1-1-11.png";
-  $file_name2 = "2-2-22.png";
 
-  $uploadfile = $uploaddir . basename($_FILES['upload']['name']);
-  $uploadfile2 = $uploaddir . basename($_FILES['upload2']['name']);
+// $conn = mysqli_connect("localhost","root","misozium23");
+// $sqli = mysqli_select_db($conn,"test")
+    ?>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+      <script src="ADMIN/js/jquery-min.js" charset="utf-8"></script>
+
+  </head>
+  <body>
 
 
+<?php
+$sql = "(SELECT * FROM aca_db.question_list) union
+(SELECT * FROM aca_db.question_list_korean) union
+(SELECT * FROM aca_db.question_list_eng) union
+(SELECT * FROM aca_db.question_list_social) union
+(SELECT * FROM aca_db.question_list_science)
+order by registerdate desc";
 
-  if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
+// // -- JOIN question_list_korean as k
+// // --   ON m.student_id = k.student_id
+// // -- JOIN question_list_eng as e
+// // --   ON m.student_id = e.student_id
+// $sql = "SELECT *
+//         FROM question_list as m
+//         JOIN question_list_social as so
+//           ON m.student_id = so.student_id
+//         JOIN question_list_science as sc
+//           ON m.student_id = sc.student_id
+//         limit 10";
+//         // WHERE m.student_id = 'aaaa1111' and m.no = 10
+//         //order by m.registerdate desc limit 10";
 
-    echo "<script>alert('1111사진 등록 성공');</script>";
-    // print_r($_FILES);
-    // echo "<script>location.href ='add.php';</script>";
-  } else {
-    echo "<script>alert('1111사진 등록 실패');</script>";
-    // echo "<script>location.href ='add.php';</script>";
-  }
+$get[0] = DB_echo($sql, 'no');
+$get[1] = DB_echo($sql, 'title');
+$get[2] = DB_echo($sql, 'question_num');
+$get[3] = DB_echo($sql, 'student_id');
+$get[4] = DB_echo($sql, 'checked');
+$get[5] = DB_echo($sql, 'registerdate');
+$get[7] = DB_echo($sql, 'subject');
 
-  if (move_uploaded_file($_FILES['upload2']['tmp_name'], $uploadfile2)) {
+print_r($get);
 
-    echo "<script>alert('2222 등록 성공');</script>";
-    // print_r($_FILES);
-    // echo "<script>location.href ='add.php';</script>";
-  } else {
-    echo "<script>alert('사진 등록 실패');</script>";
-    // echo "<script>location.href ='add.php';</script>";
-  }
-
-}
  ?>
+
+
+
+
+    <!-- <script src="ADMIN/js/add.js" charset="utf-8"></script> -->
+  </body>
+</html>

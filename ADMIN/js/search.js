@@ -88,12 +88,25 @@ $('.changebtn').on('click', function() {
 
 $(document).on('click','.history tbody',function(){
   var getId = $(this).attr('id');
-  var tag = $('#'+getId+'>td:last').text();
+  var getClass = $(this).attr('class');
+  var tag = $('#'+getId+'.'+getClass+'>td:last').text();
+  // var tag = $('#'+getId+'>td:last').text();
+
   if(tag == 'x')
   {
-    location.href='../../Teacher/Check_Problem.php?id='+getId+'';
+    // console.log(getId);
+    // console.log(getClass);
+    // console.log(tag);
+
+
+    location.href='../../Teacher/Check_Problem.php?id='+getId+'&sub='+getClass;
   }else if(tag =='o')
   {
+
+    //   console.log(getId);
+    //   console.log(getClass);
+    // console.log(tag);
+
     alert('이미 채점한 문제지 입니다.');
   }
 })
