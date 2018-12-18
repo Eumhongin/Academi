@@ -120,6 +120,40 @@
   padding-left: 3px;
 }
 
+.ALFSFS_FilePath3 {
+  border: solid 2px #023059;
+  border-radius: 8px;
+  background: white;
+  width: 70%;
+  margin-right: 5%;
+  height: 30px;
+  padding-top: 8px;
+  font-weight: bold;
+  padding-left: 3px;
+}
+
+.ALFSFS_FilePath4 {
+  border: solid 2px #023059;
+  border-radius: 8px;
+  background: white;
+  width: 70%;
+  margin-right: 5%;
+  height: 30px;
+  padding-top: 8px;
+  font-weight: bold;
+  padding-left: 3px;
+}
+
+
+.picedit0 {
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+}
+
+
 .picedit {
   width: 20%;
   background-color: white;
@@ -129,6 +163,22 @@
 }
 
 .picedit2 {
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+}
+
+.picedit3 {
+  width: 20%;
+  background-color: white;
+  border-radius: 8px;
+  border: solid 2px #023059;
+  font-family: 'bs3';
+}
+
+.picedit4 {
   width: 20%;
   background-color: white;
   border-radius: 8px;
@@ -260,4 +310,15 @@ input[type="text"] {
   font-family: 'BS3';
   writing-mode: vertical-rl;
   text-orientation: upright;
+}
+
+
+td .col-1{
+  cursor: pointer;
+  /* font-size: 2vw; */
+  /* margin-top : 0; */
+  /* background-color: rgb(13, 166, 33); */
+}
+td:hover{
+  background-color: rgb(254, 95, 95);
 }

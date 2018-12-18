@@ -1,7 +1,46 @@
 var inside;
 var outside;
+var checked_array = new Array();
 var word = new Array();
 var answer = new Array();
+var get = getParameters('get');
+console.log(get);
+function getParameters (paramName) {
+  // 리턴값을 위한 변수 선언
+  var returnValue;
+
+  // 현재 URL 가져오기
+  var url = location.href;
+
+  // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+  var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+  // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+  for (var i = 0; i < parameters.length; i++)
+  {
+    var varName = parameters[i].split('=')[0];
+    if (varName.toUpperCase() == paramName.toUpperCase())
+    {
+      returnValue = parameters[i].split('=')[1];
+      return decodeURIComponent(returnValue);
+    }
+  }
+}
+
+function check(a){
+  // 눌렀다면? 큐에서 지움
+  if(checked_array.indexOf(a) != -1){
+    checked_array.splice(checked_array.indexOf(a),1);
+    console.log(checked_array);
+  }
+  else{ //아니라면? 큐에 추가함
+    checked_array.push(a);
+    console.log(checked_array);
+
+  }
+}
+
+
 $('.v-line').css({
   'height': $(window).outerHeight() * 0.9 + 'px',
   'top': $(window).outerHeight() * 0.05 + 'px'
@@ -43,6 +82,23 @@ $('#selectedFile2').on('change', function() {
   });
 });
 
+$('#selectedFile3').on('change', function() {
+  $.each($('#selectedFile3').prop("files"), function(k, v) {
+    // alert(filename)
+    var filename = v['name'];
+    $('.ALFSFS_FilePath3').text(filename);
+    // filename = "blahblah.jpg", without path
+  });
+});
+
+$('#selectedFile4').on('change', function() {
+  $.each($('#selectedFile4').prop("files"), function(k, v) {
+    var filename = v['name'];
+    $('.ALFSFS_FilePath4').text(filename);
+    // filename = "blahblah.jpg", without path
+  });
+});
+
 //console.log($('.ALFSFS_FilePath').outerHeight());
 $('.picedit').css({
   'height': $('.ALFSFS_FilePath').outerHeight()
@@ -50,6 +106,14 @@ $('.picedit').css({
 
 // 중섭추가12-15 ★★★★★★★★★★★★★★★★★★★★★★★
 $('.picedit2').css({
+  'height': $('.ALFSFS_FilePath2').outerHeight()
+});
+
+$('.picedit3').css({
+  'height': $('.ALFSFS_FilePath2').outerHeight()
+});
+
+$('.picedit4').css({
   'height': $('.ALFSFS_FilePath2').outerHeight()
 });
 
@@ -80,6 +144,7 @@ function readURL2(input) {
 
   }
 }
+
 $('#selectedFile').change(function() {
   readURL(this);
 });
@@ -88,6 +153,7 @@ $('#selectedFile').change(function() {
 $('#selectedFile2').change(function() {
   readURL2(this);
 });
+
 
 
 $('.ALPanel_Regular').css({
@@ -132,12 +198,27 @@ $('.ALPanel_Regular').click(function() {
   $('.ADD_LEFT_FORM').removeClass('hide');
 });
 
+
+
+
 $('.ALFS_Submit').click(function(){
     if(confirm('추가하시면 삭제는 불가능 합니다.\n제대로 입력하셨습니까?'))
     {
-      $('.hello').trigger('click');
+      $.ajax({
+        url : "transfer.php",  //url 바꾸기.
+        type:"POST",
+        data:{num:checked_array},
+        success : function(result)
+        {
+          $('.hello').trigger('click');
+        },error:function(request,status,error){
+          alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+        }
+
+      });
     }else {}
 })
+
 
 
 $('#subject').change(function(){
@@ -203,3 +284,54 @@ $('.word_submit').click(function(){
   });
 
 })
+
+$('.picedit0').click(function(){
+
+  location.href ='stage_direction_image_add.php?get=1';
+
+})
+
+$(document).on('click','td',function(){
+  if($(this).css('background-color') == 'rgb(255, 36, 36)'){
+    // 2번재 누를때
+    $(this).css({
+      'background-color':'rgb(255, 255, 255)'
+    });
+
+  }
+  else{
+    // 처음 누룰때
+    $(this).css({
+      'background-color':'rgb(255, 36, 36)'
+    });
+  }
+
+
+});
+
+
+if(get == 1)
+{
+  $.ajax({
+      url:"../MODIFY/getImage.php",
+      type : "POST",
+      data : {chk:2},
+      dataType : "json",
+      success : function(result)
+      {
+        console.log(result);
+          for(var idx =0; idx < result[0].length; idx++)
+          {
+              var tbody = $('<tbody>').attr('class','col-1').attr('id',idx).appendTo('#history');
+              var tr = $('<tr  onclick=check('+result[2][idx]+') class="col-1">').appendTo(tbody);
+
+              $('<td>').attr('class', 'col-4').text(result[0][idx]).appendTo(tr);//날짜
+              $('<td>').attr('class', 'col-2').text(result[1][idx]).appendTo(tr);//파일 이름
+          }
+
+      },error:function(request,status,error){
+              alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+      }
+
+          });
+}

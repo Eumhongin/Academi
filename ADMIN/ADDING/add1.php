@@ -55,7 +55,7 @@
               </div>
               <br>
               <div class="Not_Defined"><br>
-                <button class="picedit0" type="button">국어, 영어 =지문= 추가하기</button>
+                <button class="picedit3" type="button">국어, 영어 추가하기</button>
                 <!-- <input type="text" name="" value="" placeholder="뭐들어가기로 했지.."> -->
               </div>
               <br>
@@ -90,9 +90,9 @@
                 ?>
                 <select class="ALFSO_Subject" id="subject" name="subject" required>
                   <option value="" selected>과목</option>
-                  <option value="1" >국어</option>
+                  <!-- <option value="1" >국어</option> -->
                   <option value="2" >수학</option>
-                  <option value="3" >영어</option>
+                  <!-- <option value="3" >영어</option> -->
                   <option value="4" >사회</option>
                   <option value="5" >과학</option>
 

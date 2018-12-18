@@ -16,56 +16,26 @@ include("module\dbContentsEcho.php");
 
   </head>
   <body>
-
+    <!-- <img src='지문.PNG' style='width:100%'> -->
 
 <?php
-
-// $subject = DB_echo("SELECT subject FROM question_list WHERE no='19'", 'subject');
-// switch ($subject[0]) {
-//   case 1:
-//       $subject[0] = 'korean';
-//     break;
-//
-//   case 2:
-//       $subject[0] = 'eng';
-//     break;
-//
-//   case 3:
-//       $subject[0] = 'math';
-//     break;
-//
-//   case 4:
-//       $subject[0] = 'social';
-//     break;
-//
-//   case 5:
-//       $subject[0] = 'science';
-//     break;
-// }
-//     echo $subject[0]."</br>";
-//
-//     $num['a'] = 113;
-//
-//
-//     $sql = "SELECT tmi.type_index_name
-//             FROM question_image as qi
-//             JOIN question_type_".$subject[0]."_index as tmi
-//             ON qi.type_index_num = tmi.type_index_num
-//             WHERE qi.no = '".$num[a]."'";
-//     $get = DB_echo($sql, 'type_index_name');
-//
-//     $sql2 = "UPDATE correct_".$subject[0]." SET `".$get[0]."` = `".$get[0]."`-1  WHERE no = '".$_POST[no]."'";
-//     mysqli_query($conn, $sql2);
-//
-//     $sql4 = "UPDATE question_image SET wrong_student = CONCAT(wrong_student,'|".$_SESSION[stu_id][0]."') WHERE no ='".$_POST[number][$idx]."'";
-//     mysqli_query($conn, $sql4);
-//
-//     echo $sql."</br>";
-//     echo $sql2."</br>";
-//     echo $sql4."</br>";
-//     print_r($get);echo"</br>";
-
-
+$type_list = $_POST['type'];
+$_SESSION['Q_num'][0] = '1';
+$_SESSION['Q_num'][1] = '2';
+$_SESSION['Q_num'][2] = '3';
+$idx = 0;
+while($_SESSION['Q_num'][$idx] != null)
+{
+  $num .= '|'.$_SESSION['Q_num'][$idx];
+  $idx++;
+}
+// print_r($_SESSION['Q_num']);
+echo $num."</br>";
+$_SESSION['Q_num'] = [];
+$num = '';
+// $_SESSION['Q_num'][0] = '4';
+// $_SESSION['Q_num'][1] = '5';
+// $_SESSION['Q_num'][2] = '6';
 
  ?>
 
