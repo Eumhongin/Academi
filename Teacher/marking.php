@@ -49,11 +49,11 @@ for($idx = 0; $idx < count($_POST['number']); $idx++)
 {
   $get[$idx] = DB_echo("SELECT tmi.type_index_name
           FROM question_image as qi
-          JOIN question_type_".$subject[0]."_index as tmi
+          JOIN question_type".$subject[0]."_index as tmi
           ON qi.type_index_num = tmi.type_index_num
           WHERE qi.no = '".$_POST[number][$idx]."'", 'type_index_name');
 
-  $sql2 = "UPDATE correct_".$subject[0]." SET `".$get[$idx][0]."` = `".$get[$idx][0]."`-1  WHERE no = '".$_POST[no]."'";
+  $sql2 = "UPDATE correct".$subject[0]." SET `".$get[$idx][0]."` = `".$get[$idx][0]."`-1  WHERE no = '".$_POST[no]."'";
   mysqli_query($conn, $sql2);
 
   $sql4 = "UPDATE question_image SET wrong_student = CONCAT(wrong_student,'|".$_SESSION[stu_id][0]."') WHERE no ='".$_POST[number][$idx]."'";
@@ -90,7 +90,7 @@ mysqli_query($conn, $sql3);
 
 
 $total = count($_POST['number']);
-$sql5 = "UPDATE correct_".$subject[0]." SET total = total-'".$total."' WHERE no = '".$_POST[no]."'";
+$sql5 = "UPDATE correct".$subject[0]." SET total = total-'".$total."' WHERE no = '".$_POST[no]."'";
 mysqli_query($conn, $sql5);
 
 

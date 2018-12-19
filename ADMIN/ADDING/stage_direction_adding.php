@@ -4,20 +4,39 @@ include("..\..\module\dbConnect.php");
 include("..\..\module\dbContentsEcho.php");
 include("..\..\module\url_access_denied.php");
 
+
+
+
 if($_FILES['upload'] != null)
 {
+
+  $idx = 0;
+  $num = '';
+  while($_SESSION['Q_num'][$idx] != null)
+  {
+    $num .= '|'.$_SESSION['Q_num'][$idx];
+    $num_for_file_name .= $_SESSION['Q_num'][$idx];
+    $idx++;
+  }
+
+
+
+
+    $plag = 0;
+    $idx = 0;
+
   $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\ADMIN\ADDING\stage_direction_img\\';
 
 
-  $_FILES['upload']['name'] =  "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(1).png";
-  $_FILES['upload2']['name'] = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(2).png";
-  $_FILES['upload3']['name'] = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(3).png";
-  $_FILES['upload4']['name'] = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(4).png";
+  $_FILES['upload']['name'] =  "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(1).png";
+  $_FILES['upload2']['name'] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(2).png";
+  $_FILES['upload3']['name'] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(3).png";
+  $_FILES['upload4']['name'] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(4).png";
   //학년_과목_문제지이름_유형_쪽수_문제번호.jpg
-  $file_name = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(1).png";
-  $file_name2 = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(2).png";
-  $file_name3 = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(3).png";
-  $file_name4 = "".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(4).png";
+  $file_name[0] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(1).png";
+  $file_name[1] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(2).png";
+  $file_name[2] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(3).png";
+  $file_name[3] = "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(4).png";
 
   $uploadfile = $uploaddir . basename($_FILES['upload']['name']);
   $uploadfile2 = $uploaddir . basename($_FILES['upload2']['name']);
@@ -33,27 +52,99 @@ if($_FILES['upload'] != null)
 
 
   // 문제 번호 엮는거
-  $idx = 0;
-  $num = '';
-  while($_SESSION['Q_num'][$idx] != null)
-  {
-    $num .= '|'.$_SESSION['Q_num'][$idx];
-    $idx++;
+
+    // $sql = "INSERT INTO stage_direction (image, grade, subject, book_num, type_index_num, NumberGroup)
+    // VALUES ('".$file_name."', $_POST[grade], $_POST[subject], $_POST[book_name], $_POST[question_type], '".$num."')";
+    //
+    // $result = mysqli_query($conn, $sql);
+    // $_SESSION['Q_num'] = [];
+
+
+
+
+
+
+  if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
+
+    echo "<script>alert('문제1 등록 성공');</script>";
+    $full_file_name .= '|'.$file_name[$idx++];
+    $plag++;
+    // print_r($_FILES);
+    // echo "<script>location.href ='add.php';</script>";
+  } else {
+    echo "<script>alert('문제 등록 실패');</script>";
+    // echo "<script>location.href ='add.php';</script>";
+  }
+
+  if (move_uploaded_file($_FILES['upload2']['tmp_name'], $uploadfile2)) {
+
+    // $sql = "INSERT INTO stage_direction (image, grade, subject, book_num, type_index_num, NumberGroup)
+    // VALUES ('".$file_name2."', $_POST[grade], $_POST[subject], $_POST[book_name], $_POST[question_type], '".$num."')";
+    //
+    //   $result = mysqli_query($conn, $sql);
+
+    echo "<script>alert('문제2 등록 성공');</script>";
+    $full_file_name .= '|'.$file_name[$idx++];
+    $plag++;
+    // print_r($_FILES);
+    // echo "<script>location.href ='add.php';</script>";
+  } else {
+    echo "<script>alert('문제2 등록 실패');</script>";
+    // echo "<script>location.href ='add.php';</script>";
+  }
+
+  if (move_uploaded_file($_FILES['upload3']['tmp_name'], $uploadfile3)) {
+
+    // $sql = "INSERT INTO stage_direction (image, grade, subject, book_num, type_index_num, NumberGroup)
+    // VALUES ('".$file_name3."', $_POST[grade], $_POST[subject], $_POST[book_name], $_POST[question_type], '".$num."')";
+    //
+    //   $result = mysqli_query($conn, $sql);
+
+    echo "<script>alert('문제3 등록 성공');</script>";
+    $full_file_name .= '|'.$file_name[$idx++];
+    $plag++;
+    // print_r($_FILES);
+    // echo "<script>location.href ='add.php';</script>";
+  } else {
+    echo "<script>alert('문제3 등록 실패');</script>";
+    // echo "<script>location.href ='add.php';</script>";
+  }
+
+  if (move_uploaded_file($_FILES['upload4']['tmp_name'], $uploadfile4)) {
+
+    // $sql = "INSERT INTO stage_direction (image, grade, subject, book_num, type_index_num, NumberGroup)
+    // VALUES ('".$file_name4."', $_POST[grade], $_POST[subject], $_POST[book_name], $_POST[question_type], '".$num."')";
+    //
+    //   $result = mysqli_query($conn, $sql);
+
+    echo "<script>alert('문제4 등록 성공');</script>";
+    $full_file_name .= '|'.$file_name[$idx++];
+    $plag++;
+    // print_r($_FILES);
+    // echo "<script>location.href ='add.php';</script>";
+  } else {
+    echo "<script>alert('문제4 등록 실패');</script>";
+    // echo "<script>location.href ='add.php';</script>";
   }
 
 
-    $sql = "INSERT INTO stage_direction (image, subject, NumberGroup)
-    VALUES ('".$file_name."', $_POST[subject], '".$num."')";
+  if($plag > 0)
+  {
+    $sql = "INSERT INTO stage_direction (image, grade, subject, book_num, type_index_num, NumberGroup)
+    VALUES ('".$full_file_name."', $_POST[grade], $_POST[subject], $_POST[book_name], $_POST[question_type], '".$num."')";
 
     $result = mysqli_query($conn, $sql);
     $_SESSION['Q_num'] = [];
 
 
-
+    $plag = 0;
+    $idx = 0;
+  }
 
   if($result != null)
   {
     echo $num."</br>";
+    echo "<script>location.href ='add.php';</script>";
     echo "<script>alert('DB 등록 성공');</script>";
   }else
   {
@@ -72,65 +163,8 @@ if($_FILES['upload'] != null)
     echo "<script>alert('".$type_val[1]."');</script>";
     echo "<script>alert('".$type_val[2]."');</script>";
     echo "<script>alert('".$type_val[3]."');</script>";
+    echo "<script>location.href ='add.php';</script>";
     echo "<script>alert('DB 등록 실패. 입력내용 확인 바람.');</script>";
   }
-
-  if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadfile)) {
-
-    echo "<script>alert('문제1 등록 성공');</script>";
-    // print_r($_FILES);
-    // echo "<script>location.href ='add.php';</script>";
-  } else {
-    echo "<script>alert('문제 등록 실패');</script>";
-    // echo "<script>location.href ='add.php';</script>";
-  }
-
-  if (move_uploaded_file($_FILES['upload2']['tmp_name'], $uploadfile2)) {
-
-      $sql = "INSERT INTO stage_direction (image, subject, NumberGroup)
-      VALUES ('".$file_name2."', $_POST[subject], '".$num."')";
-
-      $result = mysqli_query($conn, $sql);
-
-
-    echo "<script>alert('문제2 등록 성공');</script>";
-    // print_r($_FILES);
-    // echo "<script>location.href ='add.php';</script>";
-  } else {
-    echo "<script>alert('문제2 등록 실패');</script>";
-    // echo "<script>location.href ='add.php';</script>";
-  }
-
-  if (move_uploaded_file($_FILES['upload3']['tmp_name'], $uploadfile3)) {
-
-      $sql = "INSERT INTO stage_direction (image, subject, NumberGroup)
-      VALUES ('".$file_name3."', $_POST[subject], '".$num."')";
-
-      $result = mysqli_query($conn, $sql);
-
-    echo "<script>alert('문제3 등록 성공');</script>";
-    // print_r($_FILES);
-    // echo "<script>location.href ='add.php';</script>";
-  } else {
-    echo "<script>alert('문제3 등록 실패');</script>";
-    // echo "<script>location.href ='add.php';</script>";
-  }
-
-  if (move_uploaded_file($_FILES['upload4']['tmp_name'], $uploadfile4)) {
-
-      $sql = "INSERT INTO stage_direction (image, subject, NumberGroup)
-      VALUES ('".$file_name4."', $_POST[subject], '".$num."')";
-
-      $result = mysqli_query($conn, $sql);
-
-    echo "<script>alert('문제4 등록 성공');</script>";
-    // print_r($_FILES);
-    // echo "<script>location.href ='add.php';</script>";
-  } else {
-    echo "<script>alert('문제4 등록 실패');</script>";
-    // echo "<script>location.href ='add.php';</script>";
-  }
-
-
 }
  ?>

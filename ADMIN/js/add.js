@@ -205,7 +205,7 @@ $('.ALFS_Submit').click(function(){
     if(confirm('추가하시면 삭제는 불가능 합니다.\n제대로 입력하셨습니까?'))
     {
       $.ajax({
-        url : "transfer.php",  //url 바꾸기.
+        url : "../ADDING/transfer.php",  //url 바꾸기.
         type:"POST",
         data:{num:checked_array},
         success : function(result)
