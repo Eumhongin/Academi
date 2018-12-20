@@ -285,6 +285,8 @@ $('.word_submit').click(function(){
 
 })
 
+
+
 $('.picedit0').click(function(){
 
   location.href ='stage_direction_image_add.php?get=1';

@@ -17,18 +17,47 @@ include("module\dbContentsEcho.php");
   </head>
   <body>
 
-
 <?php
-$a = 12;
+  $_POST['uid'] = 'aaaa1111';
+  $_POST['alphabet'] = 'a';
+  $_POST['num'] = 4;
+  $_POST['wrong_num'] = '';
+
+  $sql = "(SELECT word, answer FROM eng_words
+  WHERE checked LIKE '%".$_POST[uid]."%'
+  and NOT wrong_student LIKE '%".$_POST[uid]."%'
+  and word LIKE '".$_POST[alphabet]."%'
+  limit $_POST[num])UNION
+  (SELECT word, answer FROM eng_words
+  WHERE checked LIKE '%".$_POST[uid]."%'
+  and wrong_student LIKE '%".$_POST[uid]."%'
+  and word LIKE '".$_POST[alphabet]."%'
+  limit $_POST[wrong_num] )";
 
 
-$b = 3;
-$b_a = 'b4';
 
-if($a == 1 || ($b == 3 && $b_a == 'b4'))
-{
-  echo '들어옴ㅋㅋ';
-}
+    $get[0] = DB_echo($sql, 'word');
+    $get[1] = DB_echo($sql, 'answer');
+
+print_r($get);
+echo "</br>";
+
+$sql = "SELECT no,word, answer FROM eng_words
+WHERE NOT checked LIKE '%".$_POST[uid]."%'
+and NOT wrong_student LIKE '%".$_POST[uid]."%'
+and word LIKE '".$_POST[alphabet]."%'
+limit $_POST[num]";
+
+
+  $get[0] = DB_echo($sql, 'word');
+  $get[1] = DB_echo($sql, 'answer');
+print_r($get);
+echo "</br>";echo "</br>";echo "</br>";echo "</br>";
+
+$a = 15;
+$b = $a/4;
+
+echo ceil($b);
  ?>
 
 

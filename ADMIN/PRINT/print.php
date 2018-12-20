@@ -33,12 +33,12 @@
     <span class="Subtitle_ADD">문제출력</span>
     <section class="row">
       <div class="ADD_LEFT">
-        <!-- <div class="ALPanel_Regular">
-          <span class="ALPR_span">정규문제</span>
+        <div class="ALPanel_Regular">
+          <span class="ALPR_span">문제출력</span>
         </div>
         <div class="ALPanel_UnRegular">
-          <span class="ALPUR_span">비정규문제</span>
-        </div> -->
+          <span class="ALPUR_span">단어출력</span>
+        </div>
 
         <form  class="ADD_LEFT_FORM" name = "form" action="question_print.php" method="post" enctype="multipart/form-data">
             <div class="ALF_Shield">
@@ -234,49 +234,56 @@
             <button class="ALFS_Submit" type="submit">추가</button>
           </div>
         </form>
-        <form  class="ADD_LEFT_FORM2 hide" name = "form" action="question_add.php" method="post" enctype="multipart/form-data">
+
+        <!-- <div class="ADD_LEFT_FORM2 hide"> -->
+          <form class="ADD_LEFT_FORM2 hide" action="word_print.php" method="post">
+
             <div class="ALF_Shield">
               <div class="ALFS_PrintObjectName">
-                <input type="text" name="" value="" placeholder="문제지 이름">
+                <input type="text" class = "printname" name="printname" value="" placeholder="문제지 이름">
               </div>
 
               <div class="ALFS_UID">
-                <input type="text" name="" value="" placeholder="학생 아이디">
+                <input type="text" class = "uid" name="uid" value="" placeholder="학생 아이디">
               </div>
               <br>
               <div class="ALFS_Paging_Number row">
                 <div class="ALFSPN_Page">
-                  <input type="text" name="page" value="" placeholder="학교" required>
+                  <input type="text" class = "num"name="num" value="" placeholder="문제 개수" required>
                 </div>
                 <div class="ALFSPN_Number">
-                  <input type="text" name="num" value="" placeholder="학년" required>
+                  <input type="text" class = "wrong_num"name="wrong_num" value="" placeholder="틀린단어 포함 개수" >
                 </div>
               </div>
               <br>
-              <div class="ALFS_PrintName">
+              <!-- <div class="ALFS_PrintName">
                 <input type="text" name="printname" value="" placeholder="문제 개수" required>
               </div>
               <br>
               <div class="ALFS_Difficult">
                 <input type="text" name="difficult" value="" placeholder="틀린단어 포함 개수" required>
-              </div>
+              </div> -->
               <br>
+              <div class="ALFS_Option row">
+                <select class="ALFSO_alphabet" name="alphabet" required>
+                  <option value="" selected>=시작 알파벳=</option>
+                  <option value="a" >a</option><option value="b" >b</option><option value="c" >c</option><option value="d" >d</option><option value="e" >e</option>
+                  <option value="f" >f</option><option value="g" >g</option><option value="h" >h</option><option value="i" >i</option><option value="j" >j</option>
+                  <option value="k" >k</option><option value="l" >l</option><option value="m" >m</option><option value="n" >n</option><option value="o" >o</option>
+                  <option value="p" >p</option><option value="q" >q</option><option value="r" >r</option><option value="s" >s</option><option value="t" >t</option>
+                  <option value="u" >u</option><option value="v" >v</option><option value="w" >w</option><option value="x" >x</option><option value="y" >y</option>
+                  <option value="z" >z</option>
+                </select>
+            </div>
               <div class="ALFS_CheckBox row">
-                <!-- 최소 1개 이상 선택하도록 해야함. -->
-                <li><input type="checkbox" name="type[]" value="사고력"><span>사고력</span></li>
-                <li><input type="checkbox" name="type[]" value="이해력"><span>이해력</span></li>
-                <li><input type="checkbox" name="type[]" value="문제해결력"><span>문제해결력</span></li>
-                <li><input type="checkbox" name="type[]" value="창의력"><span>창의력</span></li>
+                <li><input type="checkbox" name="checked" value="1"><span>푼 문제 출력 여부</span></li>
               </div>
               <br>
-
-
-
-
-
-            <button class="ALFS_Submit" type="submit">추가</button>
+            <button class="ALFS_word_Submit" type="submit">추가</button>
+            </form>
           </div>
-        </form>
+
+        <!-- </div> -->
 
 
         <br><br>

@@ -123,6 +123,7 @@ $(document).ready(function(){
         // {
           // console.log(result[idx][0]);
         // }
+        alert(result);
         alert('완료 채점 완료');
         location.href='../ADMIN/SEARCH_STUDENT/stu_info.php';
 

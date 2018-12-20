@@ -1,5 +1,5 @@
 $('.ALFS_Difficult').css({
-  'margin-top':$('.ADD_LEFT_FORM').outerHeight()*0.47+'px'
+  'margin-top':$('.ADD_LEFT_FORM').outerHeight()*0.1+'px'
 });
 $('.sub > input').change(function(){
   if(this.checked){
@@ -59,5 +59,8 @@ $('#ALFSO_Subject_id').change(function(){
     }
 
   });
+
+});
+
 
 });

@@ -7,7 +7,8 @@ $sql = "(SELECT * FROM aca_db.question_list WHERE student_id = '".$_SESSION[stu_
 (SELECT * FROM aca_db.question_list_korean WHERE student_id = '".$_SESSION[stu_id][0]."') union
 (SELECT * FROM aca_db.question_list_eng WHERE student_id = '".$_SESSION[stu_id][0]."') union
 (SELECT * FROM aca_db.question_list_social WHERE student_id = '".$_SESSION[stu_id][0]."') union
-(SELECT * FROM aca_db.question_list_science WHERE student_id = '".$_SESSION[stu_id][0]."')
+(SELECT * FROM aca_db.question_list_science WHERE student_id = '".$_SESSION[stu_id][0]."') union
+(SELECT * FROM aca_db.eng_words_print_list WHERE student_id = '".$_SESSION[stu_id][0]."')
 order by registerdate desc limit 10";
 
 $get[0] = DB_echo($sql, 'no');
@@ -50,6 +51,10 @@ for($idx = 0; $idx < count($get[4]); $idx++)
 
     case 5:
         $get[8][$idx] = '과학';
+      break;
+
+    case 6:
+        $get[8][$idx] = '영어단어';
       break;
 
   }

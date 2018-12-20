@@ -6,7 +6,7 @@ include("..\..\module\url_access_denied.php");
 
 for($idx = 0; $idx < count($_POST['word']); $idx++)
 {
-  $sql = "INSERT INTO eng_words (word, answer, wrong_student) VALUES('".$_POST['word'][$idx]."', '".$_POST['answer'][$idx]."', '0')";
+  $sql = "INSERT INTO eng_words (word, answer, checked, wrong_student) VALUES('".$_POST['word'][$idx]."', '".$_POST['answer'][$idx]."', '0','0')";
   mysqli_query($conn,$sql);
 }
 
