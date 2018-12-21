@@ -22,6 +22,7 @@ var calendar = $('#calendar').fullCalendar({
     right: 'month,agendaWeek,agendaDay,listWeek'
   },
 
+
   events: '../../fullcalendar/fullCalendar_load.php',
   navLinks: true, // can click day/week names to navigate views
   selectable: true,
@@ -142,6 +143,7 @@ var calendar = $('#calendar').fullCalendar({
       //   });
       // }
   }
+
 
 });
 

@@ -19,34 +19,22 @@ include("module\dbContentsEcho.php");
     <!-- <img src='지문.PNG' style='width:100%'> -->
 
 <?php
-$subject;
 
-function switch_subject($subject){
-  switch ($subject) {
-    case 1:
-        $GLOBALS['subject'] = 'korean';
-      break;
+$sql = "SELECT word FROM eng_words WHERE word LIKE 'b%' and checked LIKE '%aaaa1111%'";
+$word_count = DB_echo($sql, 'word');
 
-    case 2:
-        $GLOBALS['subject'] = 'math';
-      break;
+echo count($word_count);
+$a = ( 0 / 0) * 100;
 
-    case 3:
-        $GLOBALS['subject'] = 'eng';
-      break;
+echo $a;
 
-    case 4:
-        $GLOBALS['subject'] = 'social';
-      break;
-
-    case 5:
-        $GLOBALS['subject'] = 'science';
-      break;
-  }
+if(is_nan($a))
+{
+  $a = 0;
+}else{
+  $a= round($a,2);
 }
-
-switch_subject(4);
-echo $subject;
+echo "</br>".$a;
 
  ?>
 

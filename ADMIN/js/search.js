@@ -1,6 +1,29 @@
 var type_num;
 var type_name;
+var subject = getParameters('sub');
 var score = new Array();
+
+function getParameters (paramName) {
+  // 리턴값을 위한 변수 선언
+  var returnValue;
+
+  // 현재 URL 가져오기
+  var url = location.href;
+
+  // get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+  var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+  // 나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+  for (var i = 0; i < parameters.length; i++)
+  {
+    var varName = parameters[i].split('=')[0];
+    if (varName.toUpperCase() == paramName.toUpperCase())
+    {
+      returnValue = parameters[i].split('=')[1];
+      return decodeURIComponent(returnValue);
+    }
+  }
+}
 
 
 
@@ -118,16 +141,24 @@ $(document).on('click','.history tbody',function(){
 
 //kindlength 는 불러오는 유형의 갯수
 function makestatic(kindlength) {
+  console.log(subject);
   //$('#student_statics').empty();
   let i = 0;
   let wrapper = $('<div>').addClass('subject_name').appendTo('#student_statics');
-  let subjectname = '수학';
+  let subjectname = subject;
   let h1 = $('<h1>').text(subjectname).appendTo(wrapper);
   let table = $('<table>').appendTo(wrapper);
   let thead = $('<thead>').appendTo(table);
 
-  for (i = 0; i < kindlength; i++) {
-    $('<td>').text(type_name[i]).appendTo(thead);
+  if(subject == '영어단어')
+  {
+    for (i = 0; i < kindlength; i++) {
+      $('<td>').text(type_name[i]+'-파트').appendTo(thead);
+    }
+  }else{
+    for (i = 0; i < kindlength; i++) {
+      $('<td>').text(type_name[i]).appendTo(thead);
+    }
   }
   let tbody = $('<tbody>').appendTo(table);
   for (i = 0; i < kindlength; i++) {

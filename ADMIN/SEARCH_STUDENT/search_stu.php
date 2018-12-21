@@ -37,9 +37,14 @@ include("..\..\module\url_access_denied.php");
             <div class="sfs_input">
               <input type="text" name="grade" value="" placeholder="학년" required>
             </div>
-            <select class="sfs_select" name="">
+            <select class="sfs_select" name="subject">
               <option value="">과목을선택하세요</option>
-              <option value="">수학</option>
+              <option value="1">국어</option>
+              <option value="2">수학</option>
+              <option value="3">영어</option>
+              <option value="4">사회</option>
+              <option value="5">과학</option>
+              <option value="6">영어단어</option>
             </select>
 
             <button class="sfs_subtmit" type="submit">찾기</button>
