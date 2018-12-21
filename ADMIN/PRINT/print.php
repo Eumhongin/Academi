@@ -256,13 +256,7 @@
                 </div>
               </div>
               <br>
-              <!-- <div class="ALFS_PrintName">
-                <input type="text" name="printname" value="" placeholder="문제 개수" required>
-              </div>
-              <br>
-              <div class="ALFS_Difficult">
-                <input type="text" name="difficult" value="" placeholder="틀린단어 포함 개수" required>
-              </div> -->
+
               <br>
               <div class="ALFS_Option row">
                 <select class="ALFSO_alphabet" name="alphabet" required>

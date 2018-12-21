@@ -19,16 +19,34 @@ include("module\dbContentsEcho.php");
     <!-- <img src='지문.PNG' style='width:100%'> -->
 
 <?php
-$_SESSION['abcdefg']['a'] = 'a';
-$_SESSION['abcdefg']['b'] = 'b';
-$_SESSION['abcdefg']['c'] = 'c';
+$subject;
 
-print_r($_SESSION['abcdefg']);
+function switch_subject($subject){
+  switch ($subject) {
+    case 1:
+        $GLOBALS['subject'] = 'korean';
+      break;
 
-$_SESSION['abcdefg'] = [];
+    case 2:
+        $GLOBALS['subject'] = 'math';
+      break;
 
-echo "</br>";
-print_r($_SESSION);
+    case 3:
+        $GLOBALS['subject'] = 'eng';
+      break;
+
+    case 4:
+        $GLOBALS['subject'] = 'social';
+      break;
+
+    case 5:
+        $GLOBALS['subject'] = 'science';
+      break;
+  }
+}
+
+switch_subject(4);
+echo $subject;
 
  ?>
 

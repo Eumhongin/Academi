@@ -28,8 +28,11 @@ $('.sub > input').change(function(){
   }
 
 });
+
+
 $('#ALFSO_Subject_id').change(function(){
-  var drop_value = $('.ALFSO_Subject option:selected').val();
+
+  var drop_value = $('#ALFSO_Subject_id option:selected').val();
   console.log(drop_value);
 
   $(".ALFSO_Bookname").empty();
@@ -44,6 +47,7 @@ $('#ALFSO_Subject_id').change(function(){
     {
       $(".ALFSO_type").append($("<option selected></option>").attr("value",'').text("유형"));
       $(".ALFSO_Bookname").append($("<option selected></option>").attr("value",'').text("책이름"));
+
       for(var idx = 0; idx < result[0].length; idx++)
       {//책이름, 책번호
         $(".ALFSO_Bookname").append($("<option></option>").attr("value",result[1][idx]).text(result[0][idx]));
@@ -59,8 +63,5 @@ $('#ALFSO_Subject_id').change(function(){
     }
 
   });
-
-});
-
 
 });

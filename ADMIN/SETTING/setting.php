@@ -118,15 +118,24 @@
         ?>
         <strong>== 유형 ==</strong>
         <br><br>
+        <select class="ALFSO_Subject" id="ALFSO_Subject_id_type" name="subject" required>
+          <option value="" selected>=== 과목 ===</option>
+          <option value="1" >국어</option>
+          <option value="2" >수학</option>
+          <option value="3" >영어</option>
+          <option value="4" >사회</option>
+          <option value="5" >과학</option>
+
+        </select>
         <strong>삭제</strong>
         <select class="" id="delete_type">
           <option value="999">=== 유형 ===</option>
           <?php
-          while($math[$idx] != null)
-          {
-            echo "<option value='".$math_num[$idx]."'>".$math[$idx++]."</option>";
-          }
-          $idx = 0;
+          // while($math[$idx] != null)
+          // {
+          //   echo "<option value='".$math_num[$idx]."'>".$math[$idx++]."</option>";
+          // }
+          // $idx = 0;
           ?>
         </select>
         <button type="button" id="delete_button">삭제</button>
@@ -141,11 +150,11 @@
         <select class="" id="update_type">
           <option value="999">=== 유형 ===</option>
           <?php
-          while($math[$idx] != null)
-          {
-            echo "<option value='".$math_num[$idx]."'>".$math[$idx++]."</option>";
-          }
-          $idx = 0;
+          // while($math[$idx] != null)
+          // {
+          //   echo "<option value='".$math_num[$idx]."'>".$math[$idx++]."</option>";
+          // }
+          // $idx = 0;
           ?>
         </select> 을(를)
         <input type="text" id="change_type" > 으로
@@ -155,15 +164,24 @@
         <div class="modify">
           <strong>== 책 ==</strong>
           <br><br>
+          <select class="ALFSO_Subject" id="ALFSO_Subject_id_book" name="subject" required>
+            <option value="" selected>=== 과목 ===</option>
+            <option value="1" >국어</option>
+            <option value="2" >수학</option>
+            <option value="3" >영어</option>
+            <option value="4" >사회</option>
+            <option value="5" >과학</option>
+
+          </select>
           <strong>삭제</strong>
           <select class="" id="book_delete_type">
-            <option value="999">=== 유형 ===</option>
+            <option value="999">=== 책이름 ===</option>
             <?php
-            while($math[$idx] != null)
-            {
-              echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
-            }
-            $idx = 0;
+            // while($math[$idx] != null)
+            // {
+            //   echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
+            // }
+            // $idx = 0;
             ?>
           </select>
           <button type="button" id="book_delete_button">삭제</button>
@@ -176,13 +194,13 @@
           <br><br>
           <strong>변경</strong>
           <select class="" id="book_update_type">
-            <option value="999">=== 유형 ===</option>
+            <option value="999">=== 책이름 ===</option>
             <?php
-            while($math[$idx] != null)
-            {
-              echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
-            }
-            $idx = 0;
+            // while($math[$idx] != null)
+            // {
+            //   echo "<option value='".$book_num[$idx]."'>".$book[$idx++]."</option>";
+            // }
+            // $idx = 0;
             ?>
           </select> 을(를)
           <input type="text" id="book_change_type" > 으로
