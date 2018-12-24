@@ -11,6 +11,11 @@ include("..\..\module\url_access_denied.php");
     <script src="../js/jquery-min.js" charset="utf-8"></script>
 
     <title></title>
+    <style media="screen">
+      td{
+        border:1px solid black;
+      }
+    </style>
   </head>
   <body>
 <?php
@@ -26,7 +31,7 @@ function insert_list($title, $question_num, $teacher_id, $student_id)
   mysqli_query($GLOBALS['conn'], $sql);
 }
 // 푼 문제 포함 and 틀린 문제 포함 x
-print_r($_POST);
+//print_r($_POST);
 if($_POST['checked'] == 1 && $_POST['wrong_num'] == '')
 {
 
@@ -39,8 +44,8 @@ if($_POST['checked'] == 1 && $_POST['wrong_num'] == '')
   $get[0] = DB_echo($sql, 'no');
   $get[1] = DB_echo($sql, 'word');
   $get[2] = DB_echo($sql, 'answer');
-  print_r($get);
-  echo "1</br>".$sql."</br>".count($get[0]);
+  //print_r($get);
+  //echo "1</br>".$sql."</br>".count($get[0]);
 
   $list = '';
   for($idx = 0; $idx< count($get[0]); $idx++)
@@ -77,8 +82,8 @@ if($_POST['checked'] == 1 && $_POST['wrong_num'] == '')
   $get[2] = DB_echo($sql, 'answer');
 
 
-  print_r($get);
-  echo "2</br>".$sql."</br>".count($get[0]);
+  //print_r($get);
+  //echo "2</br>".$sql."</br>".count($get[0]);
 
   for($idx = 0; $idx< count($get[0]); $idx++)
   {
@@ -116,8 +121,8 @@ if($_POST['checked'] == 1 && $_POST['wrong_num'] == '')
   }
 
   insert_list($_POST['printname'], $list, $_SESSION['LOG_id'], $_POST['uid']);
-  print_r($get);
-  echo "3</br>".$sql."</br>".count($get[0]);
+  //print_r($get);
+  //echo "3</br>".$sql."</br>".count($get[0]);
 
 
 
@@ -150,8 +155,8 @@ if($_POST['checked'] == 1 && $_POST['wrong_num'] == '')
     }
 
     insert_list($_POST['printname'], $list, $_SESSION['LOG_id'], $_POST['uid']);
-    print_r($get);
-    echo "4</br>".$sql."</br>".count($get[0]);
+    //print_r($get);
+    //echo "4</br>".$sql."</br>".count($get[0]);
     // print_r($_SESSION['wp']);
 
     // print_r($get);
@@ -163,12 +168,25 @@ $count = ceil(count($get[0]));
 
 
 //////////////////////이부분. 표 고치기..
-echo "<table >";
+echo "<table ><thead>
+<td>
+문제
+</td>
+<td>
+정답
+</td>
+<td>
+문제
+</td>
+<td>
+정답
+</td>
+</thead>";
 for($idx = 0; $idx < $count; $idx++)
 {
-  echo "<thead>
+  echo "<tbody>
   <td>".$get[1][$idx]."</td><td>".$get[2][$idx]."</td><td>".$get[1][$idx+1]."</td><td>".$get[2][$idx+1]."</td>
-  </tr></thead>";//<td>".$get[1][$idx+3]."</td><td>".$get[1][$idx+4]."</td></tr>";
+  </tr></tbody>";//<td>".$get[1][$idx+3]."</td><td>".$get[1][$idx+4]."</td></tr>";
   $idx++;
 }
 echo "</table>";
