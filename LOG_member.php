@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -7,9 +7,9 @@
   </head>
   <body>
     <?php
-      include("module\dbConnect.php");
-      include("module\dbContentsEcho.php");
-      include("module\url_access_denied.php");
+      include("module/dbConnect.php");
+      include("module/dbContentsEcho.php");
+      include("module/url_access_denied.php");
 
       $sql1 = "SELECT * FROM member WHERE id='".$_POST['LOG_id']."'";
 

@@ -1,5 +1,5 @@
-<!DOCTYPE html>
 <?php session_start(); ?>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -8,9 +8,9 @@
   <body>
 
     <?php
-    include("..\..\module\dbConnect.php");
-    include("..\..\module\dbContentsEcho.php");
-    include("..\..\module\url_access_denied.php");
+    include("../../module/dbConnect.php");
+    include("../../module/dbContentsEcho.php");
+    include("../../module/url_access_denied.php");
 
     $member_name = $_POST['name'];
     $member_school_name = $_POST['school_name'];

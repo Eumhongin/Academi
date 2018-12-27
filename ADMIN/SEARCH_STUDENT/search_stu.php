@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <?php
-include("..\..\module\url_access_denied.php");
+include("../../module/url_access_denied.php");
  ?>
 
 <html lang="en" dir="ltr">

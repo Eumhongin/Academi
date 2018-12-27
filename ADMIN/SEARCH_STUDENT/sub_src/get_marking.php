@@ -1,7 +1,7 @@
 <?php
 session_start();
-include("..\..\..\module\dbConnect.php");
-include("..\..\..\module\dbContentsEcho.php");
+include("../../../module/dbConnect.php");
+include("../../../module/dbContentsEcho.php");
 
 $sql = "(SELECT * FROM aca_db.question_list WHERE student_id = '".$_SESSION[stu_id][0]."') union
 (SELECT * FROM aca_db.question_list_korean WHERE student_id = '".$_SESSION[stu_id][0]."') union

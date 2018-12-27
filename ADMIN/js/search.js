@@ -144,7 +144,7 @@ function makestatic(kindlength) {
   console.log(subject);
   //$('#student_statics').empty();
   let i = 0;
-  let wrapper = $('<div>').addClass('subject_name').appendTo('#student_statics');
+  let wrapper = $('<div style="overflow-x:scroll">').addClass('subject_name').appendTo('#student_statics');
   let subjectname = subject;
   let h1 = $('<h1>').text(subjectname).appendTo(wrapper);
   let table = $('<table>').appendTo(wrapper);
@@ -164,5 +164,6 @@ function makestatic(kindlength) {
   for (i = 0; i < kindlength; i++) {
     $('<td>').text(score[i]+'%').appendTo(tbody);
   }
+
 
 }

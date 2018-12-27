@@ -1,8 +1,8 @@
 <?php
 session_start();
-include("..\..\module\dbConnect.php");
-include("..\..\module\dbContentsEcho.php");
-include("..\..\module\url_access_denied.php");
+include("../../module/dbConnect.php");
+include("../../module/dbContentsEcho.php");
+include("../../module/url_access_denied.php");
 
 
 
@@ -25,7 +25,7 @@ if($_FILES['upload'] != null)
     $plag = 0;
     $idx = 0;
 
-  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'\academi\Academi\ADMIN\ADDING\stage_direction_img\\';
+  $uploaddir = ''.$_SERVER["DOCUMENT_ROOT"].'/academi/Academi/ADMIN/ADDING/stage_direction_img/';
 
 
   $_FILES['upload']['name'] =  "".$num_for_file_name."_".$_POST['grade']."_".$_POST['subject']."_".$_POST['book_name']."_".$_POST['question_type']."(1).png";

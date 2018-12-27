@@ -327,7 +327,7 @@ if(get == 1)
               var tbody = $('<tbody>').attr('class','col-1').attr('id',idx).appendTo('#history');
               var tr = $('<tr  onclick=check('+result[2][idx]+') class="col-1">').appendTo(tbody);
 
-              $('<td>').attr('class', 'col-4').text(result[0][idx]).appendTo(tr);//날짜
+              $('<td>').attr('class', 'col-2').text(result[0][idx]).appendTo(tr);//날짜
               $('<td>').attr('class', 'col-2').text(result[1][idx]).appendTo(tr);//파일 이름
           }
 

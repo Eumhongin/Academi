@@ -14,6 +14,7 @@
     <script src="../js/jquery-min.js" charset="utf-8"></script>
   </head>
   <body>
+
     <?php
     if($_POST['subject'] == 1)
     {
@@ -128,168 +129,170 @@
       }
       $_POST['num'] = $_POST['num'] - $_POST['wrong'];
 
-
-
-
-      if(($_POST['subject'] == 1  && ($_POST['question_type1'] == 1 || $_POST['question_type1'] == 2 )) || ($_POST['subject'] == 3 && $_POST['question_type1'] == 4))
-      {
-        $sql = "SELECT image, NumberGroup FROM stage_direction
-                WHERE subject = '".$_POST['subject']."'
-                and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
-                and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
-                and grade = '".$_POST['grade']."'
-                order by rand()
-                limit $_POST[num]";
-
-        $i = 0;
-        $result = mysqli_query($conn, $sql);
-        while($row  = mysqli_fetch_array($result))
-        {
-          $print_namegrp[$i] = $row['image'];
-          $print_numgrp[$i] = $row['NumberGroup'];
-          $ImageGroup[$i] = explode('|',$print_namegrp[$i]);
-          $NumberGroup[$i] = explode('|',$print_numgrp[$i]);
-          $i++;
-        }
-
-        $idx = 0;
-        for($idx1 = 0; $idx1 < count($ImageGroup); $idx1++)
-        {
-          for($idx2 = 1; $idx2 < count($ImageGroup[$idx1]); $idx2++)
-          {//0번 인덱스는 비어있기 때문에 1번부터 시작함
-            $stage_image_name[$idx++] = $ImageGroup[$idx1][$idx2];
-          }
-        }
-
-        $idx = 0;
-        for($idx1 = 0; $idx1 < count($NumberGroup); $idx1++)
-        {
-          for($idx2 = 1; $idx2 < count($NumberGroup[$idx1]); $idx2++)
-          {//0번 인덱스는 비어있기 때문에 1번부터 시작함
-            $print_num[$idx] = $NumberGroup[$idx1][$idx2];
-            $sql = "SELECT image FROM question_image WHERE no = $print_num[$idx]";
-            //
-            $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_array($result);
-            $print[$idx] = $row['image'];
-
-            //
-            // $print[$idx] = DB_echo($sql, 'image');
-            $idx++;
-
-          }
-        }
-
-        // $idx3 = 0;
-        // while($idx3 < count($print_num))
-        // {
-        //   $sql = "SELECT image FROM answer_image WHERE no = $print_num[$idx]";
-        //   //
-        //   $result = mysqli_query($conn, $sql);
-        //   $row = mysqli_fetch_array($result);
-        //   $print[$idx] = $row['image'];
-        //
-        //   //
-        //   // $print[$idx] = DB_echo($sql, 'image');
-        //   $idx++;
-        //   $idx3++;
-        // }
-
-        for($idx1 = 0; $idx1 < count($stage_image_name); $idx1++)
-        {
-          echo "<div class='box' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/stage_direction_img/$stage_image_name[$idx1]' style='width:100%'></div></div>";
-        }
-
-      }else
-      {
-        $sql =
-        "SELECT no, image FROM question_image
-        WHERE subject = '".$_POST['subject']."'
-          and level='".$_POST['difficult']."'
-          and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
-          and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
-          and grade = '".$_POST['grade']."'
-          and type1 = '".$type_val[0]."'
-          and type2 = '".$type_val[1]."'
-          and type3 = '".$type_val[2]."'
-          and type4 = '".$type_val[3]."'
-          and wrong_student LIKE '%".$_POST[student_id]."%'
-        order by rand()
-        limit $_POST[wrong]";
-        //echo "</br>".$sql."</br>";
-
-        $i = 0;
-        $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_array($result))
-        {
-          $print[$i] = $row['image'];
-          $print_num[$i++] = $row['no'];
-        }
-
-
-        $sql =
-        "SELECT no, image FROM question_image
-        WHERE subject = '".$_POST['subject']."'
-          and level='".$_POST['difficult']."'
-          and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
-          and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
-          and grade = '".$_POST['grade']."'
-          and type1 = '".$type_val[0]."'
-          and type2 = '".$type_val[1]."'
-          and type3 = '".$type_val[2]."'
-          and type4 = '".$type_val[3]."'
-          and NOT wrong_student LIKE '%".$_POST[student_id]."%'
-        order by rand()
-        limit $_POST[num]";
-        //echo "</br>".$sql."</br>";
-
-        $result = mysqli_query($conn, $sql);
-        while($row = mysqli_fetch_array($result))
-        {
-          $print[$i] = $row['image'];
-          $print_num[$i++] = $row['no'];
-        }
-
-
-      }
-
-
-
-
-
-      // $print = DB_echo($sql,'image');
-      // $print_num = DB_echo($sql,'no');
-
-
-
-      $A = 0;
-      $B = 0;
-      $C = 0;
-      $D = 0;
-      $total = 0;
-
-      for($i = 0; $i < 5; $i++)
-      {
-        for($j = ($i+1); $j < 5; $j++)
-        {
-          if($book_num[$i] == $book_num[$j])
-          {
-            $book_num[$i] = 'x';
-          }
-        }
-      }
-
-      for($i = 4; $i > 0; $i--)
-      {
-        for($j = ($i-1); $j >0; $j--)
-        {
-          if($type_index_name[$i] == $type_index_name[$j])
-          {
-            $type_index_name[$i][0] = $i;
-          }
-        }
-      }
       ?>
+      <div class="printwrapper" style="display:grid;grid:auto / 50% 50%">
+
+          <?php
+          if(($_POST['subject'] == 1  && ($_POST['question_type1'] == 1 || $_POST['question_type1'] == 2 )) || ($_POST['subject'] == 3 && $_POST['question_type1'] == 4))
+          {
+            $sql = "SELECT image, NumberGroup FROM stage_direction
+            WHERE subject = '".$_POST['subject']."'
+            and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
+            and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
+            and grade = '".$_POST['grade']."'
+            order by rand()
+            limit $_POST[num]";
+
+            $i = 0;
+            $result = mysqli_query($conn, $sql);
+            while($row  = mysqli_fetch_array($result))
+            {
+              $print_namegrp[$i] = $row['image'];
+              $print_numgrp[$i] = $row['NumberGroup'];
+              $ImageGroup[$i] = explode('|',$print_namegrp[$i]);
+              $NumberGroup[$i] = explode('|',$print_numgrp[$i]);
+              $i++;
+            }
+
+            $idx = 0;
+            for($idx1 = 0; $idx1 < count($ImageGroup); $idx1++)
+            {
+              for($idx2 = 1; $idx2 < count($ImageGroup[$idx1]); $idx2++)
+              {//0번 인덱스는 비어있기 때문에 1번부터 시작함
+                $stage_image_name[$idx++] = $ImageGroup[$idx1][$idx2];
+              }
+            }
+
+            $idx = 0;
+            for($idx1 = 0; $idx1 < count($NumberGroup); $idx1++)
+            {
+              for($idx2 = 1; $idx2 < count($NumberGroup[$idx1]); $idx2++)
+              {//0번 인덱스는 비어있기 때문에 1번부터 시작함
+                $print_num[$idx] = $NumberGroup[$idx1][$idx2];
+                $sql = "SELECT image FROM question_image WHERE no = $print_num[$idx]";
+                //
+                $result = mysqli_query($conn, $sql);
+                $row = mysqli_fetch_array($result);
+                $print[$idx] = $row['image'];
+
+                //
+                // $print[$idx] = DB_echo($sql, 'image');
+                $idx++;
+
+              }
+            }
+
+            // $idx3 = 0;
+            // while($idx3 < count($print_num))
+            // {
+            //   $sql = "SELECT image FROM answer_image WHERE no = $print_num[$idx]";
+            //   //
+            //   $result = mysqli_query($conn, $sql);
+            //   $row = mysqli_fetch_array($result);
+            //   $print[$idx] = $row['image'];
+            //
+            //   //
+            //   // $print[$idx] = DB_echo($sql, 'image');
+            //   $idx++;
+            //   $idx3++;
+            // }
+
+            for($idx1 = 0; $idx1 < count($stage_image_name); $idx1++)
+            {
+              echo "<div class='box123' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/stage_direction_img/$stage_image_name[$idx1]' style='width:100%'></div></div>";
+            }
+
+          }else
+          {
+            $sql =
+            "SELECT no, image FROM question_image
+            WHERE subject = '".$_POST['subject']."'
+            and level='".$_POST['difficult']."'
+            and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
+            and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
+            and grade = '".$_POST['grade']."'
+            and type1 = '".$type_val[0]."'
+            and type2 = '".$type_val[1]."'
+            and type3 = '".$type_val[2]."'
+            and type4 = '".$type_val[3]."'
+            and wrong_student LIKE '%".$_POST[student_id]."%'
+            order by rand()
+            limit $_POST[wrong]";
+            //echo "</br>".$sql."</br>";
+
+            $i = 0;
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_array($result))
+            {
+              $print[$i] = $row['image'];
+              $print_num[$i++] = $row['no'];
+            }
+
+
+            $sql =
+            "SELECT no, image FROM question_image
+            WHERE subject = '".$_POST['subject']."'
+            and level='".$_POST['difficult']."'
+            and (type_index_num = '".$_POST['question_type1']."' or type_index_num = '".$_POST['question_type2']."' or type_index_num = '".$_POST['question_type3']."' or type_index_num = '".$_POST['question_type4']."' )
+            and (book_num = '".$_POST['book_name1']."' or book_num = '".$_POST['book_name2']."' or book_num = '".$_POST['book_name3']."' or book_num = '".$_POST['book_name4']."')
+            and grade = '".$_POST['grade']."'
+            and type1 = '".$type_val[0]."'
+            and type2 = '".$type_val[1]."'
+            and type3 = '".$type_val[2]."'
+            and type4 = '".$type_val[3]."'
+            and NOT wrong_student LIKE '%".$_POST[student_id]."%'
+            order by rand()
+            limit $_POST[num]";
+            //echo "</br>".$sql."</br>";
+
+            $result = mysqli_query($conn, $sql);
+            while($row = mysqli_fetch_array($result))
+            {
+              $print[$i] = $row['image'];
+              $print_num[$i++] = $row['no'];
+            }
+
+
+          }
+
+
+
+
+
+          // $print = DB_echo($sql,'image');
+          // $print_num = DB_echo($sql,'no');
+
+
+
+          $A = 0;
+          $B = 0;
+          $C = 0;
+          $D = 0;
+          $total = 0;
+
+          for($i = 0; $i < 5; $i++)
+          {
+            for($j = ($i+1); $j < 5; $j++)
+            {
+              if($book_num[$i] == $book_num[$j])
+              {
+                $book_num[$i] = 'x';
+              }
+            }
+          }
+
+          for($i = 4; $i > 0; $i--)
+          {
+            for($j = ($i-1); $j >0; $j--)
+            {
+              if($type_index_name[$i] == $type_index_name[$j])
+              {
+                $type_index_name[$i][0] = $i;
+              }
+            }
+          }
+          ?>
+      </div>
       <!-- <div class="wrapper" style="display:grid;grid:764px/50% 50%;grid-auto-rows:764px"> -->
       <!-- 중섭이가 764-> 350 으로 수정 12-15 ★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆★☆ -->
       <!-- <div class="wrapper" style="display:grid;grid:350px/50% 50%;grid-auto-rows:764px"> -->

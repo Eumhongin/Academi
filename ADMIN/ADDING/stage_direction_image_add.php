@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <?php
-  session_start();
-  include("..\..\module\dbConnect.php");
-  include("..\..\module\dbContentsEcho.php");
-  include("..\..\module\url_access_denied.php");
+
+  include("../../module/dbConnect.php");
+  include("../../module/dbContentsEcho.php");
+  include("../../module/url_access_denied.php");
 
  ?>
 <html lang="en" dir="ltr">
@@ -41,26 +41,35 @@
 
         <form  class="ADD_LEFT_FORM" name = "form" action="stage_direction_adding.php" method="post" enctype="multipart/form-data">
             <div class="ALF_Shield">
-              <div class="ALFS_File_Shield row">
-                <span class="ALFSFS_FilePath" > 1 - 지문 </span>
-                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                <input type="file" name="upload" id="selectedFile" style="display: none;" />
-                <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">찾기</button>
+              <div class="ALFS_File_Shield">
+                <div class="ALFSFR row">
+                  <span class="ALFSFS_FilePath" > 1 - 지문 </span>
+                  <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                  <input type="file" name="upload" id="selectedFile" style="display: none;" />
+                  <button class='picedit' type="button" name="button" onclick="document.getElementById('selectedFile').click();">찾기</button>
+                </div>
+                <div class="ALFSFR row">
+                  <span class="ALFSFS_FilePath2" > 2 - 지문 </span>
+                  <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                  <input type="file" name="upload2" id="selectedFile2" style="display: none;"  />
+                  <button class='picedit2' type="button" name="button" onclick="document.getElementById('selectedFile2').click();">찾기</button>
 
-                <span class="ALFSFS_FilePath2" > 2 - 지문 </span>
-                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                <input type="file" name="upload2" id="selectedFile2" style="display: none;"  />
-                <button class='picedit2' type="button" name="button" onclick="document.getElementById('selectedFile2').click();">찾기</button>
+                </div>
+                <div class="ALFSFR row">
+                  <span class="ALFSFS_FilePath3" > 3 - 지문 </span>
+                  <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                  <input type="file" name="upload3" id="selectedFile3" style="display: none;"  />
+                  <button class='picedit3' type="button" name="button" onclick="document.getElementById('selectedFile3').click();">찾기</button>
 
-                <span class="ALFSFS_FilePath3" > 3 - 지문 </span>
-                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                <input type="file" name="upload3" id="selectedFile3" style="display: none;"  />
-                <button class='picedit3' type="button" name="button" onclick="document.getElementById('selectedFile3').click();">찾기</button>
+                </div>
+                <div class="ALFSFR row">
+                  <span class="ALFSFS_FilePath4" > 4 - 지문 </span>
+                  <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
+                  <input type="file" name="upload4" id="selectedFile4" style="display: none;"  />
+                  <button class='picedit4' type="button" name="button" onclick="document.getElementById('selectedFile4').click();">찾기</button>
 
-                <span class="ALFSFS_FilePath4" > 4 - 지문 </span>
-                <input type="hidden" name="MAX_FILE_SIZE" value="3000000" />
-                <input type="file" name="upload4" id="selectedFile4" style="display: none;"  />
-                <button class='picedit4' type="button" name="button" onclick="document.getElementById('selectedFile4').click();">찾기</button>
+                </div>
+
 
             </div>
               <br>
@@ -160,7 +169,7 @@
           <table id="history" class="col-1">
             <thead class="col-1">
               <tr class="col-1">
-                <th class="col-4">추가날짜</th>
+                <th class="col-2">추가날짜</th>
                 <th class="col-2">파일</th>
               </tr>
             </thead>

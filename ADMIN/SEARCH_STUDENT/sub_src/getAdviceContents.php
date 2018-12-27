@@ -1,8 +1,8 @@
 <?php
   session_start();
 
-  include("..\..\..\module\dbConnect.php");
-  include("..\..\..\module\dbContentsEcho.php");
+  include("../../../module/dbConnect.php");
+  include("../../../module/dbContentsEcho.php");
 
   date_default_timezone_set('Asia/Seoul'); //시간 default값을 서울기준 시간으로 변경.
 

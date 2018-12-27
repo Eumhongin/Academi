@@ -1,6 +1,7 @@
+<?session_start();?>
 <!DOCTYPE html>
-<?php session_start();
-include("..\..\module\url_access_denied.php");
+<?php
+include("../../module/url_access_denied.php");
 ?>
 
 <html lang="en" dir="ltr">
@@ -126,7 +127,7 @@ include("..\..\module\url_access_denied.php");
 
 
           <?php
-          //echo ("이름12 : $_SESSION[name]<br/>\n");
+          //echo ("이름12 : $_SESSION[name]<br/>/n");
         //  echo ("학교 : $_SESSION[school_name]<br/>\n");
         //  echo ("학년 : $_SESSION[grade]<br/>\n");
           ?>
