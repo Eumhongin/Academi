@@ -130,7 +130,7 @@
       $_POST['num'] = $_POST['num'] - $_POST['wrong'];
 
       ?>
-      <div class="printwrapper" style="display:grid;grid:auto / 50% 50%">
+      <div class="printwrapper" style="display:grid;grid:764px/50% 50%;grid-auto-rows:764px">
 
           <?php
           if(($_POST['subject'] == 1  && ($_POST['question_type1'] == 1 || $_POST['question_type1'] == 2 )) || ($_POST['subject'] == 3 && $_POST['question_type1'] == 4))
@@ -199,7 +199,7 @@
 
             for($idx1 = 0; $idx1 < count($stage_image_name); $idx1++)
             {
-              echo "<div class='box123' style='padding:5%;box-sizing:border-box;'><div class='content' style='height:100%'><img src='../ADDING/stage_direction_img/$stage_image_name[$idx1]' style='width:100%'></div></div>";
+              echo "<div class='box123' style='padding:5%;box-sizing:border-box;'><div class='content' style='width:100%'><img src='../ADDING/stage_direction_img/$stage_image_name[$idx1]' style='width:100%'></div></div>";
             }
 
           }else
