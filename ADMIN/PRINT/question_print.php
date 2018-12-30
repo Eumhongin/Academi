@@ -299,12 +299,12 @@
         <?php
         if($_POST['subject'] == 3 && $_POST['question_type1'] != 4)
         {
-          echo "<div class='wrapper' style='display:grid;grid:350px/50% 50%;grid-auto-rows:900px'>";
+          echo "<div class='wrapper' style='display:grid;grid:764px/50% 50%;grid-auto-rows:764px'>";
         }else if($_POST['subject'] == 2 || ($_POST['subject'] == 3 && $_POST['question_type1'] == 4)){
-          echo "<div class='wrapper' style='display:grid;grid:350px/50% 50%;grid-auto-rows:350px'>";
+          echo "<div class='wrapper' style='display:grid;grid:764px/50% 50%;grid-auto-rows:764px'>";
         }
         else {
-          echo "<div class='wrapper' style='display:grid;grid:350px/50% 50%;grid-auto-rows:764px'>";
+          echo "<div class='wrapper' style='display:grid;grid:764px/50% 50%;grid-auto-rows:764px'>";
         }
          ?>
 
