@@ -211,7 +211,7 @@
 
 
 
-        <?php
+        <?php//선생님 아이디로 바꾸기.
         if($_SESSION['LOG_id'] == 'quhb2455')
         {
           echo "<p>토큰생성</p><hr><li><p>토큰생성</p><button type='button' id='token' name='button'>토큰생성</button></li>";

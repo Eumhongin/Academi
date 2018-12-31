@@ -9,13 +9,10 @@ include("../../module/url_access_denied.php");
   <head>
     <meta charset="utf-8">
     <script src="../js/jquery-min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="border.css">
 
     <title></title>
-    <style media="screen">
-      td{
-        border:1px solid black;
-      }
-    </style>
+
   </head>
   <body>
 <?php
