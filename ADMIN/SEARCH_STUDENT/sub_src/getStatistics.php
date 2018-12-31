@@ -84,7 +84,7 @@ switch_subject($_SESSION['subject']);
         {
           $correct[$idx][$b] += $correct[$idx][$idx2];
           $print[$idx][$b] += $print[$idx][$idx2];
-          echo $print[$idx][$b];
+          // echo $print[$idx][$b];
         }
       }
 

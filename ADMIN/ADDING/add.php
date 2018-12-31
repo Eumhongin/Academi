@@ -1,5 +1,4 @@
-<? session_start(); ?>
-          <?php
+<?php session_start(); 
           //session_start();
           include("../../module/dbConnect.php");
           include("../../module/dbContentsEcho.php");

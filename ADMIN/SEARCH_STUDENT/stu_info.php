@@ -1,4 +1,4 @@
-<?session_start();?>
+<?php session_start();?>
 <!DOCTYPE html>
 <?php
 include("../../module/url_access_denied.php");
